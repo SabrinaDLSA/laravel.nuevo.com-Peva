@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: nuevo
+        psr4_prefix: nuevo
+        src_path: app

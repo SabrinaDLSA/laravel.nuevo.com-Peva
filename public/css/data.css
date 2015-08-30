@@ -1,0 +1,99 @@
+/*Importando Fuentes desde Google Fonts*/
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Nunito);
+
+.GoogleFonts{
+  font-family: 'Pacifico', cursive;
+}
+.Nunito{
+  font-family: 'Nunito', sans-serif;
+}
+.black{
+  color: black;
+}
+.blueF{
+  color: #3955BB;
+}
+.white{
+  color: white;
+}
+
+.lista{
+  list-style-type:none;
+}
+section{
+  height: auto;
+  padding-top: 65px;
+}
+
+footer{
+  background-color: #3381BF;
+  max-height: 220px;
+  border-top: 4px solid #2D43D9;
+}
+.active{
+  background-color: #345481;
+}
+.btnAzul{
+  background-color: #3381BF;
+  border: 1px solid #355EB0;
+}
+.btn-info:hover{
+  background-color: #2D43D9;
+  border: 1px solid #355EB0;
+}
+header{
+background-image: url('https://images.unsplash.com/photo-1429734160945-4f85244d6a5a?fit=crop&fm=jpg&h=700&q=80&w=1050');
+min-height: 50vh;
+background-size: cover;
+background-position: center;
+background-attachment:fixed;
+}
+footer{
+min-height: 30vh;
+background-position: center;
+background-attachment:fixed;
+background-color: #467CE8;
+}
+
+.btn-web{
+
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+#title
+{
+  color: #325075;
+  font-size: 6em;
+  text-align: center;
+  padding-top: 1%;
+}
+
+#subtitle
+{
+  color: #345481;
+  font-size: 3em;
+  text-align: center;
+  padding-top: 1%;
+}
+.hide{
+  display:none;
+}
+
+#navi{
+  padding-top:0;
+}
+.muestra_cuadrada{
+  max-width: 210px;
+  margin: 0.5%;
+  float: left;
+}
+th{
+  width: 10%;
+}
+.lineaBordeada{
+  border-top: 3px solid #2D43D9;
+}
