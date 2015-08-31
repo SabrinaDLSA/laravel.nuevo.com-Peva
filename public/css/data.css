@@ -97,3 +97,6 @@ th{
 .lineaBordeada{
   border-top: 3px solid #2D43D9;
 }
+.imagenWidth{
+  height: 150px;
+}

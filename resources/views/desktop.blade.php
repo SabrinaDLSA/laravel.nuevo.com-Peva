@@ -2,7 +2,7 @@
 @section('title'){{\Auth::user()->username}}@endsection
 @section('content')
 @include('templates.partials.header')
-@include('templates.partials.log-nav')
+@include('templates.partials.navig')
 <div class="row-fluid">
   <div class="container">
     @if(\Session::has('alert'))

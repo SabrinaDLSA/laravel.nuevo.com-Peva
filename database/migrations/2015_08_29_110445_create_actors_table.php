@@ -17,6 +17,8 @@ class CreateActorsTable extends Migration
             $table->string('Name');
             $table->string('Birthplace');
             $table->string('Nationality');
+            $table->string('Photo');
+            $table->string('Description');
             $table->integer('Age');
             $table->timestamps();
         });

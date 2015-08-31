@@ -15,7 +15,7 @@
         <li><a href="{{route('home')}}">Home</a></li>
         <li class="active"><a href="{{route('profile')}}">Profile<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{\Auth::user()->name}} <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">List<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{route('profile')}}">Profile</a></li>
             <li class="divider"></li>
@@ -23,7 +23,16 @@
             <li><a href="{{route('music')}}">Music</a></li>
             <li><a href="{{route('comics')}}">Comics</a></li>
             <li class="divider"></li>
-            <li><a href="{{route('insert')}}">Insert</a></li>
+            <li><a href="{{route('actors')}}">Actors</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Insert<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{route('insert')}}">Series</a></li>
+            <li><a href="{{route('insertMusic')}}">Music</a></li>
+            <li><a href="{{route('insertComic')}}">Comics</a></li>
+            <li><a href="{{route('insertActor')}}">Actors</a></li>
           </ul>
         </li>
       </ul>

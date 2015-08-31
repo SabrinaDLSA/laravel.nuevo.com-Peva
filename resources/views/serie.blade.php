@@ -2,13 +2,13 @@
 @section('title'){{''}}@endsection
 @section('content')
 @include('templates.partials.header')
-@include('templates.partials.navigate')
+@include('templates.partials.navig')
 <div class="row-fluid">
   <div class="container">
     <div class="col-md-8">
       <div class="" align="center">
         @foreach($serie as $s)
-        <img src="{{$s->Photo}}" alt="{{$s->Name}}" />
+        <img src="{{$s->Photo}}" alt="{{$s->Name}}" class="img-responsive img-thumbnail" />
         <h3>{{$s->Name}}</h3>
         @endforeach
       </div>

@@ -14,6 +14,7 @@
     <script src="{{asset('js/trumbowyg.min.js')}}"></script>
   </head>
   @yield('header')
+  @yield('navigation')
   <body>
     @yield('content')
   </body>

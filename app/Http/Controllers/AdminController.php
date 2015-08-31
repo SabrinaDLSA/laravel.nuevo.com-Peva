@@ -2,6 +2,7 @@
 
 namespace nuevo\Http\Controllers;
 use nuevo\Serie;
+use nuevo\Actors;
 use nuevo\Series_info;
 use Illuminate\Http\Request;
 use DB;
@@ -59,6 +60,7 @@ class AdminController extends Controller
         $s->Genre = \Input::get('Genre');
         $s->Start = \Input::get('Start');
         $s->Finish = \Input::get('Finish');
+        $s->resluggify();
         $s->save();
 
         return \Redirect::route('profile');
@@ -66,6 +68,18 @@ class AdminController extends Controller
     public function insert()
     {
         return view('insert');
+    }
+    public function insertActor()
+    {
+        return view('insertActor');
+    }
+    public function insertMusic()
+    {
+        return view('insertMusic');
+    }
+    public function insertComic()
+    {
+        return view('insertComic');
     }
     public function create()
     {
@@ -85,5 +99,18 @@ class AdminController extends Controller
           $alert = \Session::flash('alert', 'Your new post was created successfully');
           return \Redirect::route('profile')->with('alert', $alert);
 
+    }
+    public function createActor()
+    {
+          $p = new Actors;
+          $p->Name = \Input::get('Name');
+          $p->Birthplace = \Input::get('Birthplace');
+          $p->Nationality = \Input::get('Nationality');
+          $p->Age = \Input::get('Age');
+          $p->Photo = \Input::get('Photo');
+          $p->Description = \Input::get('Description');
+          $p->save();
+          $alert = \Session::flash('alert', 'Your new Actor was created successfully');
+          return \Redirect::route('profile')->with('alert', $alert);
     }
 }

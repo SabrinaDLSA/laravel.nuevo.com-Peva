@@ -27,6 +27,8 @@
             <li><a href="#">Others</a></li>
             <li class="divider"></li>
             <li><a href="#">Popular Ones</a></li>
+            <li class="divider"></li>
+            <li><a href="{{route('actors')}}">Actors</a></li>
           </ul>
         </li>
         <li><a href="#">Music</a></li>

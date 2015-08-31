@@ -1,7 +1,7 @@
 @extends('templates.main')
 @section('content')
 @include('templates.partials.header')
-@include('templates.partials.navigate')
+@include('templates.partials.navig')
 <section>
 
   <div class="row-fluid">
@@ -9,7 +9,7 @@
         <div class="col-md-12">
               @foreach($series as $s)
               <div class="muestra_cuadrada">
-                <a href="series/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="img-responsive img-thumbnail"/></a>
+                <a href="series/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
               </div>
               @endforeach
         </div>

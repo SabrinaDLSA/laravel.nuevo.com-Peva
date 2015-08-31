@@ -18,11 +18,27 @@ Route::get('/music',[
     'as'=> 'music',
     'uses' => 'AdminController@music'
 ]);
-
 Route::get('series/{id}/edit','AdminController@edit' );
 Route::get('series/{id}/delete','AdminController@delete' );
 Route::post('series/{id}/refresh', 'AdminController@refresh');
 
+//Admin Insert
+
+Route::get('/insertMusic', [
+  'as' =>  'insertMusic',
+  'uses' => 'AdminController@insert'
+]);
+Route::post('/insertActor','AdminController@createActor');
+Route::get('/insertActor', [
+  'as' =>  'insertActor',
+  'uses' => 'AdminController@insertActor'
+]);
+Route::post('/insertActor','AdminController@createActor');
+Route::get('/insertComic', [
+  'as' =>  'insertComic',
+  'uses' => 'AdminController@insert'
+]);
+Route::post('/insert','AdminController@create');
 Route::get('/insert', [
   'as' =>  'insert',
   'uses' => 'AdminController@insert'
@@ -43,7 +59,12 @@ Route::get('/desktop',[
   'as'=> 'desktop',
   'uses' => 'UserController@index'
 ]);
-
+//Actors Controllers
+Route::get('/actors',[
+    'as'=> 'actors',
+    'uses' => 'ActorsController@actors'
+]);
+Route::get('/actors/{slug}', 'ActorsController@index');
 //Series Controllers
 Route::get('/series/{slug}', 'SeriesController@index');
 
