@@ -27,7 +27,7 @@ Route::post('/insert/comic','AdminController@insertComic');
 Route::get('/insert/comic', 'AdminController@insert');
 Route::post('/insert/serie','AdminController@create');
 Route::get('/insert/serie','AdminController@insert');
-Route::post('/insert/character','AdminController@insertCharacter');
+Route::post('/insert/character','AdminController@createCharacter');
 Route::get('/insert/character','AdminController@insertCharacter');
 // User Controllers
 

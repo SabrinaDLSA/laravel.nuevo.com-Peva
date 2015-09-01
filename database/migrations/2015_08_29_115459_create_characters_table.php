@@ -17,12 +17,17 @@ class CreateCharactersTable extends Migration
             $table->string('Name');
             $table->string('Status');
             $table->integer('Age');
-            $table->integer('id_actor')->unsigned();
-            $table->text('Descripion');
+            $table->string('Photo');
+            $table->integer('actor_id')->unsigned();
+            $table->integer('serie_id')->unsigned();
+            $table->text('Description');
             $table->timestamps();
-
             $table
-                  ->foreign('id_actor')
+                  ->foreign('serie_id')
+                  ->references('id')
+                  ->on('series');
+            $table
+                  ->foreign('actor_id')
                   ->references('id')
                   ->on('actors');
         });

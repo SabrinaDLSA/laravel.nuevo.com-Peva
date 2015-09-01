@@ -14,7 +14,11 @@
       </div>
     </div>
     <div class="col-md-4">
-
+      @foreach($characters as $character)
+      <div class="muestra_cuadrada">
+        <a href="serie/{{$character->id}}"><img src="{{$character->Photo}}" alt="{{$character->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+      </div>
+      @endforeach
     </div>
   </div>
     <div class="container">

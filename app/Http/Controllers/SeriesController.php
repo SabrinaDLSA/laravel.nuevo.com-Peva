@@ -19,8 +19,13 @@ class SeriesController extends Controller
     {
       $serie = DB::table('series')->where('slug', $slug)
       ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->get();
+      $characters = DB::table('characters')->whereExists(function ($query) {
+        $query =  DB::table('series')
+          ->select('id')->whereRaw('characters.serie_id = series.id');
+            })
+            ->get();
       return view('serie')
-      ->with('serie', $serie);
+      ->with('serie', $serie)->with('characters', $characters);
     }
 
     /**

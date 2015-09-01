@@ -3,6 +3,7 @@
 namespace nuevo\Http\Controllers;
 use nuevo\Serie;
 use nuevo\Actors;
+use nuevo\Character;
 use nuevo\Series_info;
 use Illuminate\Http\Request;
 use DB;
@@ -107,7 +108,8 @@ class AdminController extends Controller
     public function insertCharacter()
     {
         $actor_id = DB::table('actors')->get();
-        return view('insertCharacter')->with('actor_id', $actor_id);
+        $serie_id = DB::table('series')->get();
+        return view('insertCharacter')->with('actor_id', $actor_id)->with('serie_id', $serie_id);
     }
     public function create()
     {
@@ -137,6 +139,20 @@ class AdminController extends Controller
           $p->Age = \Input::get('Age');
           $p->Photo = \Input::get('Photo');
           $p->Description = \Input::get('Description');
+          $p->save();
+          $alert = \Session::flash('alert', 'Your new Actor was created successfully');
+          return \Redirect::route('profile')->with('alert', $alert);
+    }
+    public function createCharacter()
+    {
+          $p = new Character;
+          $p->Name = \Input::get('Name');
+          $p->Status = \Input::get('Status');
+          $p->Age = \Input::get('Age');
+          $p->Photo = \Input::get('Photo');
+          $p->Description = \Input::get('Description');
+          $p->actor_id = \Input::get('actor_id');
+          $p->serie_id = \Input::get('serie_id');
           $p->save();
           $alert = \Session::flash('alert', 'Your new Actor was created successfully');
           return \Redirect::route('profile')->with('alert', $alert);

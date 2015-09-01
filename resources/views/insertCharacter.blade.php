@@ -9,7 +9,7 @@
 
         </div>
         <div class="col-md-8">
-            {!! Form::open (['url' => '/insert/actor'])!!}
+            {!! Form::open (['url' => '/insert/character'])!!}
             <fieldset>
               <legend align="center"></legend>
               <input type="text" name="Name" placeholder="Name" class="form-control">
@@ -20,21 +20,25 @@
               <br>
               <input type="text" name="Status" placeholder="Status"  class="form-control">
               <br>
-              <input type="text" name="actor_id" placeholder="actor_id"  class="form-control">
-              <br>
               <input type="text" name="Age" placeholder="Age"  class="form-control">
               <br>
               <input type="text" name="Photo" placeholder="Put here your favourite picture"  class="form-control">
               <br>
-                  <select name="cars">
-                    <option value="default">Select an Actor</option>
-                    @foreach($actor_id as $actor)
-                    <option value="{{$actor->id}}">{{$actor->Name}}</option>
-                    @endforeach
-                  </select>
-                  <br><br>
-                  <input type="submit">
-              <input type="submit" value="Update" class="btn btn-block btn-primary">
+              <p>
+                Select Actor
+              </p>
+                    <?php $actor = nuevo\Actors::lists('name', 'id') ?>
+                      {!! Form::select('actor_id', $actor ) !!}
+                    <p>
+                      Select Serie
+                    </p>
+                    <?php $serie = nuevo\Serie::lists('name', 'id') ?>
+                      {!! Form::select('serie_id', $serie ) !!}
+
+                  <input type="submit" value="Update" class="btn btn-block btn-primary">
+
+
+                  {!! Form::close() !!}
         </div>
         <div class="col-md-2">
 
