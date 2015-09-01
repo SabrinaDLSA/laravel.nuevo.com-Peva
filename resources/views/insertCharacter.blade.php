@@ -26,16 +26,15 @@
               <br>
               <input type="text" name="Photo" placeholder="Put here your favourite picture"  class="form-control">
               <br>
+                  <select name="cars">
+                    <option value="default">Select an Actor</option>
+                    @foreach($actor_id as $actor)
+                    <option value="{{$actor->id}}">{{$actor->Name}}</option>
+                    @endforeach
+                  </select>
+                  <br><br>
+                  <input type="submit">
               <input type="submit" value="Update" class="btn btn-block btn-primary">
-              <select multiple="multiple" name="sports[]" id="sports">
-              @foreach($actor_id as $aKey => $actor_id)
-                  @foreach($aItem->actors as $aItemKey => $aItemactors)
-                      <option value="{{$aKey}}" @if($aKey == $aItemKey)selected="selected"@endif>{{$actor_id}}</option>
-                  @endforeach
-              @endforeach
-              </select>
-            </fieldset>
-            {!! Form::close() !!}
         </div>
         <div class="col-md-2">
 
