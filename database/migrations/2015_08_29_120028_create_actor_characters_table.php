@@ -15,16 +15,16 @@ class CreateActorCharactersTable extends Migration
         Schema::create('actor_characters', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('id_character')->unsigned();
-            $table->integer('id_actor')->unsigned();
+            $table->integer('character_id')->unsigned();
+            $table->integer('actor_id')->unsigned();
             $table->timestamps();
 
             $table
-                  ->foreign('id_actor')
+                  ->foreign('actor_id')
                   ->references('id')
                   ->on('actors');
             $table
-                  ->foreign('id_character')
+                  ->foreign('character_id')
                   ->references('id')
                   ->on('characters');
         });

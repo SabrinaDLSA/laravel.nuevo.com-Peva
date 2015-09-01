@@ -21,7 +21,7 @@
               <h3>{{$s->Name}}</h3>
             </div>
             <hr class="lineaBordeada">
-            <tr><td align="center"><img src="{{$s->Photo}}" alt="" /></td></tr>
+            <tr><td align="center"><img class="img-responsive img-thumbnail" src="{{$s->Photo}}" alt="{{$s->Name}}" /></td></tr>
             <tr>
             <td align="center">
                   <div class="btn-group">

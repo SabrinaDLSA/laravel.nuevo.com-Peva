@@ -100,6 +100,9 @@ th{
 .imagenWidth{
   height: 150px;
 }
+.imagenWidthList{
+  height: 300px;
+}
 .MedioDiv{
   max-width: 50%;
   margin: 0.5%;

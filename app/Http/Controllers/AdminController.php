@@ -11,6 +11,10 @@ use nuevo\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     public function index()
     {
         return view('desktop');
@@ -39,12 +43,28 @@ class AdminController extends Controller
 
     public function edit($id)
     {
-      $alert = \Session::flash('alert', 'Your are about to edit a serie, be careful!');
       $serie = DB::table('series')->where('series.id', $id)
       ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->first();
         return view('edit')->with('serie', $serie);
     }
-
+    public function editActor($id)
+    {
+      $actor = DB::table('actors')->where('id', $id)->first();
+        return view('editActor')->with('actor', $actor);
+    }
+    public function refreshActor($id){
+        $p = Actors::find($id);
+        $p->Name = \Input::get('Name');
+        $p->Photo = \Input::get('Photo');
+        $p->Description = \Input::get('Description');
+        $p->Birthplace = \Input::get('Birthplace');
+        $p->Nationality = \Input::get('Nationality');
+        $p->Age = \Input::get('Age');
+        $p->resluggify();
+        $p->save();
+        $alert = \Session::flash('alert', 'You edited a record successfully');
+        return \Redirect::route('profile')->with('$alert', $alert);
+    }
     public function delete($id)
     {
       $alert = \Session::flash('alert', 'You deleted a record successfully');
@@ -64,14 +84,13 @@ class AdminController extends Controller
         $s->Genre = \Input::get('Genre');
         $s->Start = \Input::get('Start');
         $s->Finish = \Input::get('Finish');
-        $s->resluggify();
         $s->save();
 
         return \Redirect::route('profile');
     }
     public function insert()
     {
-        return view('insert');
+        return view('insertSerie');
     }
     public function insertActor()
     {
@@ -84,6 +103,11 @@ class AdminController extends Controller
     public function insertComic()
     {
         return view('insertComic');
+    }
+    public function insertCharacter()
+    {
+        $actor_id = DB::table('actors')->get();
+        return view('insertCharacter')->with('actor_id', $actor_id);
     }
     public function create()
     {

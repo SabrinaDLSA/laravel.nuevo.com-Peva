@@ -23,12 +23,12 @@
                   <h3>{{$s->Name}}</h3>
                 </div>
                 <hr class="lineaBordeada">
-                <tr><td  align="center"><img class="imagenWidth" src="{{$s->Photo}}" alt="" /></td></tr>
+                <tr><td  align="center"><img class="img-responsive img-thumbnail imagenWidth" src="{{$s->Photo}}" alt="{{$s->Name}}" /></td></tr>
                 <tr>
                 <td align="center">
                       <div class="btn-group">
-                        <a href="serie/{{$s->id}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                        <a href="serie/{{$s->id}}/delete"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="actor/{{$s->id}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                        <a href="actor/{{$s->id}}/delete"class="btn btn-danger"><i class="fa fa-trash"></i></a>
                       </div>
                 </td>
                 </tr>

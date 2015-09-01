@@ -10,11 +10,14 @@ Route::get('/list/comics','AdminController@comics');
 Route::get('/list/series','AdminController@series');
 Route::get('/list/actors','AdminController@actors');
 Route::get('/list/music','AdminController@music');
+//Admin Edit
+Route::get('list/serie/{id}/edit','AdminController@edit' );
+Route::get('list/serie/{id}/delete','AdminController@delete' );
+Route::post('list/serie/{id}/refresh', 'AdminController@refresh');
 
-Route::get('serie/{id}/edit','AdminController@edit' );
-Route::get('serie/{id}/delete','AdminController@delete' );
-Route::post('serie/{id}/refresh', 'AdminController@refresh');
-
+Route::get('list/actor/{id}/edit','AdminController@editActor' );
+Route::get('list/actor/{id}/delete','AdminController@editActor' );
+Route::post('list/actor/{id}/refresh','AdminController@refreshActor' );
 //Admin Insert
 Route::post('/insert/music','AdminController@insertMusic');
 Route::get('/insert/music','AdminController@insert');
@@ -24,7 +27,8 @@ Route::post('/insert/comic','AdminController@insertComic');
 Route::get('/insert/comic', 'AdminController@insert');
 Route::post('/insert/serie','AdminController@create');
 Route::get('/insert/serie','AdminController@insert');
-
+Route::post('/insert/character','AdminController@insertCharacter');
+Route::get('/insert/character','AdminController@insertCharacter');
 // User Controllers
 
 Route::get('/logout', [
