@@ -19,11 +19,8 @@ class SeriesController extends Controller
     {
       $serie = DB::table('series')->where('slug', $slug)
       ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->get();
-      $characters = DB::table('characters')->whereExists(function ($query) {
-        $query =  DB::table('series')
-          ->select('id')->whereRaw('characters.serie_id = series.id');
-            })
-            ->get();
+      $id = DB::table('series')->where('slug', $slug)->first();
+      $characters = DB::table('characters')->where('serie_id', $id->id)->get();
       return view('serie')
       ->with('serie', $serie)->with('characters', $characters);
     }
