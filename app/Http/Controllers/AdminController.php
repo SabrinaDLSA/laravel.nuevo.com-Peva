@@ -22,7 +22,11 @@ class AdminController extends Controller
       ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->paginate(5);
         return view('desktop')->with('series', $series);
     }
-
+    public function actors()
+    {
+      $actor = DB::table('actors')->paginate(20);
+        return view('actorsList')->with('actor', $actor);
+    }
     public function comics(Request $request)
     {
         //

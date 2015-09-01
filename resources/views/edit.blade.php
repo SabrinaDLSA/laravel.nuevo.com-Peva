@@ -14,7 +14,7 @@
               <strong>{{ Session::get('alert') }}</strong>
           </div>
       @endif
-            {!! Form::open (['url' => 'series/'.$serie->id.'/refresh'])!!}
+            {!! Form::open (['url' => 'serie/'.$serie->id.'/refresh'])!!}
       <fieldset>
         <legend align="center">Editing {{$serie->Name}}</legend>
         <input type="text" name="Name" value="Name: {{$serie->Name}}" class="form-control">

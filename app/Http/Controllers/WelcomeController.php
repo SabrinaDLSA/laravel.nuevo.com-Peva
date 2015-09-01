@@ -13,8 +13,10 @@ class WelcomeController extends Controller{
   */
   public function index ()
   {
-    $series = \DB::table('series')->orderBy('id', 'desc')->paginate(20);
+    $series = \DB::table('series')->orderBy('id', 'desc')->paginate(10);
+    $actors = \DB::table('actors')->orderBy('id', 'desc')->paginate(10);
     return view('welcome')
-    ->with('series', $series);
+    ->with('series', $series)
+    ->with('actors', $actors);
   }
 }

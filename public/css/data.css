@@ -100,3 +100,11 @@ th{
 .imagenWidth{
   height: 150px;
 }
+.MedioDiv{
+  max-width: 50%;
+  margin: 0.5%;
+  float: left;
+}
+.Wid{
+  height: 100px;
+}

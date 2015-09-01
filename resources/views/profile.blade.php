@@ -5,7 +5,7 @@
 <section>
   <div class="row-fluid">
     <div class="container">
-      @if(\Session::has('alert'))
+        @if(\Session::has('alert'))
             <div class="alert alert-dismissible alert-warning">
                 <button type="button" class="close" data-dismiss="alert">Close</button>
                 <strong>{{ Session::get('alert') }}</strong>

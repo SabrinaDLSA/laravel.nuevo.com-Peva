@@ -6,45 +6,25 @@ Route::get('/',[
 Route::get('/home','WelcomeController@index');
 
 // Admin Controllers
-Route::get('/comics',[
-    'as'=> 'comics',
-    'uses' => 'AdminController@comics'
-]);
-Route::get('/series',[
-    'as'=> 'series',
-    'uses' => 'AdminController@series'
-]);
-Route::get('/music',[
-    'as'=> 'music',
-    'uses' => 'AdminController@music'
-]);
-Route::get('series/{id}/edit','AdminController@edit' );
-Route::get('series/{id}/delete','AdminController@delete' );
-Route::post('series/{id}/refresh', 'AdminController@refresh');
+Route::get('/list/comics','AdminController@comics');
+Route::get('/list/series','AdminController@series');
+Route::get('/list/actors','AdminController@actors');
+Route::get('/list/music','AdminController@music');
+
+Route::get('serie/{id}/edit','AdminController@edit' );
+Route::get('serie/{id}/delete','AdminController@delete' );
+Route::post('serie/{id}/refresh', 'AdminController@refresh');
 
 //Admin Insert
+Route::post('/insert/music','AdminController@insertMusic');
+Route::get('/insert/music','AdminController@insert');
+Route::post('/insert/actor','AdminController@createActor');
+Route::get('/insert/actor', 'AdminController@insertActor');
+Route::post('/insert/comic','AdminController@insertComic');
+Route::get('/insert/comic', 'AdminController@insert');
+Route::post('/insert/serie','AdminController@create');
+Route::get('/insert/serie','AdminController@insert');
 
-Route::get('/insertMusic', [
-  'as' =>  'insertMusic',
-  'uses' => 'AdminController@insert'
-]);
-Route::post('/insertActor','AdminController@createActor');
-Route::get('/insertActor', [
-  'as' =>  'insertActor',
-  'uses' => 'AdminController@insertActor'
-]);
-Route::post('/insertActor','AdminController@createActor');
-Route::get('/insertComic', [
-  'as' =>  'insertComic',
-  'uses' => 'AdminController@insert'
-]);
-Route::post('/insert','AdminController@create');
-Route::get('/insert', [
-  'as' =>  'insert',
-  'uses' => 'AdminController@insert'
-]);
-
-Route::post('/insert','AdminController@create');
 // User Controllers
 
 Route::get('/logout', [
@@ -64,9 +44,9 @@ Route::get('/actors',[
     'as'=> 'actors',
     'uses' => 'ActorsController@actors'
 ]);
-Route::get('/actors/{slug}', 'ActorsController@index');
+Route::get('/actor/{slug}', 'ActorsController@index');
 //Series Controllers
-Route::get('/series/{slug}', 'SeriesController@index');
+Route::get('/serie/{slug}', 'SeriesController@index');
 
 
 // Authentication routes...

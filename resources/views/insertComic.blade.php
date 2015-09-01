@@ -9,7 +9,7 @@
 
         </div>
         <div class="col-md-8">
-            {!! Form::open (['url' => '/insertActor'])!!}
+            {!! Form::open (['url' => '/insert/comic'])!!}
             <fieldset>
               <legend align="center"></legend>
               <input type="text" name="Name" placeholder="Name" class="form-control">

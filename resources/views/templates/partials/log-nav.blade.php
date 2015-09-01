@@ -19,20 +19,20 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{route('profile')}}">Profile</a></li>
             <li class="divider"></li>
-            <li><a href="{{route('series')}}">Series</a></li>
-            <li><a href="{{route('music')}}">Music</a></li>
-            <li><a href="{{route('comics')}}">Comics</a></li>
+            <li><a href="/list/series">Series</a></li>
+            <li><a href="/list/music">Music</a></li>
+            <li><a href="/list/comics">Comics</a></li>
             <li class="divider"></li>
-            <li><a href="{{route('actors')}}">Actors</a></li>
+            <li><a href="/list/actors">Actors</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Insert<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{{route('insert')}}">Series</a></li>
-            <li><a href="{{route('insertMusic')}}">Music</a></li>
-            <li><a href="{{route('insertComic')}}">Comics</a></li>
-            <li><a href="{{route('insertActor')}}">Actors</a></li>
+            <li><a href="insert/serie">Serie</a></li>
+            <li><a href="insert/music">Music</a></li>
+            <li><a href="insert/comic">Comic</a></li>
+            <li><a href="insert/actor">Actor</a></li>
           </ul>
         </li>
       </ul>
