@@ -9,6 +9,9 @@
 
         </div>
         <div class="col-md-8">
+          <div class="" align="center">
+              <h1>Adding a new Character</h1>
+          </div>
             {!! Form::open (['url' => '/insert/character'])!!}
             <fieldset>
               <legend align="center"></legend>

@@ -111,3 +111,7 @@ th{
 .Wid{
   height: 100px;
 }
+.nounderline{
+  color: #2D43D9;
+  text-decoration: none;
+}

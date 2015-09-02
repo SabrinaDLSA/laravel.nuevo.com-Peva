@@ -9,6 +9,9 @@
 
         </div>
         <div class="col-md-8">
+          <div class="" align="center">
+              <h1>Adding Music</h1>
+          </div>
             {!! Form::open (['url' => '/insert/music'])!!}
             <fieldset>
               <legend align="center"></legend>

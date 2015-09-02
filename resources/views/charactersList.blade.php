@@ -15,7 +15,7 @@
 
       </div>
     <div class="col-md-8">
-          @foreach($actor as $s)
+          @foreach($character as $s)
           <div class="MedioDiv">
             <table class="table table-hover table-bordered Wid">
               <div class="Wid">

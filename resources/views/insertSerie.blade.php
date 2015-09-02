@@ -7,6 +7,9 @@
     <div class="container">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+          <div class="" align="center">
+              <h1>Adding a new Serie</h1>
+          </div>
             {!! Form::open (['url' => '/insert/serie'])!!}
             <fieldset>
               <legend align="center"></legend>

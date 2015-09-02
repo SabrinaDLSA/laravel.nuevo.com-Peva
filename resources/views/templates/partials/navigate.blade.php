@@ -25,10 +25,12 @@
             <li><a href="#">Terror</a></li>
             <li><a href="#">Romantic</a></li>
             <li><a href="#">Others</a></li>
+            <li><a href="/series">All</a></li>
             <li class="divider"></li>
             <li><a href="#">Popular Ones</a></li>
             <li class="divider"></li>
             <li><a href="{{route('actors')}}">Actors</a></li>
+            <li><a href="{{route('characters')}}">Characters</a></li>
           </ul>
         </li>
         <li><a href="#">Music</a></li>

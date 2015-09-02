@@ -9,7 +9,7 @@
         <div class="" align="center">
           @foreach($actor as $s)
           <div class="muestra_cuadrada">
-            <a href="actors/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+            <a href="actor/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
           </div>
           @endforeach
           {!! $actor->render() !!}

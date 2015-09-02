@@ -10,6 +10,7 @@ Route::get('/list/comics','AdminController@comics');
 Route::get('/list/series','AdminController@series');
 Route::get('/list/actors','AdminController@actors');
 Route::get('/list/music','AdminController@music');
+Route::get('/list/characters','AdminController@characters');
 //Admin Edit
 Route::get('list/serie/{id}/edit','AdminController@edit' );
 Route::get('list/serie/{id}/delete','AdminController@delete' );
@@ -43,6 +44,12 @@ Route::get('/desktop',[
   'as'=> 'desktop',
   'uses' => 'UserController@index'
 ]);
+// Character Controllers
+Route::get('/characters',[
+    'as'=> 'characters',
+    'uses' => 'CharacterController@characters'
+]);
+Route::get('/character/{slug}', 'CharacterController@index');
 //Actors Controllers
 Route::get('/actors',[
     'as'=> 'actors',

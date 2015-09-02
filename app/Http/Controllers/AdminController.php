@@ -41,6 +41,11 @@ class AdminController extends Controller
     {
         //
     }
+    public function characters()
+    {
+        $character = DB::table('characters')->paginate(20);
+          return view('charactersList')->with('character', $character);
+    }
 
     public function edit($id)
     {
