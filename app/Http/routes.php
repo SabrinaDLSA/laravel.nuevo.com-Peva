@@ -58,8 +58,7 @@ Route::get('/actors',[
 Route::get('/actor/{slug}', 'ActorsController@index');
 //Series Controllers
 Route::get('/serie/{slug}', 'SeriesController@index');
-
-
+Route::get('/serie', 'SeriesController@series');
 // Authentication routes...
 Route::get('login',[
   'as' => 'login',

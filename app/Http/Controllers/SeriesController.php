@@ -24,13 +24,7 @@ class SeriesController extends Controller
       return view('serie')
       ->with('serie', $serie)->with('characters', $characters);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+    public function series()
     {
         //
     }
