@@ -12,10 +12,22 @@
     <script src="{{asset('js/animatescroll.min.js')}}"></script>
     <script src="{{asset('js/trumbowyg.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('css/data.css')}}">
+    <script src="{{asset('js/search.js')}}"></script>
   </head>
   @yield('header')
   @yield('navigation')
   <body>
+    <div class="container">
+      @if (Session::has('errors'))
+          <div class="alert alert-warning alert-dismissible" role="alert" >
+            <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Oops! Something went wrong : </strong>
+            @foreach ($errors->all() as $error)
+                  {{ $error }}
+            @endforeach
+          </div>
+      @endif
+    </div>
     @yield('content')
   </body>
   @yield('js')

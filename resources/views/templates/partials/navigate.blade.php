@@ -13,7 +13,6 @@
       <a class="navbar-brand" href="{{route('home')}}">Series.com</a>
       @endif
   </div>
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{route('home')}}">Home<span class="sr-only">(current)</span></a></li>
@@ -27,21 +26,20 @@
             <li><a href="#">Others</a></li>
             <li><a href="/series">All</a></li>
             <li class="divider"></li>
-            <li><a href="#">Popular Ones</a></li>
-            <li class="divider"></li>
             <li><a href="{{route('actors')}}">Actors</a></li>
             <li><a href="{{route('characters')}}">Characters</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Popular Ones</a></li>
           </ul>
         </li>
         <li><a href="#">Music</a></li>
         <li><a href="#">Comics</a></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <div class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" id="search-input" name="name" placeholder="Search" onkeydown="down()" onkeyup="up()">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      </div>
         @if(Auth::check())
         <ul class="nav navbar-nav navbar-right">
           <li><a href="{{route('logout')}}">Logout</a></li>

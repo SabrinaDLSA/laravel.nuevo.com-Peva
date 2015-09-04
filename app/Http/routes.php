@@ -4,6 +4,12 @@ Route::get('/',[
   'uses' => 'WelcomeController@index'
   ]);
 Route::get('/home','WelcomeController@index');
+// Search
+
+Route::post('executeSearch',[
+'uses' => 'SearchController@index',
+'as' => 'search'
+]);
 
 // Admin Controllers
 Route::get('/list/comics','AdminController@comics');
@@ -57,6 +63,10 @@ Route::get('/actors',[
 ]);
 Route::get('/actor/{slug}', 'ActorsController@index');
 //Series Controllers
+Route::get('/series',[
+    'as'=> 'series',
+    'uses' => 'SeriesController@series'
+]);
 Route::get('/serie/{slug}', 'SeriesController@index');
 Route::get('/serie', 'SeriesController@series');
 // Authentication routes...

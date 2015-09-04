@@ -7,7 +7,7 @@
     <div class="container">
         <div class="col-md-12">
           <div class="" align="center">
-            <h3>Last Series</h3>
+            <h3>Series</h3>
           </div>
               @foreach($series as $s)
               <div class="muestra_cuadrada">
@@ -15,15 +15,25 @@
               </div>
               @endforeach
         </div>
+        <div class="" id="searchResults">
+          <?php
+              if(isset($searchActor)){ ?>
+             @foreach($searchActor as $result)
+              {{{ $result->Name }}}
+              @endforeach
+             <?php } else {
+             echo "products not set";
+             }
+            ?>
+        </div>
         <br>
         <div align="center">
-                  {!! $series->render() !!}
       </div>
     </div>
     <div class="container">
         <div class="col-md-12">
           <div class="" align="center">
-            <h3>Last Actors</h3>
+            <h3>Actors</h3>
           </div>
               @foreach($actors as $a)
               <div class="muestra_cuadrada">
@@ -33,7 +43,6 @@
         </div>
         <br>
         <div align="center">
-                  {!! $actors->render() !!}
       </div>
     </div>
   </div>

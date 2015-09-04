@@ -2,32 +2,45 @@
 
 namespace nuevo\Http\Controllers;
 use nuevo\Serie;
+use nuevo\Actors;
+use nuevo\Character;
+use nuevo\Series_info;
 use Illuminate\Http\Request;
 use DB;
-use nuevo\Series_info;
+use Illuminate\Http\Request;
+
 use nuevo\Http\Requests;
 use nuevo\Http\Controllers\Controller;
 
-class SeriesController extends Controller
+class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index($slug)
+    public function index()
     {
-      $serie = DB::table('series')->where('slug', $slug)
-      ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->get();
-      $id = DB::table('series')->where('slug', $slug)->first();
-      $characters = DB::table('characters')->where('serie_id', $id->id)->get();
-      return view('serie')
-      ->with('serie', $serie)->with('characters', $characters);
+        keywords = Input::get('keywords');
+
+        $actors = Actors::all();
+        $searchActor = new \Illuminate\Database\Eloquent\Collection();
+        foreach ($actor as $a) {
+            if (Str::contains(Str::lover($a->Name), Str::lover($keywords))) {
+              $searchActor->add($a);
+            }
+        }
+        return view('welcome')->with('searchActor', $searchActor);
     }
-    public function series()
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
     {
-      $series = DB::table('series')->orderBy('id', 'desc')->paginate(10);
-        return view('series')->with('series', $series);
+        //
     }
 
     /**

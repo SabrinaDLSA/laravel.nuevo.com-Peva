@@ -15,7 +15,9 @@ $factory->define(nuevo\User::class, function ($faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
-        'password' => str_random(10),
+        'password' => bcrypt(str_random(10)),
+        'username' => $faker->username,
         'remember_token' => str_random(10),
-    ];
+        'role'  => $faker->randomElement(['user'])
+     ];
 });

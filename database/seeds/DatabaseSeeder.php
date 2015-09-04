@@ -13,10 +13,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-
-        $this->call(SeriesTableSeeder::class);
-        $this->call(series_infos::class);
-        $this->call(UsersTableSeeder::class);
+        factory(nuevo\User::class)->create([
+          'name' => 'Sabrina',
+          'password' => bcrypt('Brittana'),
+          'role' => 'admin',
+          'email' => 'sabrina.cuman@gmail.com',
+          'username' => 'sabrina'
+          ]);
+          factory(nuevo\User::class, 49)->create();
 
         Model::reguard();
     }
