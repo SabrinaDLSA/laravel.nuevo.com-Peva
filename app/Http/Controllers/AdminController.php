@@ -76,7 +76,7 @@ class AdminController extends Controller
       $alert = \Session::flash('alert', 'You deleted a record successfully');
       $serie = Series_info::find($id)->delete();
       $serie = Serie::find($id)->delete();
-      return \Redirect::route('profile');
+      return \Redirect::to('/list/series');
       }
 
     public function refresh($id){
@@ -92,7 +92,7 @@ class AdminController extends Controller
         $s->Finish = \Input::get('Finish');
         $s->save();
 
-        return \Redirect::route('profile');
+        return \Redirect::to('/list/series');
     }
     public function insert()
     {
@@ -123,16 +123,16 @@ class AdminController extends Controller
           $p->Photo = \Input::get('Photo');
           $p->save();
           $p = new Series_info;
+          $p->Genre = \Input::get('Genre');
           $p->Start = \Input::get('Start');
           $p->Finish = \Input::get('Finish');
           $p->Description = \Input::get('Description');
-          $p->Genre = \Input::get('Genre');
           $p->Seasons = \Input::get('Seasons');
           $s =  DB::table('series')->max('id');
           $p->serie_id = $s;
           $p->save();
           $alert = \Session::flash('alert', 'Your new post was created successfully');
-          return \Redirect::route('profile')->with('alert', $alert);
+          return \Redirect::to('/list/series')->with('alert', $alert);
 
     }
     public function createActor()
@@ -146,7 +146,7 @@ class AdminController extends Controller
           $p->Description = \Input::get('Description');
           $p->save();
           $alert = \Session::flash('alert', 'Your new Actor was created successfully');
-          return \Redirect::route('profile')->with('alert', $alert);
+          return \Redirect::to('list/actors')->with('alert', $alert);
     }
     public function createCharacter()
     {
@@ -160,6 +160,6 @@ class AdminController extends Controller
           $p->serie_id = \Input::get('serie_id');
           $p->save();
           $alert = \Session::flash('alert', 'Your new Actor was created successfully');
-          return \Redirect::route('profile')->with('alert', $alert);
+          return \Redirect::to('/list/characters')->with('alert', $alert);
     }
 }

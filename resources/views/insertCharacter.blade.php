@@ -31,12 +31,12 @@
                 Select Actor
               </p>
                     <?php $actor = nuevo\Actors::lists('name', 'id') ?>
-                      {!! Form::select('actor_id', $actor ) !!}
+                      {!! Form::select('actor_id', $actor, null, ['class' => 'form-control']) !!}
                     <p>
                       Select Serie
                     </p>
                     <?php $serie = nuevo\Serie::lists('name', 'id') ?>
-                      {!! Form::select('serie_id', $serie ) !!}
+                      {!! Form::select('serie_id', $serie, null, ['class' => 'form-control'] )!!}
 
                   <input type="submit" value="Update" class="btn btn-block btn-primary">
 

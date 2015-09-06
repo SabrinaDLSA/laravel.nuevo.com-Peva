@@ -12,7 +12,9 @@ class ActorsController extends Controller
 {
     public function index($slug){
       $actor = Actors::findBySlug($slug);
-      return view('actor')->with('actor', $actor);
+      $id_actor = Actors::findBySlug($slug);
+      $characters = \DB::table('characters')->where('actor_id', $id_actor->id)->orderBy('id','desc')->limit(6)->get();
+      return view('actor')->with('actor', $actor)->with('characters', $characters);
     }
 
     public function actors(){

@@ -15,7 +15,7 @@ class CreateSeriesInfosTable extends Migration
         Schema::create('series_infos', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->enum('Genre', ['Horror', 'Action', 'Romantic', 'Drama', 'Romantic']);
+            $table->enum('Genre', ['Horror', 'Action', 'Romantic', 'Drama', 'Other']);
             $table->date('Start');
             $table->date('Finish');
             $table->text('Description');
