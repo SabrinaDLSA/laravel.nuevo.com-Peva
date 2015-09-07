@@ -19,7 +19,7 @@
                     You have to delete this in order to put another description
               </textarea>
               <br>
-              {!! Form::select('Genre', Config::get('enums.series_types'),null, ['class' => 'form-control'])  !!}
+              {!! Form::select('Genre', [ '5' =>'Select a Genre'] + Config::get('enums.series_types'),null, ['class' => 'form-control'])  !!}
               <br>
               <input type="text" name="Start" placeholder="Start"  class="form-control">
               <br>

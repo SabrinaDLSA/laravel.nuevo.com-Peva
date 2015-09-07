@@ -13,23 +13,23 @@
       <a class="navbar-brand" href="{{route('home')}}">Series.com</a>
       @endif
   </div>
+  <?php $type = Config::get('enums.series_types') ?>
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{route('home')}}">Home<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Series <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Drama</a></li>
-            <li><a href="#">Terror</a></li>
-            <li><a href="#">Romantic</a></li>
-            <li><a href="#">Others</a></li>
+            @foreach($type as $genre)
+              <li><a href="/series/genre/{{$genre}}">{{$genre}}</a></li>
+            @endforeach
             <li><a href="/series">All</a></li>
             <li class="divider"></li>
             <li><a href="{{route('actors')}}">Actors</a></li>
             <li><a href="{{route('characters')}}">Characters</a></li>
             <li class="divider"></li>
-            <li><a href="#">Popular Ones</a></li>
+            <li><a href="/series/genre/popular">Popular Ones</a></li>
           </ul>
         </li>
         <li><a href="#">Music</a></li>

@@ -29,7 +29,7 @@
         <hr>
         <div class="" align="center">
           @for ($x = 1; $x <= $s->Seasons ; $x++)
-                  <a href="#" class="btn btn-default btn-lg">Season {{$x}}</a>
+                  <a href="/serie/{{$s->slug}}/{{$x}}" class="btn btn-default btn-lg">Season {{$x}}</a>
                   @if($x%6 == 0)
                     <br>
                     <br>

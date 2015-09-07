@@ -1,7 +1,6 @@
 <?php
 return [
     'series_types' => [
-        '0'  =>  'Genre',
         '1' => "Horror",
         '2' => "Action",
         '3' => "Romantic",

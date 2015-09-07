@@ -10,6 +10,12 @@ Route::post('executeSearch',[
 'uses' => 'SearchController@index',
 'as' => 'search'
 ]);
+// Genre Controller
+Route::get('/series/genre/{genre}','GenreController@index' );
+
+// Seasons Controller
+
+Route::get('/serie/{slug}/{x}','SeasonController@index' );
 
 // Admin Controllers
 Route::get('/list/comics','AdminController@comics');
