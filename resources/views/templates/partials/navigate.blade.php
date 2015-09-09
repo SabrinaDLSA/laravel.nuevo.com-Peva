@@ -14,8 +14,7 @@
       @endif
   </div>
   <?php $type = Config::get('enums.series_types') ?>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{route('home')}}">Home<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
@@ -37,6 +36,7 @@
       </ul>
       <div class="navbar-form navbar-left">
         <div class="form-group">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
           <input type="text" class="form-control" id="search-input" name="name" placeholder="Search" onkeydown="down()" onkeyup="up()">
         </div>
       </div>

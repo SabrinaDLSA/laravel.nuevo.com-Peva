@@ -1,4 +1,4 @@
 @foreach($searchSeries as $s)
-Te incluyo?
   {{$s->Name}}
+  <br>
 @endforeach

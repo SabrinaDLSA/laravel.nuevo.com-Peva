@@ -1,8 +1,8 @@
-var timer;
+/*var timer;
 
 function up(){
   timer = setTimeout(function(){
-    var keywords = $('search-input').val();
+      var keywords = $('#fname').val();
 
     if( keywords.length > 0 ){
       $.post('/executeSearch', { keywords: keywords }, function(markup){
@@ -14,3 +14,4 @@ function up(){
 function down(){
   clearTimeout(timer);
 }
+*/

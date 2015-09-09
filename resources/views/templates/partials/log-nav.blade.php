@@ -54,7 +54,8 @@
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" id="fname" onkeyup="myFunction()" onkeydown="down()" placeholder="Search">
+          <input type="hidden" name="_token" value="{!! csrf_token() !!}" id="token">
+          <input type="text" class="form-control" id="fname" name="name" placeholder="Search" onkeydown="down()" onkeyup="myFunction()">
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">

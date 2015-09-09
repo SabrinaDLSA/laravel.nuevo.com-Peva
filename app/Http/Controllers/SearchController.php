@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 use DB;
 use Input;
 use View;
-//use Illuminate\Http\Str;
-use Illuminate\Support\Str;
+use Str;
 use nuevo\Http\Requests;
 use nuevo\Http\Controllers\Controller;
 
@@ -29,14 +28,16 @@ class SearchController extends Controller
 
         $searchSeries = new  \Illuminate\Database\Eloquent\Collection();
         foreach ($Series as $s){
-            if(Srt::contains(Str::lower($s->Name), Str::lower($keywords))) {
+          $var = strtolower($s->Name);
+          $keywords = strtolower($keywords);
+            if(str_contains($var, $keywords)) {
               $searchSeries->add($s);
             }
         }
 
         //$searchSeries = DB::table('series')->where('Name', 'like', '%'.$keywords.'%')->get();
 
-        return view::make('search')->with('searchSeries', $searchSeries);
+        return view::make('search')->with('searchSeries', $searchSeries)->with('searchActors', $searchActors);
     }
 
     /**

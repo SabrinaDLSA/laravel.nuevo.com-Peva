@@ -2,6 +2,7 @@
 @section('content')
 @include('templates.partials.header')
 @include('templates.partials.navig')
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <section>
   <div class="row-fluid">
     <div class="container">
@@ -51,20 +52,11 @@
 @include('templates.partials.footer')
 @section('js')
 <script type="text/javascript">
-var timer;
-function myFunction() {
-  timer = setTimeout(function(){
-    var x = $('#fname').val();
-    if( x.length > 0 )
-    {
-        $.post('http://laravel.serie.com/executeSearch',{ x: x }, function(markup){
-            $('#muestro').html(markup);
-        });
-          //$("#muestro").text(x)
-    }
-  },500);
-
-}
+   $.ajaxSetup({
+       headers: {
+           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+       }
+   });
 </script>
 @endsection
 @stop
