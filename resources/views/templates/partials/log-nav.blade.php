@@ -9,8 +9,7 @@
       </button>
       <a class="navbar-brand" href="{{route('home')}}">Welcome <small>{{\Auth::user()->username}}</small></a>
     </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li><a href="{{route('home')}}">Home</a></li>
         <li class="active"><a href="{{route('profile')}}">Profile<span class="sr-only">(current)</span></a></li>
@@ -37,12 +36,26 @@
             <li><a href="/insert/character">Character</a></li>
           </ul>
         </li>
+        <?php $type = Config::get('enums.series_types') ?>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Series <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            @foreach($type as $genre)
+              <li><a href="/series/genre/{{$genre}}">{{$genre}}</a></li>
+            @endforeach
+            <li><a href="/series">All</a></li>
+            <li class="divider"></li>
+            <li><a href="{{route('actors')}}">Actors</a></li>
+            <li><a href="{{route('characters')}}">Characters</a></li>
+            <li class="divider"></li>
+            <li><a href="/series/genre/popular">Popular Ones</a></li>
+          </ul>
+        </li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" id="fname" onkeyup="myFunction()" onkeydown="down()" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{route('logout')}}">Logout</a></li>

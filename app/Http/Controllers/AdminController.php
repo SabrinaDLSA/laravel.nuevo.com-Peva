@@ -78,6 +78,13 @@ class AdminController extends Controller
       $serie = Serie::find($id)->delete();
       return \Redirect::to('/list/series');
       }
+    public function deleteActor($id)
+    {
+        $alert = \Session::flash('alert', 'You deleted a record successfully');
+        $serie = Character::find($id)->delete();
+        $serie = Actors::find($id)->delete();
+        return \Redirect::to('/list/actors');
+        }
 
     public function refresh($id){
         $p = Serie::find($id);

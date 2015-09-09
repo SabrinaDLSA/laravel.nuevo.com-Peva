@@ -16,12 +16,20 @@
     <div class="col-md-4">
       <div class="" align="center">
           <h3>Characters</h3>
+          <br>
       </div>
-      @foreach($characters as $character)
-      <div class="muestra_cuadrada">
-        <a href="/character/{{$character->slug}}"><img src="{{$character->Photo}}" alt="{{$character->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+      <div class="" align="center">
+        @foreach($characters as $character)
+        <div class="muestra_cuadrada">
+          <a href="/character/{{$character->slug}}"><img src="{{$character->Photo}}" alt="{{$character->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+        </div>
+        @endforeach
       </div>
-      @endforeach
+      <div align="center">
+        <hr>
+        <br>
+        <a href="/characters/{{$s->slug}}" class=" btn btn-default btn-sm">Wanna see more Characters?</a>
+      </div>
     </div>
   </div>
     <div class="container">
@@ -41,6 +49,8 @@
       </div>
     <div class="col-md-4">
       <div class="" align="center">
+        <br>
+        <br>
         <table class="table table-striped table-hover ">
           <thead>
             <div class="" align="center">

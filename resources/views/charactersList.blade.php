@@ -5,22 +5,14 @@
 @include('templates.partials.navig')
 <div class="row-fluid">
   <div class="container">
-    @if(\Session::has('alert'))
-          <div class="alert alert-dismissible alert-warning">
-              <button type="button" class="close" data-dismiss="alert">Close</button>
-              <strong>{{ Session::get('alert') }}</strong>
-          </div>
-      @endif
-      <div class="col-md-2">
-
-      </div>
+      <div class="col-md-2"></div>
     <div class="col-md-8">
           @foreach($character as $s)
           <div class="MedioDiv">
             <table class="table table-hover table-bordered Wid">
               <div class="Wid">
-                <div class="">
-                  <h3>{{$s->Name}}</h3>
+                <div class="" align="center">
+                  <label for="">{!! substr( $s->Name , 0, 15). '...' !!}</label>
                 </div>
                 <hr class="lineaBordeada">
                 <tr><td  align="center"><img class="img-responsive img-thumbnail imagenWidth" src="{{$s->Photo}}" alt="{{$s->Name}}" /></td></tr>
@@ -39,8 +31,14 @@
     <br>
     <br>
     </div>
-    <div class="col-md-2">
-
+    <div class="col-md-2"></div>
+  </div>
+    <div class="container">
+        <div class="col-md-12">
+          <div class="" align="center">
+            {!! $character->render() !!}
+          </div>
+        </div>
     </div>
 </div>
 @endsection

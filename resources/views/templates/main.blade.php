@@ -13,6 +13,7 @@
     <script src="{{asset('js/trumbowyg.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('css/data.css')}}">
     <script src="{{asset('js/search.js')}}"></script>
+    <script src="{{asset('js/seasons.js')}}"></script>
   </head>
   @yield('header')
   @yield('navigation')

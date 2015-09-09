@@ -5,6 +5,7 @@
 @include('templates.partials.navig')
 <div class="row-fluid">
     <div class="container">
+      <div class="col-md-2"></div>
       <div class="col-md-8">
         <div class="" align="center">
           @foreach($actor as $s)
@@ -12,6 +13,14 @@
             <a href="actor/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
           </div>
           @endforeach
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="container">
+      <div class="col-md-12">
+        <br>
+        <div class="" align="center">
           {!! $actor->render() !!}
         </div>
       </div>

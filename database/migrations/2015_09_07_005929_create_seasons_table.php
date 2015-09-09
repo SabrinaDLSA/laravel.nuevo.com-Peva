@@ -21,7 +21,7 @@ class CreateSeasonsTable extends Migration
             $table->string('Photo');
             $table->integer('serie_id')->unsigned();
             $table->timestamps();
-
+            $table->index('serie_id');
             $table
                   ->foreign('serie_id')
                   ->references('id')

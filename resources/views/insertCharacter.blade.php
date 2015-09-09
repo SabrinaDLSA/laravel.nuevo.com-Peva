@@ -30,18 +30,17 @@
               <p>
                 Select Actor
               </p>
-                    <?php $actor = nuevo\Actors::lists('name', 'id') ?>
+                    <?php $actor = nuevo\Actors::orderBy('Name')->lists('name', 'id') ?>
                       {!! Form::select('actor_id', $actor, null, ['class' => 'form-control']) !!}
                     <p>
                       Select Serie
                     </p>
-                    <?php $serie = nuevo\Serie::lists('name', 'id') ?>
+                    <?php $serie = nuevo\Serie::orderBy('Name')->lists('name', 'id') ?>
                       {!! Form::select('serie_id', $serie, null, ['class' => 'form-control'] )!!}
 
                   <input type="submit" value="Update" class="btn btn-block btn-primary">
-
-
-                  {!! Form::close() !!}
+                </fieldset>
+                {!! Form::close() !!}
         </div>
         <div class="col-md-2">
 

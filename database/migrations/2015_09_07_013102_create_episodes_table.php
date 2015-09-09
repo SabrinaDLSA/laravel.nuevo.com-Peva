@@ -22,6 +22,7 @@ class CreateEpisodesTable extends Migration
             $table->integer('season_id')->unsigned();
             $table->timestamps();
 
+            $table->index(['serie_id', 'season_id']);
             $table
                   ->foreign('serie_id')
                   ->references('id')

@@ -1,0 +1,492 @@
+-- MySQL dump 10.13  Distrib 5.1.73, for redhat-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: peva
+-- ------------------------------------------------------
+-- Server version	5.1.73
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `actor_characters`
+--
+
+DROP TABLE IF EXISTS `actor_characters`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actor_characters` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `character_id` int(10) unsigned NOT NULL,
+  `actor_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `actor_characters_actor_id_foreign` (`actor_id`),
+  KEY `actor_characters_character_id_foreign` (`character_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actor_characters`
+--
+
+LOCK TABLES `actor_characters` WRITE;
+/*!40000 ALTER TABLE `actor_characters` DISABLE KEYS */;
+/*!40000 ALTER TABLE `actor_characters` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `actors`
+--
+
+DROP TABLE IF EXISTS `actors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actors` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Birthplace` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Nationality` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Description` text COLLATE utf8_unicode_ci NOT NULL,
+  `Age` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actors`
+--
+
+LOCK TABLES `actors` WRITE;
+/*!40000 ALTER TABLE `actors` DISABLE KEYS */;
+INSERT INTO `actors` VALUES (1,'Prof. Sally Smitham II','South Ramonaburgh','Kazakhstan','http://lorempixel.com/640/480/people/?21006','Maxime non quod aut quia libero neque voluptatum nam. Est sapiente maiores corrupti quibusdam. Vel repudiandae quidem fugiat nam minus porro.',0,'2015-09-08 10:25:49','2015-09-08 10:25:49','prof-sally-smitham-ii'),(2,'Kaitlyn Bauch','Goyetteville','Bahrain','http://lorempixel.com/640/480/people/?73853','Deleniti nostrum quidem iure quis architecto. Saepe quo cumque optio aperiam autem et soluta. Molestiae laboriosam ipsam veritatis id autem qui sint. Tenetur atque sed minima mollitia ratione.',2,'2015-09-08 10:25:49','2015-09-08 10:25:49','kaitlyn-bauch'),(3,'Chris Pfeffer DVM','Hayesview','Kenya','http://lorempixel.com/640/480/people/?96637','Modi dolor placeat itaque est ut. Molestias nostrum dignissimos cupiditate quia. Aut neque modi quibusdam unde libero odio soluta.',4,'2015-09-08 10:25:49','2015-09-08 10:25:49','chris-pfeffer-dvm'),(4,'Ms. Angie Harber Sr.','West Lyla','Djibouti','http://lorempixel.com/640/480/people/?89037','Soluta voluptas facere ad. Odit qui est odit blanditiis. Aut quia sunt minus consequatur vel corrupti eaque. Quis nostrum molestiae dolorum alias.',3,'2015-09-08 10:25:49','2015-09-08 10:25:49','ms-angie-harber-sr'),(5,'Annetta Wilkinson','Laviniahaven','Timor-Leste','http://lorempixel.com/640/480/people/?17344','Iusto reprehenderit qui exercitationem quas hic quas ex. Et eius voluptatibus consequatur aliquam cupiditate temporibus et. Magnam ea ea occaecati laudantium.',3,'2015-09-08 10:25:49','2015-09-08 10:25:49','annetta-wilkinson'),(6,'Prof. Mariela Herman','New Bailey','Morocco','http://lorempixel.com/640/480/people/?81289','Quisquam quia architecto sapiente eos aut molestias. Culpa consequatur omnis quam ipsa est iste animi. Facere assumenda et aspernatur provident animi rerum suscipit.',7,'2015-09-08 10:25:49','2015-09-08 10:25:49','prof-mariela-herman'),(7,'Mr. Ryleigh Kessler','Romagueramouth','France','http://lorempixel.com/640/480/people/?14883','Deleniti ut temporibus asperiores molestiae. Qui aut voluptatem aut ea distinctio sed et.',4,'2015-09-08 10:25:49','2015-09-08 10:25:49','mr-ryleigh-kessler'),(8,'Mr. Kobe Ziemann','Rippinland','Slovenia','http://lorempixel.com/640/480/people/?10495','Enim expedita laudantium veniam dolor. Labore omnis distinctio repudiandae qui voluptas odio iure. Voluptatem quaerat dolor pariatur inventore.',6,'2015-09-08 10:25:49','2015-09-08 10:25:49','mr-kobe-ziemann'),(9,'Dr. Rocky Lakin','Lake Tara','Costa Rica','http://lorempixel.com/640/480/people/?30357','Temporibus et ut fuga accusamus fugiat iste. Molestiae nostrum tenetur libero nulla. Aut itaque numquam iste amet et perspiciatis.',9,'2015-09-08 10:25:49','2015-09-08 10:25:49','dr-rocky-lakin'),(10,'Jerrod Ratke','Crooksstad','Faroe Islands','http://lorempixel.com/640/480/people/?46059','Qui debitis blanditiis quidem eos aut nesciunt. Sed asperiores sed eveniet exercitationem eveniet accusamus et.',0,'2015-09-08 10:25:49','2015-09-08 10:25:49','jerrod-ratke'),(11,'Era Haley','Juliaton','Madagascar','http://lorempixel.com/640/480/people/?54562','Sit cupiditate itaque vero est nihil. Eum suscipit hic eaque labore. Odit ratione rem molestiae ex. Debitis et suscipit molestias dolores mollitia fugiat culpa nesciunt. Corrupti dolorum voluptas aut et numquam ad molestiae.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','era-haley'),(12,'Mr. Salvatore Bergstrom','Jordantown','Timor-Leste','http://lorempixel.com/640/480/people/?49766','Molestiae ea in error dolorum. Sit minus natus quas illo autem. Nobis sed numquam aspernatur ut harum. Ut ea eos id sint rerum.',2,'2015-09-08 10:25:49','2015-09-08 10:25:49','mr-salvatore-bergstrom'),(13,'Ricky McLaughlin','Kennithstad','Liechtenstein','http://lorempixel.com/640/480/people/?21458','Non ullam dolorem excepturi commodi fugit perferendis. Id tenetur aliquam quos aut enim. Quia accusantium cum non. Id ut sit in modi sed enim qui.',5,'2015-09-08 10:25:49','2015-09-08 10:25:49','ricky-mclaughlin'),(14,'Prof. Olga Weimann','Petrafort','Saint Lucia','http://lorempixel.com/640/480/people/?96695','Distinctio quisquam voluptatem cumque. Nobis et veniam autem facere enim illum. Qui mollitia deleniti officiis vero corrupti. Unde odio nulla magni voluptas atque sit corporis.',4,'2015-09-08 10:25:49','2015-09-08 10:25:49','prof-olga-weimann'),(15,'Yadira Kovacek','Lake Chelsea','Guinea','http://lorempixel.com/640/480/people/?39720','Dolorem deleniti aut natus consequatur. Natus nesciunt animi odit ipsum iusto veritatis quo. Dolor vel vitae qui est quas corrupti ut.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','yadira-kovacek'),(16,'Mr. Seamus Bauch','Shieldsbury','British Indian Ocean Territory (Chagos Archipelago)','http://lorempixel.com/640/480/people/?75943','Dolores dolore voluptatem at nihil ipsum quia. Ea omnis enim non corrupti et et. Quae non et rerum earum veniam omnis mollitia itaque. Excepturi placeat perferendis neque temporibus excepturi totam non.',4,'2015-09-08 10:25:49','2015-09-08 10:25:49','mr-seamus-bauch'),(17,'Dr. Milton Shanahan DDS','Ismaelborough','Papua New Guinea','http://lorempixel.com/640/480/people/?35065','Nihil porro architecto autem impedit et. Et occaecati iste expedita quibusdam et qui qui autem. Autem qui mollitia hic beatae.',3,'2015-09-08 10:25:49','2015-09-08 10:25:49','dr-milton-shanahan-dds'),(18,'Dr. Lambert Grady','Duanemouth','Nicaragua','http://lorempixel.com/640/480/people/?21973','Distinctio voluptatem sit velit ullam consequatur blanditiis. Non quia dolor eveniet qui qui minus. Illum et odit qui saepe.',6,'2015-09-08 10:25:49','2015-09-08 10:25:49','dr-lambert-grady'),(19,'Abagail Osinski','Lake Lincoln','Croatia','http://lorempixel.com/640/480/people/?99737','Hic autem maiores quod dolor rerum at corrupti cum. Aspernatur natus id eligendi ut delectus accusamus harum autem. Rerum sed laborum quaerat sed et cupiditate. Perferendis doloribus et quam accusamus.',2,'2015-09-08 10:25:49','2015-09-08 10:25:49','abagail-osinski'),(20,'Darius Dare','Port Guillermo','Cape Verde','http://lorempixel.com/640/480/people/?49362','Non facilis reprehenderit eius aliquam sit. Ipsum voluptas voluptates sed rem. Est et dolor iste eos pariatur commodi. Quo accusamus excepturi provident quas vel omnis qui.',3,'2015-09-08 10:25:49','2015-09-08 10:25:49','darius-dare'),(21,'Hilma Koss','Josebury','Guam','http://lorempixel.com/640/480/people/?85829','Eum et unde est illo. Debitis quasi eius nemo nemo repellendus sunt vero. Animi sit vitae quisquam et eos rerum quia. Aliquid fugit fugiat ut aut quia voluptatum.',9,'2015-09-08 10:25:49','2015-09-08 10:25:49','hilma-koss'),(22,'Willy Harvey','Port Borisfort','Greenland','http://lorempixel.com/640/480/people/?96486','Ad vero ipsa doloribus cumque. Nostrum sit dolor quam nesciunt iusto est. Corporis officiis sunt reiciendis consequuntur eum.',4,'2015-09-08 10:25:49','2015-09-08 10:25:49','willy-harvey'),(23,'Shanna Leuschke','South Eviechester','Saint Pierre and Miquelon','http://lorempixel.com/640/480/people/?99426','Perferendis odit aut non et nulla. Occaecati maxime harum optio ea deserunt. Aliquam aut ut accusantium voluptas consequatur.',9,'2015-09-08 10:25:49','2015-09-08 10:25:49','shanna-leuschke'),(24,'Mr. Giles Friesen Sr.','New Sedrick','Wallis and Futuna','http://lorempixel.com/640/480/people/?50477','Vel voluptatem dolorem qui unde. Maiores ullam illo quia quisquam commodi consequatur eos. Asperiores porro neque consequatur voluptatibus.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','mr-giles-friesen-sr'),(25,'Mr. Dorthy Auer','Port Josue','Liberia','http://lorempixel.com/640/480/people/?95180','Provident quas quia ipsam nemo assumenda iusto. Et architecto veritatis quae reiciendis ad. Maxime et tempora est enim perspiciatis quas odio.',7,'2015-09-08 10:25:49','2015-09-08 10:25:49','mr-dorthy-auer'),(26,'Chelsea Price','West Edmond','Italy','http://lorempixel.com/640/480/people/?66297','Quam et rerum ab cumque ad molestiae facere. Dignissimos qui ipsum vel soluta odit qui in inventore. Consequuntur non dolores quod consequatur nam fugit consequatur. Reprehenderit perspiciatis officia totam iste sint.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','chelsea-price'),(27,'Dr. Tyler Mosciski II','Ewaldshire','United Kingdom','http://lorempixel.com/640/480/people/?52902','Eos et a sunt doloremque vel. Nemo nulla reiciendis harum cupiditate labore sint sit. Libero molestiae ipsam quaerat. Quas in ut possimus quasi. Nobis nulla ipsam sapiente provident tempora ut voluptates amet.',5,'2015-09-08 10:25:49','2015-09-08 10:25:49','dr-tyler-mosciski-ii'),(28,'Kevon Schowalter','Millerfurt','Lithuania','http://lorempixel.com/640/480/people/?90133','Est quia fugiat amet sapiente dolor. Error veritatis id est doloribus blanditiis molestiae porro dolorem. Velit molestiae dolorem culpa impedit tenetur possimus sit aliquam. Consequuntur natus excepturi optio qui.',4,'2015-09-08 10:25:49','2015-09-08 10:25:49','kevon-schowalter'),(29,'Zora Beatty III','Mariettaburgh','Lao People\'s Democratic Republic','http://lorempixel.com/640/480/people/?12223','Et et et voluptatum officiis et. Ducimus tempora consectetur illum laudantium illum. Ut in enim esse labore id voluptatum nulla. Vel ut et officiis nemo itaque odit quo accusamus.',7,'2015-09-08 10:25:49','2015-09-08 10:25:49','zora-beatty-iii'),(30,'Bessie Terry','Port Makenzie','Honduras','http://lorempixel.com/640/480/people/?65085','Non sed voluptates soluta omnis. Illo in voluptate quaerat deserunt beatae qui. Recusandae ab omnis reprehenderit aut est harum. Quae eum est id impedit voluptatem quis.',0,'2015-09-08 10:25:49','2015-09-08 10:25:49','bessie-terry'),(31,'Mrs. Madeline Littel I','Huelsburgh','Faroe Islands','http://lorempixel.com/640/480/people/?22195','Magnam in labore omnis eum at. Magni sed quas nostrum numquam accusamus.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','mrs-madeline-littel-i'),(32,'Miss Christy Lakin','Ambroseside','Comoros','http://lorempixel.com/640/480/people/?29562','Animi repellat voluptate rerum et sed. Ea minima doloribus voluptatem enim atque doloremque.',0,'2015-09-08 10:25:49','2015-09-08 10:25:49','miss-christy-lakin'),(33,'Izabella Koch','Bayerton','Lithuania','http://lorempixel.com/640/480/people/?25630','Qui quia doloribus ab sit hic. Voluptate ea eos molestiae perspiciatis molestiae asperiores aspernatur ab. Quibusdam eligendi dolorem sequi. Vero odit consequatur numquam quo accusantium.',9,'2015-09-08 10:25:49','2015-09-08 10:25:49','izabella-koch'),(34,'Kelvin Konopelski','North Daisha','Tanzania','http://lorempixel.com/640/480/people/?71231','Qui aut omnis exercitationem et iste voluptatum reiciendis. Et assumenda sequi et. Ut sapiente id aut sed dignissimos est. Sed non earum nam. Nisi fuga laborum culpa vel.',8,'2015-09-08 10:25:49','2015-09-08 10:25:49','kelvin-konopelski'),(35,'Jamil Strosin','New Stevieton','New Zealand','http://lorempixel.com/640/480/people/?45930','Laudantium eum et doloribus. Animi non debitis doloribus qui labore. Corrupti qui vitae doloremque ut eos autem. Est est aut est aut animi laborum aut.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','jamil-strosin'),(36,'Emmanuelle Weimann','Morissetteburgh','British Indian Ocean Territory (Chagos Archipelago)','http://lorempixel.com/640/480/people/?17654','Veritatis esse qui sequi aut. Voluptatem quis autem sint dolor tenetur qui tempore ipsam. Officia dolores voluptas minima nesciunt non cumque. Ipsa ratione veritatis aut aliquam tempore adipisci delectus.',7,'2015-09-08 10:25:49','2015-09-08 10:25:49','emmanuelle-weimann'),(37,'Mr. Hans Donnelly','Oswaldport','Panama','http://lorempixel.com/640/480/people/?54555','Qui omnis perspiciatis provident. Et quo et qui corrupti et quod et omnis. Rerum soluta ut magnam optio quia et animi.',5,'2015-09-08 10:25:49','2015-09-08 10:25:49','mr-hans-donnelly'),(38,'Eladio Bergnaum','West Katelynnshire','French Polynesia','http://lorempixel.com/640/480/people/?99930','Alias voluptatem veniam mollitia dolores est eum. Omnis sunt quia non. Fugit hic hic doloremque quis minus maiores quisquam. Quas rem deserunt nisi blanditiis sapiente ut voluptates. Itaque eveniet aspernatur soluta qui dolorem.',6,'2015-09-08 10:25:49','2015-09-08 10:25:49','eladio-bergnaum'),(39,'Prof. Tyson Glover','East Chanel','Portugal','http://lorempixel.com/640/480/people/?45625','Quia pariatur ex quibusdam omnis minima natus qui. Et occaecati illum qui optio distinctio tenetur porro.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','prof-tyson-glover'),(40,'Bernard Roob PhD','Langworthport','El Salvador','http://lorempixel.com/640/480/people/?78799','Soluta ea incidunt omnis natus. Sed ea et vel nulla praesentium. Ipsam odio odio ut vero. Cum repellat quam quidem aperiam.',8,'2015-09-08 10:25:49','2015-09-08 10:25:49','bernard-roob-phd'),(41,'Daniela Kub','Bartellburgh','Vietnam','http://lorempixel.com/640/480/people/?23433','Doloribus excepturi laborum enim est. Facilis dolores ut culpa velit nostrum. Ipsam deserunt repellat ab ullam. Molestiae et et saepe nemo consectetur ipsum aut. Eum deleniti et saepe cum.',8,'2015-09-08 10:25:49','2015-09-08 10:25:49','daniela-kub'),(42,'Gaston Lowe DDS','East Mariano','Nauru','http://lorempixel.com/640/480/people/?54674','Quam voluptatem quam libero qui sint dolorem accusamus delectus. Dolore est dolorum vel id enim repellat porro. Consequatur et pariatur tempora incidunt.',5,'2015-09-08 10:25:49','2015-09-08 10:25:49','gaston-lowe-dds'),(43,'Dulce Ernser','Broderickshire','Austria','http://lorempixel.com/640/480/people/?40295','Delectus est temporibus vel occaecati est. Voluptates qui omnis rerum aliquam. Optio non temporibus sit magnam.',5,'2015-09-08 10:25:49','2015-09-08 10:25:49','dulce-ernser'),(44,'Dustin Hoeger','Cassinhaven','Guatemala','http://lorempixel.com/640/480/people/?99987','Sed non nesciunt et nisi inventore dolores nobis. Non qui quis assumenda dolore maxime illum et. Quod voluptas placeat et expedita quia iure. Est et est dignissimos veritatis quia.',5,'2015-09-08 10:25:49','2015-09-08 10:25:49','dustin-hoeger'),(45,'Minerva Abshire','Ruthtown','American Samoa','http://lorempixel.com/640/480/people/?17530','Soluta ut repudiandae dolor quidem tempora. Ut et molestiae quam nihil sint earum. Aspernatur doloribus distinctio illo quia blanditiis totam consequatur. Rem eum et tenetur quam aspernatur.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','minerva-abshire'),(46,'Mr. Arnaldo Cassin','North Aleenchester','Liberia','http://lorempixel.com/640/480/people/?14812','Est sapiente tempora dignissimos vero sit rerum. Eius tempore quisquam tenetur.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','mr-arnaldo-cassin'),(47,'Noah Hane','Lake Trystan','Angola','http://lorempixel.com/640/480/people/?32159','Facilis sint architecto est fugiat. Numquam rem odit aut cumque accusantium veniam. Autem numquam autem delectus velit deserunt.',3,'2015-09-08 10:25:49','2015-09-08 10:25:49','noah-hane'),(48,'Melvin Hammes','East Kurt','Yemen','http://lorempixel.com/640/480/people/?92994','Est reiciendis est voluptatem iure quia sint delectus. Et repellat itaque et vitae id modi unde non. Et provident labore nulla consectetur. Est ad est doloremque omnis nemo temporibus sit. Mollitia iusto et quam ratione sit.',6,'2015-09-08 10:25:49','2015-09-08 10:25:49','melvin-hammes'),(49,'Addie Macejkovic IV','Port Stanchester','Iran','http://lorempixel.com/640/480/people/?86937','Tempore consequatur natus qui suscipit fugit. Aliquid harum blanditiis et quo nam voluptatem aut voluptas. Voluptatibus perspiciatis aperiam in earum similique aliquam. Adipisci et ut aut vero harum.',1,'2015-09-08 10:25:49','2015-09-08 10:25:49','addie-macejkovic-iv');
+/*!40000 ALTER TABLE `actors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `characters`
+--
+
+DROP TABLE IF EXISTS `characters`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `characters` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Age` int(11) NOT NULL,
+  `Photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `actor_id` int(10) unsigned NOT NULL,
+  `serie_id` int(10) unsigned NOT NULL,
+  `Description` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `characters_serie_id_foreign` (`serie_id`),
+  KEY `characters_actor_id_foreign` (`actor_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `characters`
+--
+
+LOCK TABLES `characters` WRITE;
+/*!40000 ALTER TABLE `characters` DISABLE KEYS */;
+INSERT INTO `characters` VALUES (1,'Prof. Thea Rau','Alive',9,'http://lorempixel.com/120/480/people/?23272',5,1,'Reprehenderit quod ut qui possimus expedita. Est totam illum hic omnis incidunt vitae. A ut animi ducimus voluptatem non nihil totam. Non eaque suscipit nulla laboriosam.','2015-09-08 10:25:49','2015-09-08 10:25:49','prof-thea-rau'),(2,'Carter Moen','Alive',4,'http://lorempixel.com/120/480/people/?76041',18,1,'Est et quaerat ipsam ut ipsam eos expedita. Nobis facilis dolorem rerum omnis dolorem. Vitae placeat aut hic. Qui atque quo veritatis minus suscipit.','2015-09-08 10:25:49','2015-09-08 10:25:49','carter-moen'),(3,'Miss Jakayla Block II','Alive',2,'http://lorempixel.com/120/480/people/?70116',6,1,'Et molestias voluptas soluta ratione. Fuga qui fugit nobis quisquam. Deleniti est nulla sit sed. Officiis voluptate adipisci nesciunt aperiam.','2015-09-08 10:25:49','2015-09-08 10:25:49','miss-jakayla-block-ii'),(4,'Prof. Silas Considine','Alive',1,'http://lorempixel.com/120/480/people/?52189',3,3,'Quo nesciunt tempora velit laudantium. Eum possimus porro accusamus qui accusamus dolorum labore. Esse inventore aut qui nobis. Eaque sed animi aut maxime dolorem deserunt non.','2015-09-08 10:25:49','2015-09-08 10:25:49','prof-silas-considine'),(5,'Zola Hintz','Alive',5,'http://lorempixel.com/120/480/people/?99426',32,2,'Nesciunt ipsa consectetur inventore numquam nulla voluptas commodi. Libero eum ut fugit qui occaecati. Iure ratione velit et laborum nihil.','2015-09-08 10:25:49','2015-09-08 10:25:49','zola-hintz'),(6,'Chase Green','Alive',5,'http://lorempixel.com/120/480/people/?25224',5,1,'Eligendi quasi vitae sit reiciendis sint fugit. Repellat fugiat ut non nobis odio sed molestias nisi. Ea quia repellat nihil voluptas et omnis dolorum. Ab minus est aut qui ut earum commodi.','2015-09-08 10:25:49','2015-09-08 10:25:49','chase-green'),(7,'Robin Boyle','Alive',6,'http://lorempixel.com/120/480/people/?83615',1,3,'Ut non molestiae cum ut dolores deserunt. Qui odio fugit nulla tempora nihil et neque. Omnis magnam harum molestiae sapiente quia.','2015-09-08 10:25:49','2015-09-08 10:25:49','robin-boyle'),(8,'Elliott Weimann','Alive',7,'http://lorempixel.com/120/480/people/?28955',29,2,'Ipsa dignissimos minima molestiae quae tempora laborum voluptatem. Cum sit expedita accusantium quo excepturi voluptate deleniti. Animi omnis occaecati ullam aut odio.','2015-09-08 10:25:49','2015-09-08 10:25:49','elliott-weimann'),(9,'Alexis Fay','Alive',0,'http://lorempixel.com/120/480/people/?32860',5,3,'Voluptatem corrupti ex sunt ut qui. Excepturi nobis ad quos omnis. Nam enim dolore est et error placeat quos culpa. Eos iusto et cumque quas nihil vitae.','2015-09-08 10:25:49','2015-09-08 10:25:49','alexis-fay'),(10,'Prof. Tremayne Vandervort','Alive',4,'http://lorempixel.com/120/480/people/?86861',23,2,'Consequatur id iure vel est. Provident rerum ab alias ad voluptas molestiae quia. Autem consequatur eaque aut porro.','2015-09-08 10:25:49','2015-09-08 10:25:49','prof-tremayne-vandervort'),(11,'Aida Hagenes','Alive',5,'http://lorempixel.com/120/480/people/?17954',50,1,'Nesciunt voluptatem perspiciatis quo ut ullam blanditiis unde et. Alias ut ducimus odit quo. Suscipit expedita facilis corporis pariatur sed nulla. Aut voluptates voluptas vero ducimus voluptates voluptatem repellendus.','2015-09-08 10:25:49','2015-09-08 10:25:49','aida-hagenes'),(12,'Mr. Michale Koch','Alive',8,'http://lorempixel.com/120/480/people/?22228',9,2,'Dolor iusto officia tempore quis enim ea. Molestias id commodi et voluptatum. Mollitia amet cupiditate qui ullam.','2015-09-08 10:25:49','2015-09-08 10:25:49','mr-michale-koch'),(13,'Warren Nader','Alive',0,'http://lorempixel.com/120/480/people/?77885',50,3,'Est est quo quod consequatur. Dolores aut provident iure excepturi in consequuntur dolorem. Ut officia ducimus culpa.','2015-09-08 10:25:49','2015-09-08 10:25:49','warren-nader'),(14,'Miss Marianna Berge V','Alive',3,'http://lorempixel.com/120/480/people/?96917',17,3,'Dolor similique ullam exercitationem deserunt ipsum. Repudiandae facilis nihil autem voluptatibus et veritatis nihil. Officiis voluptas in inventore quia repudiandae. Ut accusamus atque magnam officia velit et vel.','2015-09-08 10:25:49','2015-09-08 10:25:49','miss-marianna-berge-v'),(15,'Nadia Reinger PhD','Alive',1,'http://lorempixel.com/120/480/people/?62027',6,1,'Et quisquam eos adipisci enim sunt ipsam illo. Ea et qui ad voluptatum quod. Vitae quia aut ipsam enim quae cupiditate in.','2015-09-08 10:25:49','2015-09-08 10:25:49','nadia-reinger-phd'),(16,'Dr. Brenna Becker','Alive',6,'http://lorempixel.com/120/480/people/?70249',31,1,'Ut eum rem blanditiis quod sed consectetur eveniet. Eius eum at expedita molestiae consequatur. Qui occaecati et fugit consequatur et labore labore.','2015-09-08 10:25:49','2015-09-08 10:25:49','dr-brenna-becker'),(17,'Dr. Westley Gottlieb Sr.','Alive',3,'http://lorempixel.com/120/480/people/?77127',23,1,'Molestiae consequatur optio nihil. Quam architecto quasi quisquam omnis. Distinctio itaque quos nemo ut.','2015-09-08 10:25:49','2015-09-08 10:25:49','dr-westley-gottlieb-sr'),(18,'Ms. Gia Abbott','Alive',2,'http://lorempixel.com/120/480/people/?71141',25,1,'Ullam rem laborum voluptate vel impedit dicta quo. Officia voluptatem dolor consequatur excepturi excepturi ipsa quasi. Molestiae nihil sed debitis eius. Ratione dicta enim corporis. Nulla facilis labore deserunt.','2015-09-08 10:25:49','2015-09-08 10:25:49','ms-gia-abbott'),(19,'Prof. Emile Wisozk','Alive',8,'http://lorempixel.com/120/480/people/?98029',14,1,'Sequi culpa ratione dolor voluptatibus reprehenderit ea atque hic. Eveniet optio voluptatem exercitationem in et quisquam in. Ad non fugit illum voluptatum quam ipsum.','2015-09-08 10:25:49','2015-09-08 10:25:49','prof-emile-wisozk'),(20,'Yolanda Huel MD','Alive',3,'http://lorempixel.com/120/480/people/?82751',46,1,'Praesentium autem dicta officiis nam ullam. Ut repellat porro nam. Qui iure tempore in.','2015-09-08 10:25:49','2015-09-08 10:25:49','yolanda-huel-md'),(21,'Cordia Fahey DDS','Alive',8,'http://lorempixel.com/120/480/people/?45633',23,3,'Rem ea saepe est eum in. Aliquid quo libero fuga maxime. Minus pariatur voluptatum unde earum. Consequatur ut dolor et est ut.','2015-09-08 10:25:49','2015-09-08 10:25:49','cordia-fahey-dds'),(22,'Antone Nolan PhD','Alive',5,'http://lorempixel.com/120/480/people/?68918',17,1,'Velit laudantium aliquid fugiat quam magnam. At enim totam rerum repudiandae cum nemo vel. Maiores expedita tenetur eveniet deserunt ex amet sed sapiente.','2015-09-08 10:25:49','2015-09-08 10:25:49','antone-nolan-phd'),(23,'Prof. Mason Bosco','Alive',9,'http://lorempixel.com/120/480/people/?53622',44,1,'Ullam ipsam eligendi deleniti maiores id quo. Quisquam similique possimus ex ut voluptatem earum eaque. Aut labore qui assumenda nihil fuga.','2015-09-08 10:25:49','2015-09-08 10:25:49','prof-mason-bosco'),(24,'Jeffery Mayert','Alive',1,'http://lorempixel.com/120/480/people/?14933',35,1,'Nihil voluptatem cum aperiam voluptatem quis dolorem. Quas itaque aut et voluptatem labore est natus. Aut modi aut voluptatum minima aliquid accusantium quam. Et magni doloribus et eos in similique sit.','2015-09-08 10:25:49','2015-09-08 10:25:49','jeffery-mayert'),(25,'Reina Crist','Alive',9,'http://lorempixel.com/120/480/people/?97611',20,1,'Debitis delectus pariatur odit dolore et rerum recusandae. Pariatur facere doloremque vel omnis earum officia magni. Et iure voluptatem doloremque corporis repudiandae sed. Est ut pariatur enim nihil.','2015-09-08 10:25:49','2015-09-08 10:25:49','reina-crist'),(26,'Arnulfo Cormier','Alive',5,'http://lorempixel.com/120/480/people/?28727',12,2,'Eum eum ullam et tempore quae amet ut. Molestiae doloribus aut nam cumque. Vitae est animi reiciendis delectus. Vel fuga possimus aperiam eaque dicta molestias.','2015-09-08 10:25:49','2015-09-08 10:25:49','arnulfo-cormier'),(27,'Mr. Ambrose Kohler V','Alive',6,'http://lorempixel.com/120/480/people/?39094',27,3,'Fugiat dolorum hic et repudiandae officiis. Et dolorum quidem dolor explicabo ullam quidem labore inventore. Aliquam autem quasi ad rerum corrupti ratione. Sequi quo quisquam voluptatum molestias dolorem.','2015-09-08 10:25:49','2015-09-08 10:25:49','mr-ambrose-kohler-v'),(28,'Mr. Einar Crona Jr.','Alive',3,'http://lorempixel.com/120/480/people/?41055',28,3,'Sunt provident asperiores tempora quam voluptatem nemo inventore. Facilis officiis consequatur laborum saepe in. Ipsam cum autem itaque dolores non. Ipsa aspernatur voluptatum non neque natus nemo.','2015-09-08 10:25:49','2015-09-08 10:25:49','mr-einar-crona-jr'),(29,'Louie Hegmann','Alive',9,'http://lorempixel.com/120/480/people/?80440',30,2,'Et recusandae suscipit vero aut voluptas. Quisquam earum suscipit architecto ex commodi expedita exercitationem. Eos consequatur aut totam ex. Consequatur corporis corporis ipsam qui dolores fugiat amet.','2015-09-08 10:25:49','2015-09-08 10:25:49','louie-hegmann'),(30,'Oran Tremblay','Alive',5,'http://lorempixel.com/120/480/people/?57475',10,2,'Accusamus aut vel voluptate excepturi voluptas accusantium sit. Error consequatur tempore delectus velit. Enim iste aut et eaque id neque ut ducimus. Maxime perferendis delectus omnis rerum.','2015-09-08 10:25:49','2015-09-08 10:25:49','oran-tremblay'),(31,'Vernie Kuvalis Jr.','Alive',3,'http://lorempixel.com/120/480/people/?12596',18,2,'Mollitia optio quas asperiores porro. Ipsum velit quia vero quia. Aspernatur et et dolor.','2015-09-08 10:25:49','2015-09-08 10:25:49','vernie-kuvalis-jr'),(32,'Ryleigh Ratke','Alive',7,'http://lorempixel.com/120/480/people/?78239',33,2,'Est doloribus consequatur distinctio sed alias veniam. Veniam itaque at atque qui. Dolorum quos consequatur pariatur a dolor sit. Eius enim quo voluptatem qui eum et.','2015-09-08 10:25:49','2015-09-08 10:25:49','ryleigh-ratke'),(33,'Susie Roberts','Alive',7,'http://lorempixel.com/120/480/people/?48344',46,3,'Nihil fugit eos laboriosam ea qui. Sit molestias tenetur nihil veniam eveniet. Sunt error neque nam ut.','2015-09-08 10:25:49','2015-09-08 10:25:49','susie-roberts'),(34,'Miss Reta Maggio','Alive',1,'http://lorempixel.com/120/480/people/?87911',42,3,'Aliquam et fuga reiciendis voluptate velit dicta exercitationem. Nostrum sed ea ipsum ut vel placeat consequatur. Ullam fugiat ut et in labore.','2015-09-08 10:25:49','2015-09-08 10:25:49','miss-reta-maggio'),(35,'Abby Olson','Alive',2,'http://lorempixel.com/120/480/people/?48411',2,1,'Possimus fugit commodi labore distinctio aliquid harum. Sit ad aut facere modi quibusdam sequi. Excepturi excepturi vitae similique quidem tempora nobis et. Ipsa quae non quam neque sed et esse neque.','2015-09-08 10:25:49','2015-09-08 10:25:49','abby-olson'),(36,'Ressie Schmitt III','Alive',6,'http://lorempixel.com/120/480/people/?22470',8,3,'Quo veritatis totam nesciunt quos. Totam delectus dolores distinctio et animi porro ut. Enim ipsam repudiandae quas. Ad non odit doloribus ut.','2015-09-08 10:25:49','2015-09-08 10:25:49','ressie-schmitt-iii'),(37,'Ms. Roma Rolfson DDS','Alive',3,'http://lorempixel.com/120/480/people/?52466',7,1,'Pariatur unde placeat sed rerum velit quia quisquam. Voluptatem accusamus accusantium saepe omnis modi est minima.','2015-09-08 10:25:49','2015-09-08 10:25:49','ms-roma-rolfson-dds'),(38,'Erik Denesik','Alive',7,'http://lorempixel.com/120/480/people/?41882',16,3,'Accusamus quasi doloribus doloribus sapiente iure omnis natus. Odio et autem illo. Sint labore laboriosam ut ut. Debitis sint laboriosam dolorem impedit vel similique.','2015-09-08 10:25:49','2015-09-08 10:25:49','erik-denesik'),(39,'Prof. Tomas Ruecker','Alive',1,'http://lorempixel.com/120/480/people/?60689',13,1,'Impedit id incidunt dolores cumque cum. Error qui consequatur earum inventore. Doloremque possimus harum sunt placeat sint molestiae. Ut ducimus atque voluptatem dolorem perferendis. Quia sed iste voluptatem aut optio occaecati et.','2015-09-08 10:25:49','2015-09-08 10:25:49','prof-tomas-ruecker'),(40,'Dr. Mercedes Fisher MD','Alive',9,'http://lorempixel.com/120/480/people/?81677',40,1,'Corrupti odio dicta voluptate vel. Ullam dolor doloremque saepe debitis.','2015-09-08 10:25:49','2015-09-08 10:25:49','dr-mercedes-fisher-md'),(41,'Raymond Schmeler','Alive',2,'http://lorempixel.com/120/480/people/?70520',21,2,'Hic iure voluptatibus eos repellendus dicta minima aut voluptatem. Aut et earum quod rerum. Velit veniam qui rerum aliquam.','2015-09-08 10:25:49','2015-09-08 10:25:49','raymond-schmeler'),(42,'Dario Runolfsdottir','Alive',8,'http://lorempixel.com/120/480/people/?22599',45,2,'Mollitia qui qui veniam nisi id et. Placeat ut tempore aut ratione aut. Excepturi tempora corporis omnis laboriosam est quia aut. Qui ea quasi quaerat temporibus. Asperiores minima eligendi unde.','2015-09-08 10:25:49','2015-09-08 10:25:49','dario-runolfsdottir'),(43,'Prof. Andres Emard IV','Alive',5,'http://lorempixel.com/120/480/people/?83800',7,2,'Quia quia accusamus et animi optio dolor. In et illum officiis itaque ullam asperiores exercitationem. Harum asperiores occaecati tempore neque et tenetur. Voluptates aspernatur aspernatur voluptatem et debitis culpa sit.','2015-09-08 10:25:49','2015-09-08 10:25:49','prof-andres-emard-iv'),(44,'Dorothea Brekke V','Alive',2,'http://lorempixel.com/120/480/people/?17153',30,2,'Similique quis et accusamus aut consequatur. Sapiente a ut eius eius fugit. Eum et minima quo quaerat.','2015-09-08 10:25:49','2015-09-08 10:25:49','dorothea-brekke-v'),(45,'Dr. Lance Muller III','Alive',3,'http://lorempixel.com/120/480/people/?92498',32,1,'Dignissimos non aut quae aut non voluptatum ab. Illo in vel repellendus voluptatem praesentium ut soluta. Et eos et explicabo eaque.','2015-09-08 10:25:49','2015-09-08 10:25:49','dr-lance-muller-iii'),(46,'Mozelle Buckridge','Alive',6,'http://lorempixel.com/120/480/people/?85625',33,2,'Error repellat qui aut voluptas quia voluptatum provident. Non magnam ullam nulla quod. Voluptatum et iusto quasi consequuntur quas ut recusandae. Ut impedit est quod quae quia mollitia.','2015-09-08 10:25:49','2015-09-08 10:25:49','mozelle-buckridge'),(47,'Walter Gibson','Alive',9,'http://lorempixel.com/120/480/people/?78374',9,1,'Illum sunt sed dolorum qui velit. Doloremque consequatur fugiat voluptatem nam temporibus eaque ut. Aut sit tenetur autem ipsum.','2015-09-08 10:25:49','2015-09-08 10:25:49','walter-gibson'),(48,'Dr. Chad Gislason','Alive',0,'http://lorempixel.com/120/480/people/?51622',17,1,'Possimus placeat temporibus voluptatem reprehenderit excepturi est provident. Minima iure non quos pariatur culpa rerum. Hic ut aut dignissimos perferendis neque. Aut autem quisquam omnis impedit suscipit.','2015-09-08 10:25:49','2015-09-08 10:25:49','dr-chad-gislason'),(49,'Amely Kuhlman DDS','Alive',7,'http://lorempixel.com/120/480/people/?16370',30,1,'Quis rerum nemo est vel laboriosam. Tempore quisquam quo deleniti nisi sunt. Voluptas magni et et non nobis perspiciatis aliquid.','2015-09-08 10:25:49','2015-09-08 10:25:49','amely-kuhlman-dds');
+/*!40000 ALTER TABLE `characters` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comics`
+--
+
+DROP TABLE IF EXISTS `comics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comics` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `author` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `start` date NOT NULL,
+  `finish` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comics`
+--
+
+LOCK TABLES `comics` WRITE;
+/*!40000 ALTER TABLE `comics` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `directors`
+--
+
+DROP TABLE IF EXISTS `directors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `directors` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `directors`
+--
+
+LOCK TABLES `directors` WRITE;
+/*!40000 ALTER TABLE `directors` DISABLE KEYS */;
+/*!40000 ALTER TABLE `directors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `episodes`
+--
+
+DROP TABLE IF EXISTS `episodes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `episodes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Episode` int(11) NOT NULL,
+  `Description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `serie_id` int(10) unsigned NOT NULL,
+  `season_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `episodes_serie_id_foreign` (`serie_id`),
+  KEY `episodes_season_id_foreign` (`season_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `episodes`
+--
+
+LOCK TABLES `episodes` WRITE;
+/*!40000 ALTER TABLE `episodes` DISABLE KEYS */;
+INSERT INTO `episodes` VALUES (1,'Casandra Hoppe',8,'Id tenetur tempora excepturi animi ratione assumenda ut. Voluptatum amet adipisci natus nobis deserunt. Est asperiores sit voluptatem consequatur reiciendis.','http://lorempixel.com/640/480/?72029',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(2,'Ed Hoeger',15,'Animi ex at porro tenetur animi. Dolor quibusdam numquam ut rerum reprehenderit. Laboriosam qui eos sed debitis rerum animi.','http://lorempixel.com/640/480/?20879',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(3,'Elsa Sawayn',44,'Iste dolorem est excepturi ut soluta. Quidem esse in voluptas repellat consequatur consequatur qui voluptatibus. Eum recusandae ut quidem quis molestiae eveniet dolor. Distinctio reprehenderit reiciendis placeat.','http://lorempixel.com/640/480/?19691',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(4,'Yadira Herzog',31,'Tempora sed voluptatum natus mollitia magnam ex ut. Ullam cum odio quae voluptas. Vel animi velit praesentium sed ex eaque ab suscipit.','http://lorempixel.com/640/480/?30612',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(5,'Dr. Merle Hagenes',10,'Et qui itaque qui at. Voluptatem aut quia tempora repellendus temporibus aperiam. Esse porro et pariatur nesciunt itaque.','http://lorempixel.com/640/480/?25230',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(6,'Dr. Zechariah Wilderman',15,'Sit quas quis sunt delectus. Commodi quis qui est rem voluptatem illo rerum. Sequi est iusto nihil. Animi omnis officiis omnis natus iste.','http://lorempixel.com/640/480/?25741',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(7,'Susie Gaylord',22,'Consequatur iste nam inventore et explicabo et. Est consequatur molestiae repudiandae et voluptates magni ea. Ipsa quas eaque est aperiam et eos fugit quia. Eos culpa nobis alias quia id.','http://lorempixel.com/640/480/?99622',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(8,'Deontae Green',13,'Ex facere tenetur ea libero quis dolore exercitationem impedit. Doloribus et repellendus nostrum.','http://lorempixel.com/640/480/?33928',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(9,'Monserrat Orn',15,'Maxime est non minima qui sit ut ducimus. Repellendus vitae nihil nobis sunt consequuntur omnis nostrum. Modi laborum ut maiores consequuntur. Voluptatem nemo corporis aspernatur. Est omnis doloribus et incidunt mollitia alias unde nobis.','http://lorempixel.com/640/480/?69510',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(10,'Durward Rosenbaum',34,'Debitis iure assumenda aliquid eum voluptas laudantium sunt. Minima qui laborum exercitationem incidunt molestiae voluptatum. Assumenda soluta facilis rem fugiat ullam vitae. Odio sapiente veritatis ducimus deserunt itaque et adipisci ea.','http://lorempixel.com/640/480/?89557',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(11,'Mr. Brady Ledner DVM',29,'Reprehenderit vero numquam accusantium omnis sed voluptas eos. Est ducimus cumque quis.','http://lorempixel.com/640/480/?76420',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(12,'Emmett Cartwright',30,'Qui possimus aliquid sed et. Dolorem repellat accusantium ut libero. Nam et nulla est animi quidem nesciunt nam. Dolorem nesciunt nisi veniam.','http://lorempixel.com/640/480/?40443',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(13,'Kale Baumbach',38,'Aut cupiditate ea quia dignissimos provident dolore. Temporibus sit corporis voluptate sint autem laboriosam. Et voluptatem vero quae nulla doloribus eveniet nemo vel.','http://lorempixel.com/640/480/?31286',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(14,'Dr. Gennaro Jacobson',28,'Corporis eum ullam ad tenetur. Rerum sit optio rerum. Dolore quisquam sed hic ipsam. Doloribus provident sapiente fugiat in.','http://lorempixel.com/640/480/?91242',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(15,'Earlene Towne',20,'Quo et repudiandae id a iusto incidunt atque. Ab nihil dolorum quam aut qui. Est amet excepturi omnis doloribus non.','http://lorempixel.com/640/480/?30701',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(16,'Berta Bode',31,'Id numquam sed officiis dolorem et deserunt. Harum incidunt odio commodi. Velit accusamus velit eius.','http://lorempixel.com/640/480/?62315',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(17,'Joanne Hoppe I',44,'Nemo rerum consequatur dolorum deserunt. Voluptas ut est omnis. Et dolor est quo nihil sint porro veritatis. Ad omnis sed et.','http://lorempixel.com/640/480/?42889',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(18,'Prof. Kellen Huel IV',50,'Cum voluptates nulla cum in blanditiis tempore in. Quia velit eos praesentium quidem voluptatum quidem. Excepturi dolor iure temporibus sit.','http://lorempixel.com/640/480/?91436',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(19,'Andre Thiel',39,'Provident excepturi fugit quae. Error a ducimus quia omnis. Laborum mollitia vero quam sit. Tempora ratione id maxime omnis.','http://lorempixel.com/640/480/?56736',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(20,'Antoinette O\'Kon',43,'Ea et ut voluptas et quia odit. Quisquam placeat eos eum eos ut officiis.','http://lorempixel.com/640/480/?48516',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(21,'Isabelle Johnston',38,'Eaque ab inventore consequatur ea enim vel. Quia eum deleniti dignissimos odit aliquid. Magni maiores cupiditate mollitia et ducimus quo nesciunt voluptatem. Ipsa quisquam possimus enim est odio dicta sed.','http://lorempixel.com/640/480/?73608',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(22,'Warren Kunze',37,'Delectus et dolorem doloribus doloremque. In perspiciatis occaecati sed nulla error soluta placeat. Alias quis cupiditate at quia dolores optio quis fuga.','http://lorempixel.com/640/480/?57882',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(23,'Jameson Cummerata MD',24,'Quae necessitatibus aut voluptatem ratione. Consequatur dolorum aut sapiente odit ratione qui hic. Quis distinctio repellat repellat error deserunt ut temporibus.','http://lorempixel.com/640/480/?66145',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(24,'Dr. Skylar Johnson Sr.',19,'Velit suscipit magni et facilis itaque expedita. Est eum totam eum dolores repudiandae vero.','http://lorempixel.com/640/480/?68726',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(25,'Ricardo Baumbach III',22,'Qui autem esse quis hic eum et. Ipsa minima nisi doloremque necessitatibus commodi. Quae tenetur expedita quaerat cum quis rerum ut. Eligendi ut eos at quam.','http://lorempixel.com/640/480/?15945',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(26,'Ms. Adell Volkman',43,'Minima provident optio ea eos quam. Molestiae quidem quidem ut perferendis ut quas quod. Facere natus magni iusto voluptatem non voluptates. Et non mollitia non commodi et quibusdam.','http://lorempixel.com/640/480/?99862',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(27,'Joan Hermiston III',1,'Nihil dolores atque quia sed explicabo nihil. Dicta dolor est qui. Quasi ad autem exercitationem qui ipsum. Ea dolores in est qui doloremque. Atque quia libero ipsum totam reprehenderit quidem rerum veritatis.','http://lorempixel.com/640/480/?74641',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(28,'Andreane Senger Jr.',8,'Dolorem voluptas nesciunt rerum blanditiis dolore iure distinctio. Cupiditate eveniet ut qui atque laudantium quia. Reprehenderit porro aut enim nihil.','http://lorempixel.com/640/480/?52129',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(29,'Evelyn Schaefer',43,'Et sed aut maxime qui. Eligendi deleniti rerum vero similique dolores. Et illo aperiam odio ipsum accusantium. Nulla recusandae ut magni est eveniet. Minus officiis architecto accusantium minus enim.','http://lorempixel.com/640/480/?56856',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(30,'Marguerite Keeling',39,'Rerum delectus ut excepturi laudantium laborum dolor. Sit sed est rem iste vel quo eius unde. Earum illo et illo necessitatibus quis unde. Eius delectus iusto quo voluptas. Doloribus facere quasi dolorum minima dolorem corrupti sunt ea.','http://lorempixel.com/640/480/?79419',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(31,'Coby Wintheiser',19,'Qui animi impedit consequuntur officia quia. Odio corporis voluptas sapiente et. Esse qui accusantium culpa voluptate deserunt quia aut.','http://lorempixel.com/640/480/?49184',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(32,'Prof. Damon Predovic MD',41,'Illo sunt laudantium eos magni soluta quis. Possimus ipsam culpa laudantium et vitae quis quisquam. Quisquam dolorem facere quasi est eos placeat expedita. Natus temporibus aspernatur quia qui. Similique ea id quibusdam distinctio consectetur enim et.','http://lorempixel.com/640/480/?16672',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(33,'Guillermo Yundt',5,'Non ipsa labore fugiat dolorum molestiae ipsam. Doloribus incidunt qui numquam magni dolores. Iste non et labore. Voluptatem provident voluptatem et iusto.','http://lorempixel.com/640/480/?88080',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(34,'Rae Hand',39,'Ratione culpa nulla nobis eos molestiae. Quam est animi in totam et eum eum debitis. Qui qui aspernatur dolor quos aliquid magni nobis quis.','http://lorempixel.com/640/480/?61869',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(35,'Amara Smith V',31,'Mollitia quia suscipit unde iste aut laborum omnis. Sit repudiandae rerum asperiores exercitationem. Quas modi voluptatem illo est facere. Error praesentium culpa dolorum quaerat.','http://lorempixel.com/640/480/?51484',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(36,'Dr. Juston Corkery IV',40,'Dolorum dignissimos praesentium culpa quibusdam assumenda soluta. Esse totam dolorem repellendus qui quia laboriosam. Et non molestiae molestiae dolore. Aut quo qui molestiae illum et.','http://lorempixel.com/640/480/?20378',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(37,'Mohammed Pacocha',12,'Et sunt consequuntur accusantium iste nihil consequatur. Consequatur ad et quis eligendi numquam nam voluptatum sint. Et adipisci perspiciatis maiores sapiente.','http://lorempixel.com/640/480/?48777',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(38,'Jack Conn',1,'Numquam omnis modi beatae tempora quo consequatur. Aperiam explicabo ducimus est quo qui neque sunt. Quia aut maxime recusandae consequatur illo.','http://lorempixel.com/640/480/?50149',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(39,'Elwin Berge',46,'Voluptatum rerum et placeat quia nihil enim autem. Non consectetur voluptatem sint ipsam fugit qui asperiores. Est aspernatur consequatur hic qui aspernatur.','http://lorempixel.com/640/480/?58308',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(40,'Jesus Gerlach',3,'Repudiandae fugit necessitatibus laborum adipisci. Eius illum laboriosam quia enim dolor reiciendis. Beatae molestiae vel distinctio aliquam itaque ut ut. Qui ad laboriosam quis veritatis quaerat voluptas suscipit.','http://lorempixel.com/640/480/?85674',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(41,'Porter Ortiz',2,'Voluptas optio aut voluptatum. Unde quae excepturi tempore non adipisci. Exercitationem veniam est rerum dolorem.','http://lorempixel.com/640/480/?52944',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(42,'Gracie Moen',35,'Nulla sit dignissimos esse tempora. Maxime ut sed voluptas quia. Iusto ratione et non aut perferendis.','http://lorempixel.com/640/480/?54874',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(43,'Kacie Schinner PhD',10,'Nostrum id veniam ullam omnis. Magni est quo debitis quia. Veritatis qui vel saepe ut omnis voluptas hic ut. Eum odit et voluptas quos autem.','http://lorempixel.com/640/480/?44639',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(44,'Elias Legros',35,'Qui consequatur totam consectetur consequatur. Qui est voluptate laboriosam omnis. Qui molestias aspernatur modi a accusantium quibusdam.','http://lorempixel.com/640/480/?91063',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(45,'Miss Zaria Bahringer II',17,'Officia dolor tenetur non labore. Blanditiis atque maiores aliquid dignissimos et voluptas aut vitae. Sit maxime et deleniti id quia natus amet.','http://lorempixel.com/640/480/?67661',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(46,'Nicklaus McDermott',34,'Accusamus at voluptatem quo non qui et quo. Similique assumenda repellat repudiandae non quas vero. Pariatur iure dolorum aut. Voluptatem quam voluptatem dolorem deserunt.','http://lorempixel.com/640/480/?59144',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(47,'Ms. Rachel Sauer',40,'Hic expedita nulla voluptate harum doloribus. Ex enim minus atque adipisci quae. Rerum in est optio soluta.','http://lorempixel.com/640/480/?38793',3,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(48,'Tatum Adams',6,'Aut nulla commodi eius libero. Quod et nemo quo aspernatur et. Non ea eos quis eligendi neque.','http://lorempixel.com/640/480/?50757',2,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(49,'Dr. Green Feeney',11,'Ea ducimus et iusto quas sed aperiam qui. Similique temporibus impedit molestiae. Ducimus nesciunt velit labore qui porro debitis.','http://lorempixel.com/640/480/?61010',1,1,'2015-09-08 10:25:49','2015-09-08 10:25:49');
+/*!40000 ALTER TABLE `episodes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES ('2014_10_12_000000_create_users_table',1),('2014_10_12_100000_create_password_resets_table',1),('2015_08_22_115358_create_series_table',1),('2015_08_22_115434_create_musics_table',1),('2015_08_22_115445_create_comics_table',1),('2015_08_22_123246_add_slug_to_series_table',1),('2015_08_22_123251_add_slug_to_musics_table',1),('2015_08_22_123257_add_slug_to_comics_table',1),('2015_08_29_104201_create_series_infos_table',1),('2015_08_29_105546_create_series_actors_table',1),('2015_08_29_105918_create_directors_table',1),('2015_08_29_110445_create_actors_table',1),('2015_08_29_110622_create_series_directors_table',1),('2015_08_29_115459_create_characters_table',1),('2015_08_29_115727_create_series_characters_table',1),('2015_08_29_120028_create_actor_characters_table',1),('2015_08_31_222511_add_slug_to_actors_table',1),('2015_09_02_110004_add_slug_to_characters_table',1),('2015_09_07_005929_create_seasons_table',1),('2015_09_07_013102_create_episodes_table',1);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `musics`
+--
+
+DROP TABLE IF EXISTS `musics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `musics` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `singer` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `band` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `genres` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `start` date NOT NULL,
+  `finish` date NOT NULL,
+  `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `musics`
+--
+
+LOCK TABLES `musics` WRITE;
+/*!40000 ALTER TABLE `musics` DISABLE KEYS */;
+/*!40000 ALTER TABLE `musics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  KEY `password_resets_email_index` (`email`),
+  KEY `password_resets_token_index` (`token`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `seasons`
+--
+
+DROP TABLE IF EXISTS `seasons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `seasons` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Season` int(11) NOT NULL,
+  `Episodes` int(11) NOT NULL,
+  `Description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `serie_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `seasons_serie_id_foreign` (`serie_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `seasons`
+--
+
+LOCK TABLES `seasons` WRITE;
+/*!40000 ALTER TABLE `seasons` DISABLE KEYS */;
+/*!40000 ALTER TABLE `seasons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `series`
+--
+
+DROP TABLE IF EXISTS `series`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `series` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `series`
+--
+
+LOCK TABLES `series` WRITE;
+/*!40000 ALTER TABLE `series` DISABLE KEYS */;
+INSERT INTO `series` VALUES (1,'Pretty Little Liars','http://cdn.theatlantic.com/assets/media/img/posts/2014/01/Pretty_Little_Liars/c819ce319.jpg','2015-09-08 10:25:49','2015-09-08 10:25:49','pretty-little-liars'),(2,'Xena Warrior Princess','http://i1.wp.com/www.fiz-x.com/wp-content/uploads/2015/08/Xena-redemption.jpg?resize=620%2C412','2015-09-08 10:25:49','2015-09-08 10:25:49','xena-warrior-princess'),(3,'Orphan Black','http://www.serielizados.com/wp-content/uploads/orphan-black-tatiana-maslany-clones-sarah-alison-cosima-helena-rachel.jpg','2015-09-08 10:25:49','2015-09-08 10:25:49','orphan-black');
+/*!40000 ALTER TABLE `series` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `series_actors`
+--
+
+DROP TABLE IF EXISTS `series_actors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `series_actors` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `series_actors`
+--
+
+LOCK TABLES `series_actors` WRITE;
+/*!40000 ALTER TABLE `series_actors` DISABLE KEYS */;
+/*!40000 ALTER TABLE `series_actors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `series_characters`
+--
+
+DROP TABLE IF EXISTS `series_characters`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `series_characters` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `id_character` int(10) unsigned NOT NULL,
+  `id_serie` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `series_characters_id_serie_foreign` (`id_serie`),
+  KEY `series_characters_id_character_foreign` (`id_character`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `series_characters`
+--
+
+LOCK TABLES `series_characters` WRITE;
+/*!40000 ALTER TABLE `series_characters` DISABLE KEYS */;
+/*!40000 ALTER TABLE `series_characters` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `series_directors`
+--
+
+DROP TABLE IF EXISTS `series_directors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `series_directors` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `series_directors`
+--
+
+LOCK TABLES `series_directors` WRITE;
+/*!40000 ALTER TABLE `series_directors` DISABLE KEYS */;
+/*!40000 ALTER TABLE `series_directors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `series_infos`
+--
+
+DROP TABLE IF EXISTS `series_infos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `series_infos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Genre` enum('Horror','Action','Romantic','Drama','Other') COLLATE utf8_unicode_ci NOT NULL,
+  `Start` date NOT NULL,
+  `Finish` date NOT NULL,
+  `Description` text COLLATE utf8_unicode_ci NOT NULL,
+  `Seasons` int(11) NOT NULL,
+  `serie_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `series_infos_serie_id_foreign` (`serie_id`),
+  CONSTRAINT `series_infos_serie_id_foreign` FOREIGN KEY (`serie_id`) REFERENCES `series` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `series_infos`
+--
+
+LOCK TABLES `series_infos` WRITE;
+/*!40000 ALTER TABLE `series_infos` DISABLE KEYS */;
+INSERT INTO `series_infos` VALUES (1,'Horror','2020-10-25','0000-00-00','Pretty Little Liars (Lindas mentirosas en Latinoamérica y Pequeñas mentirosasen España) es una serie de televisión estadounidense destinada al público adolescente, basada en la saga de libros del mismo nombre, escrita por Sara Shepard. Fue estrenada el 8 de junio de 2010 en el canal ABC Family.1 El 17 de enero de 2011, MTV España empezó a emitir la serie y Boomerang Latinoaméricadio inicio a la serie el 30 de marzo de 2011. La segunda temporada se emitió el 28 de marzo del 2012 por Boomerang Latinoamérica, así como en España tuvo lugar su estreno el 29 de septiembre del 2012 por AXN White. La tercera temporada tuvo su fecha de estreno en Estados Unidos el 5 de junio del 2012 por ABC Family.2 En Latinoamérica, la tercera temporada se estrenó el 27 de marzo del 2013 porBoomerang Latinoamérica, y en España el 20 de enero de 2014 por AXN White.3\nEl 4 de octubre de 2012, ABC Family anunció que la serie sería renovada para una cuarta temporada,4 la cual comenzó a filmarse el 15 de marzo de 20135 y se estrenó en Estados Unidos el 11 de junio de 2013 por ABC Family. Debido a queBoomerang Latinoamérica eliminó casi por completo la programación juvenil para ser de nuevo un canal infantil animado, algunas series se mudaron al canal Glitz* en el cual la 4 temporada se estrenó el 23 de abril del 2014.\nEl 26 de marzo de 2013, ABC Family anunció que renovaría la serie para una quinta temporada. El día 7 de mayo de 2015 el canal TNT Series empezó a emitir la serie para Latinoamérica desde la cuarta temporada.\nEl 10 de junio de 2014, Pretty Little Liars fue renovada para una sexta y séptima temporada. En noviembre de 2014, Lucy Hale confirmó que la séptima temporada será la última de la serie. Sin embargo en Agosto de 2015, la productora ejecutiva de la serie I. Marlene King y la actriz Shay Mitchell dijerón que la séptima temporada no será la última de la serie e incluso dijerón que es muy posible que haya una octava temporada y tambien una pelicula.\n',5,1,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(2,'Horror','2020-10-25','0000-00-00','Xena: la princesa guerrera (en inglés, Xena: Warrior Princess) es una serie de televisión de culto6 7 originalmente emitida entre el 15 de septiembre de 1995 y el18 de junio de 2001. La serie fue creada en 1995 por los directores y productoresRobert Tapert y John Schulian, con la ayuda de los productores Sam Raimi y R.J. Stewart. 8 Rodada en Nueva Zelanda,5 9 se trata de una co-producción entre este país y Estados Unidos. La serie fue producida por la Pacific Renaissance Pictures Ltd, cuyos dueños son Robert Tapert y Sam Raimi, productores de la serie y distribuida por Universal Studios.10 La serie, ambientada en la Antigua Grecia, narra las aventuras de Xena (Lucy Lawless) y Gabrielle (Renée OConnor), dos grandes guerreras,que se profesaban mucho amor pero no atracción sexual como se ha especulado, además son inseparables amigas que luchan contra las injusticias de la época.\nLa serie se mantuvo en el aire durante seis temporadas en EE.UU., entre 1995 y2001,11 convirtiéndose en la más exitosa de las series sindicadas del momento y llegando a ser un auténtico fenómeno social a lo largo de todo el mundo.12 De hecho, es considerada una de las mejores series de la historia por la revista TV Guide7 y, hoy en día, el fanatismo por la serie, o fandom, continúa activo en Internet. Esta serie de aventuras, transmitida en más de ochenta y seis países de los cinco continentes,5 13 ha recibido varios premios, incluyendo un Emmy.14 Además, aprovechando el éxito de la misma, se han comercializado numerosos productos sobre ella, tales como episodios en DVD, una película, libros, cómics o videojuegos. La influencia de la serie fuera de la pantalla llega a sectores como la comunidadlésbica o la astronómica, así como a otras series de televisión y películas.\n',6,2,'2015-09-08 10:25:49','2015-09-08 10:25:49'),(3,'Horror','2020-10-25','0000-00-00','Orphan Black es una serie de televisión canadiense de ciencia ficción creada porGraeme Manson y John Fawcett, protagonizada por Tatiana Maslany en el rol de varias mujeres idénticas que se revelan como clones.\nSarah Manning (Tatiana Maslany) es una mujer que asume la identidad de su clon, Elizabeth Childs, después de presenciar el suicidio de la propia Elizabeth en las vías del tren. La serie plantea cuestiones sobre las implicaciones morales y éticas de la clonación humana y lo que esto supone en cuanto a la identidad.1 Se estrenó en el WonderCon en Anaheim, California el 29 de marzo de 2013.2\nLa primera temporada de la serie se estrenó el 30 de marzo de 2013 con un total de diez episodios por el canal Space en Canadá y por BBC America en los Estados Unidos.3 El 2 de mayo de 2013, la serie renovó para una segunda temporada de diez episodios, cuyo estreno tuvo lugar el 19 de abril de 2014.4 El 9 de julio de 2014 fue anunciada una tercera temporada de diez episodios que se estrenó el 18 de abril de 2015.5\nEl papel de las mujeres en la serie es pleno, dándole el máximo protagonismo y rompiendo con la normatividad de hombre heroico y valiente.\n',3,3,'2015-09-08 10:25:49','2015-09-08 10:25:49');
+/*!40000 ALTER TABLE `series_infos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `role` enum('user','admin') COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  UNIQUE KEY `users_username_unique` (`username`)
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Sabrina','sabrina.cuman@gmail.com','$2y$10$z.P2M41dn2aHkTGeJOYDi.4i5JAkJPINjjnHl0i4S4vqa3zuzEAUS','admin','sabrina','cOfcqt9io2','2015-09-08 10:25:46','2015-09-08 10:25:46'),(2,'Mr. Prince Abbott V','Jayson.Bradtke@Hauck.info','$2y$10$jAIsZleo7187DP5yN.TWN.N.Kh5NxpsfbpCMmR7I47UBEWhKwmVru','user','Brock27','WFG3IIjDlI','2015-09-08 10:25:49','2015-09-08 10:25:49'),(3,'Dr. Liam Leffler','Harry96@yahoo.com','$2y$10$.5KoH92Nd0W0hcMkB0HO9OkDPjMEUmziGiuapVuvNJ8HdLGVO9LPe','user','Karson87','rU1W3NYzW0','2015-09-08 10:25:49','2015-09-08 10:25:49'),(4,'Sherwood Grimes','Russell93@Rath.info','$2y$10$RZJdAqPQOR6a8uF.PsZmauGxhbErlvi0YU14n5/nN64tBMCpSNMbG','user','pCrona','bSUfi2oaa8','2015-09-08 10:25:49','2015-09-08 10:25:49'),(5,'Audra Berge','Malvina.OConner@gmail.com','$2y$10$osKbaSLSFW1fBY.FtqvkQ.RM0YTB.HchXBUieYhB9.pMMd367.hmO','user','Dooley.Jean','7HTciQ6VOw','2015-09-08 10:25:49','2015-09-08 10:25:49'),(6,'Miss Kylie Ratke','Eleanora55@yahoo.com','$2y$10$/LxFDOaczrQEBXOZXc8C7ecNVY9q8Cskzy6Rk5y/n4WAS7goQcaJ2','user','Gibson.Maynard','B425hdshvR','2015-09-08 10:25:49','2015-09-08 10:25:49'),(7,'Mozelle Hahn','nDickinson@Hand.com','$2y$10$rGwJOuuTM0zzHkRFDV6R5OMesB31UbQ9kA4LwoX.Cyyz5phPD1J3S','user','oDibbert','HHboFV3o6d','2015-09-08 10:25:49','2015-09-08 10:25:49'),(8,'Meredith Stiedemann','Stanton.Shania@yahoo.com','$2y$10$HNUe8W6qchNDDNaqElFGJ.r4Z8LOZttpDh4JRwH0U/rVlmDCL.g2y','user','mGulgowski','razk9kTzMV','2015-09-08 10:25:49','2015-09-08 10:25:49'),(9,'Asha Graham Jr.','Rupert.McDermott@yahoo.com','$2y$10$5WuW33UeqlePlKdF34PfpuG/Xrs2FDnFacfkUcg5Zsq./xU8HrEFu','user','Ethel11','vTGGX0g7Cp','2015-09-08 10:25:49','2015-09-08 10:25:49'),(10,'Andy Cole Jr.','Angus89@Homenick.com','$2y$10$7G1jdngp/G/bdL17oWqMeeTWPjpN69kqoliCTzjqMz45Cv9PYPXtG','user','Hilpert.Cedrick','IBmRCPlKcg','2015-09-08 10:25:49','2015-09-08 10:25:49'),(11,'Mr. Herminio Gislason','Stamm.Cristobal@Schuster.net','$2y$10$kcIzPEZYjMrf9/gn7qrjdeD1A2.jlo4Af5ocgcprrBOL.JjatvAX.','user','Melody62','6LFxbaKIml','2015-09-08 10:25:49','2015-09-08 10:25:49'),(12,'Drew Beahan','oTorp@hotmail.com','$2y$10$oKS9NMT9qKcYXOudhrm9v.tUrtMdYUxY7CMat0R5lLGsGeqHbWUgu','user','Justus.Schaden','5PvW1OBIYb','2015-09-08 10:25:49','2015-09-08 10:25:49'),(13,'Ari Mitchell','Cummings.Kevon@Feeney.biz','$2y$10$C2mcGCX8VXE1l9Htx8CFquXxd7agtG8dr72RAHvgEuFvvje4Ugsi6','user','Norberto20','V64Tw5aJ9N','2015-09-08 10:25:49','2015-09-08 10:25:49'),(14,'Mr. Buford Torphy','Tina.Collier@Lockman.com','$2y$10$9pEVLdkEccP3qc18TxR0XObNqIISQtsXQcMyDYJp47cS9ib9eNmiO','user','Watsica.Fatima','Jrn5YuIvcE','2015-09-08 10:25:49','2015-09-08 10:25:49'),(15,'Jordane Littel','Velma87@Volkman.com','$2y$10$yYNdyA.rR2mgEA37/o9Yj.MkU9PJ0HFXg6sh9djCtyQUCF1uVoM1u','user','Elmira19','sCXg2vHXj7','2015-09-08 10:25:49','2015-09-08 10:25:49'),(16,'Mr. Carey Streich MD','pEffertz@yahoo.com','$2y$10$beWfrh5IPeZimcM51fT.3eDY4YJgx.BqlURMptQZ8rgO1TxhwK2.u','user','Kayli.Collins','XFBRbUpN2O','2015-09-08 10:25:49','2015-09-08 10:25:49'),(17,'Shaun Dietrich','Turcotte.Shannon@yahoo.com','$2y$10$nHjZ0mYN8nHu3.R/bsMYtu9mzYxFwrWNTyXAdcuUk6funzrKTOI9G','user','Marcia.Barrows','NG5ghJn4Yj','2015-09-08 10:25:49','2015-09-08 10:25:49'),(18,'Miss Sydni Buckridge Jr.','Travon.Schuppe@gmail.com','$2y$10$59AMfkEzlntaTKVPdmAEBuo7mni5jJ9XiOdfGvPqswhebivI.IzIW','user','Jovanny72','Gr86su207m','2015-09-08 10:25:49','2015-09-08 10:25:49'),(19,'Lamont Stoltenberg PhD','Seth.Windler@yahoo.com','$2y$10$25zqa5TuMO2HDOqgZh/VO.NnLlEdaEW9x5CX3X/YZbwm442MwyvOi','user','Mann.Shany','LMhXCJEoTu','2015-09-08 10:25:49','2015-09-08 10:25:49'),(20,'Prof. Sydni Will MD','Kuhlman.Florine@gmail.com','$2y$10$IXRhas9Ha0Wef15wfOgBHOnig8ukQK6odc5sWcC1z26lw4AvSNUAm','user','Strosin.Garrett','iHE0bmbD3f','2015-09-08 10:25:49','2015-09-08 10:25:49'),(21,'Prof. General Bahringer','Stoltenberg.Bernadette@hotmail.com','$2y$10$4.0piflfizRx6p/xUCF7hOjoRQktYJbEu9dF.dGvXVZNVQrQhk2hG','user','Gerhold.Tressa','pN7IZI92kW','2015-09-08 10:25:49','2015-09-08 10:25:49'),(22,'Olin Cassin Sr.','Rosalinda.Pfannerstill@Predovic.org','$2y$10$xfx8lekzCpxsGJBEJea9XeTkFX18kIV6e8xSEMC.bO0bB2h5jdMSS','user','Litzy65','LKePm4WCei','2015-09-08 10:25:49','2015-09-08 10:25:49'),(23,'Ruthe Yost IV','Doyle.Ambrose@gmail.com','$2y$10$T0SSEpM6cyAixcnzoLOu4.M2f09lXskzGiXi4EcY.Jkcttz1K5Ipi','user','Clarabelle.Jacobson','BkOEOex38W','2015-09-08 10:25:49','2015-09-08 10:25:49'),(24,'Prof. Robbie Casper PhD','oBraun@hotmail.com','$2y$10$6C8BOPTiDrxYytGNc42uf.03fjC/fM56t2gwR2LlGMt4TCyDiXkyy','user','Deangelo49','4ZfxebiDgg','2015-09-08 10:25:49','2015-09-08 10:25:49'),(25,'Zelma Bogan MD','Wendell.Jaskolski@hotmail.com','$2y$10$lW6vOX2djqWYGohqpjwOiOhAflDqjnhqrFlRjyF1f3aBsAGmG80GS','user','Bechtelar.Amalia','h9ZwBMP2OZ','2015-09-08 10:25:49','2015-09-08 10:25:49'),(26,'Ceasar Kuhn I','Prohaska.Herminia@yahoo.com','$2y$10$ITzU/JDVRpUJwg5CsXmC3uS..ZS0pfyqUyPodjF9Q1ZsNkN1CynlW','user','Mona09','iSAUAoQXSq','2015-09-08 10:25:49','2015-09-08 10:25:49'),(27,'Mr. Earl Bailey','cWalter@yahoo.com','$2y$10$4tFVrOP3zcS9iNO.jAuqC.xXVPLt657RSyEfqvPdf.7iQX7n9EXGq','user','Lebsack.Santina','gactrX4iBn','2015-09-08 10:25:49','2015-09-08 10:25:49'),(28,'Ursula Haag','cRodriguez@yahoo.com','$2y$10$H7BOfMz5q0QTCpCF0xOTCOh/7maHwsMtPeg7y2TRLcsRxBozGtEjS','user','cBeier','mzorp5eyCy','2015-09-08 10:25:49','2015-09-08 10:25:49'),(29,'Kavon Kuhn','Ed39@Simonis.com','$2y$10$ihS15n938ZvT9zFd9JQqReqiJibmtidHDDIPYEdRbsZet6an.o9.q','user','Batz.Raphaelle','9SrgOaXd6C','2015-09-08 10:25:49','2015-09-08 10:25:49'),(30,'Dariana Kilback','Dietrich.Raheem@Nolan.com','$2y$10$qCiTcP841kD5/JgOeNkgsupdvluTGidLPdjeoLMT2kEWBM/9G87YO','user','bVolkman','Pe5JDIn8zC','2015-09-08 10:25:49','2015-09-08 10:25:49'),(31,'Justina Krajcik','Erika.Cartwright@Emard.com','$2y$10$0FwDhPJu8wjSQMvp2fMrleJaVdgeGyriqYtlQIHsBxTOFiP6xQ0Nu','user','uTillman','5kNowcipHq','2015-09-08 10:25:49','2015-09-08 10:25:49'),(32,'Deonte Nolan','mHarber@Cole.com','$2y$10$.ohhmM0MmQK8e.D853iEsuJe81NGDqLn8xSnMhr6S4yBtfqVpTrKW','user','Kenny.Zieme','Zt82pYk3EL','2015-09-08 10:25:49','2015-09-08 10:25:49'),(33,'Kaitlin VonRueden','yTrantow@gmail.com','$2y$10$lrfw2W/ao9oud2mq2i.5XualEFqhFG0DPhGjf4ukamCO.HD24olAi','user','aRunolfsson','oRR36BOAm3','2015-09-08 10:25:49','2015-09-08 10:25:49'),(34,'Prof. Aaliyah Ernser MD','Baron11@King.com','$2y$10$enttkHzBhJ5bbYZs0FxHyOlwQ95G8iHRyAm9iZTNl606r6RvdTvWe','user','Julianne.Prosacco','9GgX0JwoFb','2015-09-08 10:25:49','2015-09-08 10:25:49'),(35,'Jonatan Tremblay','lStiedemann@gmail.com','$2y$10$iBY1imGWwK0fpx0CicUaa.PGqQxEvHDj.ipBZ8l/CVZsKLJrzZKcW','user','Tyra.Cremin','xLdt88xfQh','2015-09-08 10:25:49','2015-09-08 10:25:49'),(36,'Mr. Madison Mann','Haley.Fatima@hotmail.com','$2y$10$nz2rHJE06M3hlY6x80fJwOvcaUDIGOmoawRz846m7QyGWQ838niOa','user','Noble54','eLF3lmU7iE','2015-09-08 10:25:49','2015-09-08 10:25:49'),(37,'Courtney Nikolaus','Minerva.Emmerich@hotmail.com','$2y$10$egn.T89.ZJE3CfEJiGzqXus8kAsV5ieyJ6oyJFSezIvnK42kML3sC','user','Macejkovic.Alf','yQLuVDVRig','2015-09-08 10:25:49','2015-09-08 10:25:49'),(38,'Devante Armstrong','Willow29@Wyman.info','$2y$10$E.0DCX6iVoNmC5d1rOe1UOPSJRfOz6J4mKN6StP4ZcJq9zeQEm4/O','user','Runolfsson.Nathan','12K3esc7mE','2015-09-08 10:25:49','2015-09-08 10:25:49'),(39,'Zane Hauck','Cole90@gmail.com','$2y$10$1PvLs0n9Fc7nXT16B18f7O8JdP3EyflXvxIyLYN/LDQrN8Wi3LFAS','user','vStroman','eQGQDDvJqU','2015-09-08 10:25:49','2015-09-08 10:25:49'),(40,'Preston Gulgowski','Lind.Elbert@yahoo.com','$2y$10$RPWUxvvLqbMqIZ/G0FssyuJnd4yVyvxfRp3xnvwykDCTxVUZrO.X.','user','eStokes','CbXnz3yOvK','2015-09-08 10:25:49','2015-09-08 10:25:49'),(41,'Emanuel Brekke','Riley.Parisian@Bartoletti.info','$2y$10$RSYGNZ3ZjklN3T1X/tXPJukcFqKB.L2D9o8PgIAx3aKrqn4uFAMRC','user','qWaelchi','Dsy7o1ZhyC','2015-09-08 10:25:49','2015-09-08 10:25:49'),(42,'Mrs. Alta Hamill IV','Hilbert.Sauer@yahoo.com','$2y$10$b71kErrhH8papdPR1w99LOX0iuKJD.UKkFyhBl3CfJ2zsdBh0VDGS','user','mBaumbach','p6YD7TAypD','2015-09-08 10:25:49','2015-09-08 10:25:49'),(43,'Mrs. Allison Beer Sr.','gBuckridge@yahoo.com','$2y$10$euT9Yrt4stfV3swTANQ3MOqAfVfMiaFAwnSxQKBb/oqweJparG1Ja','user','Smith.Newell','yP7W8I3F1C','2015-09-08 10:25:49','2015-09-08 10:25:49'),(44,'Caitlyn Stiedemann','Chyna.Swift@gmail.com','$2y$10$WFEPFRVWjFeG13IVONPSCuBX1Q08mgkGlG4z8FDOtWBQe8VO8Is/K','user','Araceli71','s06DVgsRH1','2015-09-08 10:25:49','2015-09-08 10:25:49'),(45,'Juana Ortiz','Letitia04@Mertz.info','$2y$10$AO1lvYqBH1mUWXhTO/O2nesKeYBZ1wYp/uAGAGKLvoZ3mvw/b/ZPC','user','Abner.Reichel','7N5osC2rYR','2015-09-08 10:25:49','2015-09-08 10:25:49'),(46,'Cortney Mohr','Nikolaus.Ezequiel@Casper.com','$2y$10$Kjx24FDGQN43e3D/3CGpBOuT2CfYF9MGmhn4wqPBrPliacf7vS9nu','user','dHalvorson','1iRU9tIioo','2015-09-08 10:25:49','2015-09-08 10:25:49'),(47,'Mr. Einar Feil III','Beatty.Ernestina@hotmail.com','$2y$10$JNg7J5SMd2MdeNCRgp7PJ.JGaHcyz3SWzLpnHOHKzMXQwe5dYsDAq','user','Jacobson.Seth','wQwH5oCXrs','2015-09-08 10:25:49','2015-09-08 10:25:49'),(48,'Morgan Daniel','Kylee.Bogisich@hotmail.com','$2y$10$F7Y1GoT4bqfJQbu60bs6y.ACe5LhRv6dQjFjeXFQkpS2qgPqdfzcu','user','tHintz','NvC9s9x782','2015-09-08 10:25:49','2015-09-08 10:25:49'),(49,'Aniya Dibbert','Loren17@Wisozk.com','$2y$10$WqjBihboOCasVK9XTpAu0uCkHuY90UwxV2uiCT.hvqGdkHtFY.ULq','user','Gleichner.Elda','EuA8Bv96fD','2015-09-08 10:25:49','2015-09-08 10:25:49'),(50,'Monique Quigley','Gudrun05@Stiedemann.com','$2y$10$ChZ6CHwulUYJtkzz/CISeuVVGojV1KQ0Ok.nVDHRZISUhmzAzvaMK','user','Homenick.Johnpaul','HT4nR7J6L9','2015-09-08 10:25:49','2015-09-08 10:25:49');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-09-08 21:20:22

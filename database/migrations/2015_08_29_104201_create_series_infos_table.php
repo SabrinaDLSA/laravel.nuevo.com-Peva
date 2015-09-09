@@ -19,14 +19,14 @@ class CreateSeriesInfosTable extends Migration
             $table->date('Start');
             $table->date('Finish');
             $table->text('Description');
-            $table->integer('Seasons');
             $table->integer('serie_id')->unsigned();
             $table->timestamps();
-
+            $table->index('serie_id');
             $table
                   ->foreign('serie_id')
                   ->references('id')
                   ->on('series');
+
 });
 }
     /**

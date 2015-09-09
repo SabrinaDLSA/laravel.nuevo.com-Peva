@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        factory(nuevo\User::class)->create([
+       factory(nuevo\User::class)->create([
           'name' => 'Sabrina',
           'password' => bcrypt('Brittana'),
           'role' => 'admin',
@@ -21,7 +21,11 @@ class DatabaseSeeder extends Seeder
           'username' => 'sabrina'
           ]);
           factory(nuevo\User::class, 49)->create();
-
+          factory(nuevo\Actors::class, 49)->create();
+          $this->call('SeriesTableSeeder');
+          $this->call('series_infos');
+          factory(nuevo\Character::class, 49)->create();
+          factory(nuevo\Episodes::class, 49)->create();
         Model::reguard();
     }
 }

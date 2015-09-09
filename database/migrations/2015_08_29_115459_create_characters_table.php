@@ -22,6 +22,7 @@ class CreateCharactersTable extends Migration
             $table->integer('serie_id')->unsigned();
             $table->text('Description');
             $table->timestamps();
+            $table->index(['actor_id', 'serie_id']);
             $table
                   ->foreign('serie_id')
                   ->references('id')

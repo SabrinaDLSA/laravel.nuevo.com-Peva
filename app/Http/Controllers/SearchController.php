@@ -7,8 +7,10 @@ use nuevo\Character;
 use nuevo\Series_info;
 use Illuminate\Http\Request;
 use DB;
-use Illuminate\Http\Request;
-
+use Input;
+use View;
+//use Illuminate\Http\Str;
+use Illuminate\Support\Str;
 use nuevo\Http\Requests;
 use nuevo\Http\Controllers\Controller;
 
@@ -19,18 +21,22 @@ class SearchController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function executeSearch()
     {
-        keywords = Input::get('keywords');
+        $keywords = Input::get('x');
 
-        $actors = Actors::all();
-        $searchActor = new \Illuminate\Database\Eloquent\Collection();
-        foreach ($actor as $a) {
-            if (Str::contains(Str::lover($a->Name), Str::lover($keywords))) {
-              $searchActor->add($a);
+        $Series = Serie::all();
+
+        $searchSeries = new  \Illuminate\Database\Eloquent\Collection();
+        foreach ($Series as $s){
+            if(Srt::contains(Str::lower($s->Name), Str::lower($keywords))) {
+              $searchSeries->add($s);
             }
         }
-        return view('welcome')->with('searchActor', $searchActor);
+
+        //$searchSeries = DB::table('series')->where('Name', 'like', '%'.$keywords.'%')->get();
+
+        return view::make('search')->with('searchSeries', $searchSeries);
     }
 
     /**

@@ -91,6 +91,7 @@ background-color: #467CE8;
   margin: 0.5%;
   float: left;
 }
+
 th{
   width: 10%;
 }
@@ -104,7 +105,7 @@ th{
   height: 300px;
 }
 .MedioDiv{
-  max-width: 50%;
+  width: 20%;
   margin: 0.5%;
   float: left;
 }

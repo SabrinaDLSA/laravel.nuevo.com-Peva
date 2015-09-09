@@ -5,16 +5,11 @@ Route::get('/',[
   ]);
 Route::get('/home','WelcomeController@index');
 // Search
-
-Route::post('executeSearch',[
-'uses' => 'SearchController@index',
-'as' => 'search'
-]);
+Route::any('executeSearch', 'SearchController@executeSearch');
 // Genre Controller
 Route::get('/series/genre/{genre}','GenreController@index' );
 
 // Seasons Controller
-
 Route::get('/serie/{slug}/{x}','SeasonController@index' );
 
 // Admin Controllers
@@ -29,7 +24,7 @@ Route::get('list/serie/{id}/delete','AdminController@delete' );
 Route::post('list/serie/{id}/refresh', 'AdminController@refresh');
 
 Route::get('list/actor/{id}/edit','AdminController@editActor' );
-Route::get('list/actor/{id}/delete','AdminController@editActor' );
+Route::get('list/actor/{id}/delete','AdminController@deleteActor' );
 Route::post('list/actor/{id}/refresh','AdminController@refreshActor' );
 //Admin Insert
 Route::post('/insert/music','AdminController@insertMusic');
@@ -57,6 +52,7 @@ Route::get('/desktop',[
   'uses' => 'UserController@index'
 ]);
 // Character Controllers
+Route::get('/characters/{Serieslug}', 'CharacterController@serieSlug' );
 Route::get('/characters',[
     'as'=> 'characters',
     'uses' => 'CharacterController@characters'

@@ -12,6 +12,12 @@
             <a href="/serie/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
           </div>
           @endforeach
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="col-md-12">
+        <div class="" align="center">
           {!! $series->render() !!}
         </div>
       </div>

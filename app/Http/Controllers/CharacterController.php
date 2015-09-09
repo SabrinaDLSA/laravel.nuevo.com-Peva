@@ -13,11 +13,7 @@ use nuevo\Http\Controllers\Controller;
 
 class CharacterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
+
     public function index($slug)
     {
         $character = DB::table('characters')->where('slug', $slug)->first();
@@ -26,26 +22,17 @@ class CharacterController extends Controller
         return view('character')->with('character', $character)->with('actors', $actors)->with('series', $series);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
     public function characters()
     {
         $characters = DB::table('characters')->paginate(20);
         return view('characters')->with('characters', $characters);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
+    public function serieSlug($Serieslug)
     {
-        //
+      $serie = DB::table('series')->where('slug', $Serieslug)->first();
+      $characters = DB::table('characters')->where('serie_id', $serie->id)->paginate(20);
+      return view('characters')->with('characters', $characters);
     }
 
     /**

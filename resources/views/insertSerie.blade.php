@@ -25,21 +25,27 @@
               <br>
               <input type="text" name="Finish" placeholder="Finish"  class="form-control">
               <br>
-              <input type="text" name="Seasons" placeholder="Seasons"  class="form-control">
+              <input type="text" name="Seasons" placeholder="Seasons"  id="seasonsData" class="form-control">
+              <br>
+              <button type="button" class="btn btn-default" id="Seasons" >Add Season</button> <button type="button" class="hide btn btn-default" id="Close"> Close</button>
+              <br>
+              <div class="hide" id="SeasonForm">
+                @include('insertSeason')
+              </div>
               <br>
               <input type="text" name="Photo" placeholder="Put here your favourite picture"  class="form-control">
               <br>
-              <input type="submit" value="Update" class="btn btn-block btn-primary">
+              <input type="submit" value="Update" id="Seasons" class="btn btn-block btn-primary">
             </fieldset>
             {!! Form::close() !!}
         </div>
-        <div class="col-md-2">
-
-        </div>
+        <div class="col-md-2"></div>
     </div>
   </div>
   <br>
   <br>
 </section>
+@section('js')
+@endsection
 @include('templates.partials.footer')
 @stop

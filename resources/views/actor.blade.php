@@ -41,13 +41,13 @@
                 <td><label for="">Name: </label>   {{$actor->Name}}</td>
               </tr>
               <tr class="active">
-                <td><label for="">Genre: </label>   {{$actor->Birthplace}}</td>
+                <td><label for="">Birthplace: </label>   {{$actor->Birthplace}}</td>
               </tr>
               <tr class="active">
-                <td><label for="">Start: </label>   {{$actor->Nationality}}</td>
+                <td><label for="">Nationality: </label>   {{$actor->Nationality}}</td>
               </tr>
               <tr class="active">
-                <td><label for="">Finish: </label>   {{$actor->Age}}</td>
+                <td><label for="">Age: </label>   {{$actor->Age}}</td>
               </tr>
           </tbody>
       </table>

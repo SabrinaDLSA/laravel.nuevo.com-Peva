@@ -17,7 +17,7 @@ class CreateSeriesCharactersTable extends Migration
             $table->timestamps();
             $table->integer('id_character')->unsigned();
             $table->integer('id_serie')->unsigned();
-
+            $table->index(['id_character', 'serie_id']);
             $table
                   ->foreign('id_serie')
                   ->references('id')
