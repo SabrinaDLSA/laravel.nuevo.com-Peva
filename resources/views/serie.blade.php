@@ -9,11 +9,12 @@
       <div class="" align="center">
         @foreach($serie as $s)
         <h2>{{$s->Name}}</h2>
-        <img src="{{$s->Photo}}" alt="{{$s->Name}}" class="img-responsive img-thumbnail" />
+        <img src="/storage/{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/>
         @endforeach
       </div>
     </div>
     <div class="col-md-4">
+      @if (!empty($characters))
       <div class="" align="center">
           <h3>Characters</h3>
           <br>
@@ -21,34 +22,35 @@
       <div class="" align="center">
         @foreach($characters as $character)
         <div class="muestra_cuadrada">
-          <a href="/character/{{$character->slug}}"><img src="{{$character->Photo}}" alt="{{$character->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+          <a href="/character/{{$character->slug}}"><img src="/storage/{{$character->Photo}}" alt="{{$character->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
         </div>
         @endforeach
       </div>
-      <div align="center">
-        <hr>
-        <br>
-        <a href="/characters/{{$s->slug}}" class=" btn btn-default btn-sm">Wanna see more Characters?</a>
-      </div>
+      @endif
     </div>
   </div>
     <div class="container">
       <div class="col-md-8">
         <hr>
         <div class="" align="center">
-          @for ($x = 1; $x <= $s->Seasons ; $x++)
-                  <a href="/serie/{{$s->slug}}/{{$x}}" class="btn btn-default btn-lg">Season {{$x}}</a>
-                  @if($x%6 == 0)
-                    <br>
-                    <br>
-                  @endif
-          @endfor
+          @if (!empty($seasons))
+          @foreach ($seasons as $x)
+                  <a href="/serie/{{$s->slug}}/{{$x->Season}}" class="btn btn-default btn-lg">Season {{$x->Season}}</a>
+          @endforeach
           <hr>
+          @endif
           <p>{{$s->Description}}</p>
         </div>
       </div>
     <div class="col-md-4">
       <div class="" align="center">
+        @if (!empty($characters))
+        <div align="center">
+          <hr>
+          <br>
+          <a href="/characters/{{$s->slug}}" class=" btn btn-default btn-sm">Wanna see more Characters?</a>
+        </div>
+        @endif
         <br>
         <br>
         <table class="table table-striped table-hover ">
@@ -71,9 +73,6 @@
               </tr>
               <tr class="active">
                 <td><label for="">Finish: </label>   {{$s->Finish}}</td>
-              </tr>
-              <tr class="active">
-                <td><label for="">Seasons: </label>   {{$s->Seasons}}</td>
               </tr>
           </tbody>
       </table>

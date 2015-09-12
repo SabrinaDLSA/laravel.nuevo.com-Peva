@@ -18,7 +18,7 @@
           <fieldset>
               <legend align="center">Editing {{$serie->Name}}</legend>
               <div class="" align="center">
-                <img class="img-responsive img-thumbnail imagenWidth" src="{{$serie->Photo}}" alt="{{$serie->Name}}" />
+                <img class="img-responsive img-thumbnail imagenWidth" src="/storage/{{$serie->Photo}}" alt="{{$serie->Name}}" />
               </div>
               <br>
               <input type="text" name="Name" value="Name: {{$serie->Name}}" class="form-control">

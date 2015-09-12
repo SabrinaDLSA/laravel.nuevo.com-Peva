@@ -79,6 +79,13 @@ background-color: #467CE8;
   text-align: center;
   padding-top: 1%;
 }
+#SemiSubtitle
+{
+  color: #345481;
+  font-size: 1.5em;
+  text-align: center;
+  padding-top: 1%;
+}
 .hide{
   display:none;
 }

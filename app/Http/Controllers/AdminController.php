@@ -3,10 +3,12 @@
 namespace nuevo\Http\Controllers;
 use nuevo\Serie;
 use nuevo\Actors;
+use nuevo\Season;
 use nuevo\Character;
 use nuevo\Series_info;
 use Illuminate\Http\Request;
 use DB;
+use \Input as Input;
 use nuevo\Http\Requests;
 use nuevo\Http\Controllers\Controller;
 
@@ -123,22 +125,37 @@ class AdminController extends Controller
         $serie_id = DB::table('series')->get();
         return view('insertCharacter')->with('actor_id', $actor_id)->with('serie_id', $serie_id);
     }
-    public function create()
+    public function create(Request $request)
     {
+          $file = $request->file('file');
+          //obtenemos el nombre del archivo
+          $nombre = $file->getClientOriginalExtension();
+          $snake = \Input::get('Name');
+          $snake = snake_case($snake);
+          $nombre = $snake.'.'.$nombre;
+          //indicamos que queremos guardar un nuevo archivo en el disco local
+          \Storage::disk('local')->put($nombre,  \File::get($file));
           $p = new Serie;
           $p->Name = \Input::get('Name');
-          $p->Photo = \Input::get('Photo');
+          $p->Photo = $nombre;
           $p->save();
           $p = new Series_info;
           $p->Genre = \Input::get('Genre');
           $p->Start = \Input::get('Start');
           $p->Finish = \Input::get('Finish');
           $p->Description = \Input::get('Description');
-          $p->Seasons = \Input::get('Seasons');
           $s =  DB::table('series')->max('id');
           $p->serie_id = $s;
           $p->save();
+          $seasons = \Input::get('Seasons');
+          for ($x = 1; $x <= $seasons ; $x++){
+              $s = new Season;
+              $s->serie_id = DB::table('series')->max('id');
+              $s->Season = $x;
+              $s->save();
+            }
           $alert = \Session::flash('alert', 'Your new post was created successfully');
+          //return "archivo guardado";
           return \Redirect::to('/list/series')->with('alert', $alert);
 
     }

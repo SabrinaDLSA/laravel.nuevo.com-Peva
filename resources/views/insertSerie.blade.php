@@ -10,10 +10,10 @@
           <div class="" align="center">
               <h1>Adding a new Serie</h1>
           </div>
-            {!! Form::open (['url' => '/insert/serie'])!!}
+            {!! Form::open(array('url' => '/insert/serie', 'files' => true, 'method' => 'post'))!!}
             <fieldset>
-              <legend align="center"></legend>
-              <input type="text" name="Name" placeholder="Name" class="form-control">
+                <input type="hidden" name="" placeholder="Name"  class="form-control">
+                <input type="text" name="Name" placeholder="Name"  class="form-control">
               <br>
               <textarea name="Description" id="editor" cols="20" rows="10" class="form-control">
                     You have to delete this in order to put another description
@@ -27,15 +27,11 @@
               <br>
               <input type="text" name="Seasons" placeholder="Seasons"  id="seasonsData" class="form-control">
               <br>
-              <button type="button" class="btn btn-default" id="Seasons" >Add Season</button> <button type="button" class="hide btn btn-default" id="Close"> Close</button>
-              <br>
-              <div class="hide" id="SeasonForm">
-                @include('insertSeason')
+              <div class="" align="center">
+                  {!! Form::file('file', ['class'=>'btn btn-default btn-file']) !!}
               </div>
               <br>
-              <input type="text" name="Photo" placeholder="Put here your favourite picture"  class="form-control">
-              <br>
-              <input type="submit" value="Update" id="Seasons" class="btn btn-block btn-primary">
+              {!! Form::submit('Save Changes' , array('class' => 'btn btn-lg btn-block')) !!}
             </fieldset>
             {!! Form::close() !!}
         </div>

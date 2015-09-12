@@ -16,7 +16,7 @@
                 <br>
                 </div>
                 <hr class="lineaBordeada">
-                <tr><td  align="center"><img class="img-responsive img-thumbnail imagenWidth" src="{{$s->Photo}}" alt="{{$s->Name}}" /></td></tr>
+                <tr><td  align="center"><img class="img-responsive img-thumbnail imagenWidth" src="/storage/{{$s->Photo}}" alt="{{$s->Name}}" /></td></tr>
                 <tr>
                   <td align="center">
                         <div class="btn-group">

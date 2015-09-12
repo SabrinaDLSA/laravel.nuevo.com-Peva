@@ -1,16 +1,21 @@
-<h3>Resultados de la búsqueda....</h3>
+
+<div class="" id="subtitle" align="center">
+  Searching.....
+</div>
 @if ( $searchActors->first() || $searchSeries->first() )
   @foreach($searchSeries as $s)
-    {{$s->Name}}
-    <br>
+  <div class="muestra_cuadrada">
+    <a href="serie/{{$s->slug}}"><img src="/storage/{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+  </div>
   @endforeach
   @foreach($searchActors as $a)
-    {{$a->Name}}
-    <br>
+  <div class="muestra_cuadrada">
+    <a href="serie/{{$a->slug}}"><img src="/storage/{{$a->Photo}}" alt="{{$a->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+  </div>
   @endforeach
   {!! $searchActors->render() !!}
 @else
-
-  <h3>There are no results!</h3>
-
+<div class="" id="SemiSubtitle" align="center">
+Sorry but...<small><br>There are no results to what you are looking for!</small>
+</div>
 @endif

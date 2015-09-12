@@ -9,7 +9,7 @@
         <div class="" align="center">
           @foreach($series as $s)
           <div class="muestra_cuadrada">
-            <a href="/serie/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+            <a href="/serie/{{$s->slug}}"><img src="/storage/{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
           </div>
           @endforeach
         </div>

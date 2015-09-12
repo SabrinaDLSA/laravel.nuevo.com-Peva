@@ -5,22 +5,21 @@
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <section>
   <div class="row-fluid">
-    <div class="container">
+    <div class="container" id="muestro">
         <div class="col-md-12">
         <div align="center">
-          <div class="ShowSearch" id="muestro">
-            Muestro
+          <div align="center" class="ShowSearch" >
           </div>
       </div>
     </div>
     <div class="container">
-        <div class="col-md-12">
+        <div class="col-md-12" >
           <div class="" align="center">
             <h3><a href="/series">Series</a></h3>
           </div>
               @foreach($series as $s)
               <div class="muestra_cuadrada">
-                <a href="serie/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+                <a href="serie/{{$s->slug}}"><img src="/storage/{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
               </div>
               @endforeach
         </div>
@@ -36,7 +35,7 @@
           <div class="">
             @foreach($actors as $a)
             <div class="MedioDiv">
-              <a href="actor/{{$a->slug}}"><img src="{{$a->Photo}}" alt="{{$a->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+              <a href="actor/{{$a->slug}}"><img src="/storage/{{$a->Photo}}" alt="{{$a->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
             </div>
             @endforeach
           </div>

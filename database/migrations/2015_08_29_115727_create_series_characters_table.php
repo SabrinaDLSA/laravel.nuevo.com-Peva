@@ -15,15 +15,15 @@ class CreateSeriesCharactersTable extends Migration
         Schema::create('series_characters', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('id_character')->unsigned();
-            $table->integer('id_serie')->unsigned();
-            $table->index(['id_character', 'serie_id']);
+            $table->integer('character_id')->unsigned();
+            $table->integer('serie_id')->unsigned();
+            $table->index(['character_id', 'serie_id']);
             $table
-                  ->foreign('id_serie')
+                  ->foreign('serie_id')
                   ->references('id')
                   ->on('series');
             $table
-                  ->foreign('id_character')
+                  ->foreign('character_id')
                   ->references('id')
                   ->on('characters');
         });

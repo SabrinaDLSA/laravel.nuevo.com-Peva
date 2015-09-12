@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="menu navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -7,12 +7,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      @if(\Auth::check())
       <a class="navbar-brand" href="{{route('home')}}">Welcome <small>{{\Auth::user()->username}}</small></a>
+      @else
+      <a class="navbar-brand" href="{{route('home')}}">Welcome</a>
+      @endif
     </div>
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-        <li><a href="{{route('home')}}">Home</a></li>
-        <li class="active"><a href="{{route('profile')}}">Profile<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="{{route('home')}}">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Comics</a></li>
+        @if(\Auth::check())
+        <li><a href="{{route('profile')}}">Profile</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">List<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -36,6 +43,7 @@
             <li><a href="/insert/character">Character</a></li>
           </ul>
         </li>
+        @endif
         <?php $type = Config::get('enums.series_types') ?>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Series <span class="caret"></span></a>
@@ -58,9 +66,15 @@
           <input type="text" class="form-control" id="fname" name="name" placeholder="Search" onkeydown="down()" onkeyup="myFunction()">
         </div>
       </form>
+      @if(\Auth::check())
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{route('logout')}}">Logout</a></li>
       </ul>
+      @else
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{route('login')}}">Login</a></li>
+      </ul>
+      @endif
     </div>
   </div>
 </nav>
