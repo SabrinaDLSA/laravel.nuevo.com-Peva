@@ -15,11 +15,11 @@
     </div>
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{{route('home')}}">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Comics</a></li>
+        <li class="active"><a href="{{route('home')}}">Home</a></li>
+        <li><a href="#" data-toggle="pill">Music</a></li>
+        <li><a href="#" data-toggle="pill">Comics</a></li>
         @if(\Auth::check())
-        <li><a href="{{route('profile')}}">Profile</a></li>
+        <li data-toggle="pill"><a href="{{route('profile')}}">Profile</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">List<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

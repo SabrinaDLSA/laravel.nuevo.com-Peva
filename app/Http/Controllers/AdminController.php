@@ -76,6 +76,8 @@ class AdminController extends Controller
     public function delete($id)
     {
       $alert = \Session::flash('alert', 'You deleted a record successfully');
+      $serie = DB::table('series')->where('id', $id)->first();
+      \File::delete('storage/'.$serie->Photo);
       $serie = Series_info::find($id)->delete();
       $serie = Serie::find($id)->delete();
       return \Redirect::to('/list/series');
@@ -83,10 +85,16 @@ class AdminController extends Controller
     public function deleteActor($id)
     {
         $alert = \Session::flash('alert', 'You deleted a record successfully');
-        $serie = Character::find($id)->delete();
-        $serie = Actors::find($id)->delete();
-        return \Redirect::to('/list/actors');
+        $character = DB::table('characters')->where('actor_id', $id)->get();
+        foreach ($character as $s) {
+          $serie = Actors::find($character->id)->delete();
+          \File::delete('storage'.$serie->Photo);
         }
+        $actor = Actors::find($id)->first();
+        $serie = Actors::find($id)->delete();
+          \File::delete('storage/'.$actor->Photo);
+        return \Redirect::to('/list/actors');
+}
 
     public function refresh($id){
         $p = Serie::find($id);
@@ -159,14 +167,22 @@ class AdminController extends Controller
           return \Redirect::to('/list/series')->with('alert', $alert);
 
     }
-    public function createActor()
+    public function createActor(Request $request)
     {
+          $file = $request->file('file');
+          //obtenemos el nombre del archivo
+          $nombre = $file->getClientOriginalExtension();
+          $snake = \Input::get('Name');
+          $snake = snake_case($snake);
+          $nombre = $snake.'.'.$nombre;
+          //indicamos que queremos guardar un nuevo archivo en el disco local
+          \Storage::disk('local')->put($nombre,  \File::get($file));
           $p = new Actors;
           $p->Name = \Input::get('Name');
           $p->Birthplace = \Input::get('Birthplace');
           $p->Nationality = \Input::get('Nationality');
           $p->Age = \Input::get('Age');
-          $p->Photo = \Input::get('Photo');
+          $p->Photo = $nombre;
           $p->Description = \Input::get('Description');
           $p->save();
           $alert = \Session::flash('alert', 'Your new Actor was created successfully');

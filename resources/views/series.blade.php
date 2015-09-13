@@ -5,7 +5,7 @@
 @include('templates.partials.navig')
 <div class="row-fluid">
     <div class="container">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="" align="center">
           @foreach($series as $s)
           <div class="muestra_cuadrada">

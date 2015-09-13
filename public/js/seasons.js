@@ -19,25 +19,3 @@ function down(){
 
   clearTimeout(timer);
 }
-/*
-$(document).ready(function(){
-      var cantSeasons = $("#Seasons").val();
-      var request = $.ajax({
-        url: "script.php",
-        type: "POST",
-        data: {id : cantSeasons},
-        dataType: "html"
-      });
-        $("#Seasons").click(function(){
-        $('#SeasonForm').removeClass( "hide" ).show();
-        $('#Close').removeClass( "hide" ).show();
-    });
-});
-
-$(document).ready(function(){
-    $("#Close").click(function(){
-        $('#SeasonForm').addClass( "hide" ).hide();
-        $('#Close').addClass( "hide" ).hide();
-    });
-});
-*/

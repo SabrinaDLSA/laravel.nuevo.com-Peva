@@ -29,59 +29,70 @@
       @endif
     </div>
   </div>
-    <div class="container">
-      <div class="col-md-8">
+  <div class="container">
+    <div class="col-md-8">
         <hr>
+        @if (!empty($seasons))
         <div class="" align="center">
-          @if (!empty($seasons))
+          <?php $cont = 1;?>
           @foreach ($seasons as $x)
-                  <a href="/serie/{{$s->slug}}/{{$x->Season}}" class="btn btn-default btn-lg">Season {{$x->Season}}</a>
+                  <a href="/serie/{{$s->slug}}/{{$x->Season}}" class="bot btn btn-default">Season {{$x->Season}}</a>
+                @if(($cont%6) == 0)
+                <br>
+                <br>
+                @endif
+          <?php $cont++; ?>
           @endforeach
+              @if(($cont%6) != 0)
+              <br>
+              <br>
+              @endif
+          </div>
           <hr>
           @endif
-          <p>{{$s->Description}}</p>
-        </div>
-      </div>
+          <div class="" align="center">
+              <p>{{$s->Description}}</p>
+          </div>
+    </div>
     <div class="col-md-4">
-      <div class="" align="center">
-        @if (!empty($characters))
-        <div align="center">
-          <hr>
-          <br>
-          <a href="/characters/{{$s->slug}}" class=" btn btn-default btn-sm">Wanna see more Characters?</a>
+        <div class="" align="center">
+          @if (!empty($characters))
+          <div align="center">
+            <hr>
+            <br>
+            <a href="/characters/{{$s->slug}}" class=" btn btn-default btn-sm">Wanna see more Characters?</a>
+          </div>
+          @endif
         </div>
-        @endif
-        <br>
-        <br>
-        <table class="table table-striped table-hover ">
-          <thead>
-            <div class="" align="center">
-              <th class="text-center">
-                {{$s->Name}}
-              </th>
-            </div>
-          </thead>
-          <tbody>
-              <tr class="active">
-                <td><label for="">Name: </label>   {{$s->Name}}</td>
-              </tr>
-              <tr class="active">
-                <td><label for="">Genre: </label>   {{$s->Genre}}</td>
-              </tr>
-              <tr class="active">
-                <td><label for="">Start: </label>   {{$s->Start}}</td>
-              </tr>
-              <tr class="active">
-                <td><label for="">Finish: </label>   {{$s->Finish}}</td>
-              </tr>
-          </tbody>
-      </table>
-      </div>
+          <br>
+          <br>
+          <div class="" align="center">
+            <table class="table table-striped table-hover ">
+              <thead>
+                <div class="" align="center">
+                  <th class="text-center">
+                    {{$s->Name}}
+                  </th>
+                </div>
+              </thead>
+              <tbody>
+                  <tr class="active">
+                    <td><label for="">Name: </label>   {{$s->Name}}</td>
+                  </tr>
+                  <tr class="active">
+                    <td><label for="">Genre: </label>   {{$s->Genre}}</td>
+                  </tr>
+                  <tr class="active">
+                    <td><label for="">Start: </label>   {{$s->Start}}</td>
+                  </tr>
+                  <tr class="active">
+                    <td><label for="">Finish: </label>   {{$s->Finish}}</td>
+                  </tr>
+              </tbody>
+          </table>
     </div>
   </div>
 </div>
-<br>
-<br>
 @endsection
 @section('footer')
 @include('templates.partials.footer')

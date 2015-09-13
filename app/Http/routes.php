@@ -11,7 +11,7 @@ Route::get('/series/genre/{genre}','GenreController@index' );
 
 // Seasons Controller
 Route::get('/serie/{slug}/{x}','SeasonController@index' );
-Route::get('/insert/serie/{archivo}', function ($archivo) {
+/*Route::get('/insert/serie/{archivo}', function ($archivo) {
      $public_path = public_path();
      $url = $public_path.'/storage/'.$archivo;
      //verificamos si el archivo existe y lo retornamos
@@ -21,7 +21,7 @@ Route::get('/insert/serie/{archivo}', function ($archivo) {
      }
      //si no se encuentra lanzamos un error 404.
      abort(404);
-});
+});*/
 // Admin Controllers
 Route::get('/list/comics','AdminController@comics');
 Route::get('/list/series','AdminController@series');

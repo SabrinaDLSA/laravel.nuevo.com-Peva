@@ -12,7 +12,7 @@
             <div class="" align="center">
                 <h1>Adding a new Actor</h1>
             </div>
-            {!! Form::open (['url' => '/insert/actor'])!!}
+            {!! Form::open(array('url' => '/insert/actor', 'files' => true, 'method' => 'post'))!!}
             <fieldset>
               <legend align="center"></legend>
               <input type="text" name="Name" placeholder="Name" class="form-control">
@@ -27,9 +27,11 @@
               <br>
               <input type="text" name="Age" placeholder="Age"  class="form-control">
               <br>
-              <input type="text" name="Photo" placeholder="Put here your favourite picture"  class="form-control">
+              <div class="" align="center">
+                  {!! Form::file('file', ['class'=>'btn btn-default btn-file']) !!}
+              </div>
               <br>
-              <input type="submit" value="Update" class="btn btn-block btn-primary">
+              {!! Form::submit('Save Changes' , array('class' => 'btn btn-lg btn-block')) !!}
             </fieldset>
             {!! Form::close() !!}
         </div>
