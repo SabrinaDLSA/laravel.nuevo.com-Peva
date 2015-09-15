@@ -26,23 +26,7 @@ class SearchController extends Controller
         $keywords = strtolower($keywords);
         $Series =  DB::table('series')->where('Name', 'like', '%'.$keywords.'%')->paginate(2);
 
-      /*  $searchSeries = new  \Illuminate\Database\Eloquent\Collection();
-        foreach ($Series as $s){
-          $var = strtolower($s->Name);
-            if(str_contains($var, $keywords)) {
-              $searchSeries->add($s);
-            }
-        }*/
         $Actors =  DB::table('actors')->where('Name', 'like', '%'.$keywords.'%')->paginate(2);
-      /*  $searchActors = new  \Illuminate\Database\Eloquent\Collection();
-        foreach ($Actors as $a){
-          $act = strtolower($a->Name);
-            if(str_contains($act, $keywords)) {
-              $searchActors->add($a);
-            }
-
-        }*/
-        //$searchSeries = DB::table('series')->where('Name', 'like', '%'.$keywords.'%')->get();
         return view::make('search')->with('searchSeries', $Series)->with('searchActors', $Actors);
     }
 

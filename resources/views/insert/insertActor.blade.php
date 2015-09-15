@@ -1,7 +1,14 @@
 @extends('templates.main')
+@section('title')
+{{'Insert Actor'}}  
+@endsection
+@section('header')
+  @include('templates.partials.header')
+@endsection
+@section('navigation')
+  @include('templates.partials.navig')
+@endsection
 @section('content')
-@include('templates.partials.header')
-@include('templates.partials.navig')
 <section>
   <div class="row-fluid">
     <div class="container">

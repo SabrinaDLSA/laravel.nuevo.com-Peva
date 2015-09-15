@@ -1,8 +1,12 @@
 @extends('templates.main')
-@section('title'){{\Auth::user()->username}}@endsection
+@section('title'){{'Actors'}}  @endsection
+@section('header')
+  @include('templates.partials.header')
+@endsection
+@section('navigation')
+  @include('templates.partials.navig')
+@endsection
 @section('content')
-@include('templates.partials.header')
-@include('templates.partials.navig')
 <div class="row-fluid">
   <div class="container">
     <div class="col-md-2"></div>

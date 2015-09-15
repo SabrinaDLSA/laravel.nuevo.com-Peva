@@ -113,12 +113,8 @@ th{
 }
 .MedioDiv{
   width: 20%;
-  margin: 0.5%;
+  margin: 0.1%;
   float: left;
-}
-.BotonDiv{
-
-
 }
 .bot{
   width: 15%;
@@ -126,7 +122,7 @@ th{
   float: left;
 }
 .Wid{
-  height: 100px;
+  height: 80px;
 }
 .nounderline{
   color: #2D43D9;

@@ -7,14 +7,14 @@
   <div class="container">
     <div class="col-md-8">
       <div class="" align="center">
-        <img src="{{$actor->Photo}}" alt="{{$actor->Name}}" class="img-responsive img-thumbnail" />
+        <img src="/storage/{{$actor->Photo}}" alt="{{$actor->Name}}" class="img-responsive img-thumbnail" />
         <h3>{{$actor->Name}}</h3>
       </div>
     </div>
     <div class="col-md-4">
       @foreach($characters as $character)
       <div class="muestra_cuadrada">
-        <a href="/character/{{$character->slug}}"><img src="{{$character->Photo}}" alt="{{$character->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+        <a href="/character/{{$character->slug}}"><img src="/storage/{{$character->Photo}}" alt="{{$character->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
       </div>
       @endforeach
     </div>

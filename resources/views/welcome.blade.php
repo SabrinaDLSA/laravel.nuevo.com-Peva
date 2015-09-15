@@ -42,7 +42,7 @@
           </div>
           <div class="" align="center">
             @foreach($actors as $a)
-            <div class="MedioDiv">
+            <div class="muestra_cuadrada">
               <a href="actor/{{$a->slug}}"><img src="/storage/{{$a->Photo}}" alt="{{$a->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
             </div>
             @endforeach

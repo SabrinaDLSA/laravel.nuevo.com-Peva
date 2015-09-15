@@ -1,18 +1,21 @@
 @extends('templates.main')
+@section('header')
+  @include('templates.partials.header')
+@endsection
+@section('navigation')
+  @include('templates.partials.navig')
+@endsection
 @section('content')
-@include('templates.partials.header')
-@include('templates.partials.navig')
 <section>
   <div class="row-fluid">
     <div class="container">
         <div class="col-md-2">
-
         </div>
         <div class="col-md-8">
           <div class="" align="center">
               <h1>Adding a new Character</h1>
           </div>
-            {!! Form::open (['url' => '/insert/character'])!!}
+            {!! Form::open(array('url' => '/insert/character', 'files' => true, 'method' => 'post'))!!}
             <fieldset>
               <legend align="center"></legend>
               <input type="text" name="Name" placeholder="Name" class="form-control">
@@ -25,8 +28,6 @@
               <br>
               <input type="text" name="Age" placeholder="Age"  class="form-control">
               <br>
-              <input type="text" name="Photo" placeholder="Put here your favourite picture"  class="form-control">
-              <br>
               <p>
                 Select Actor
               </p>
@@ -37,8 +38,12 @@
                     </p>
                     <?php $serie = nuevo\Serie::orderBy('Name')->lists('name', 'id') ?>
                       {!! Form::select('serie_id', $serie, null, ['class' => 'form-control'] )!!}
-
-                  <input type="submit" value="Update" class="btn btn-block btn-primary">
+                      <br>
+                      <div class="" align="center">
+                          {!! Form::file('file', ['class'=>'btn btn-default btn-file']) !!}
+                      </div>
+                      <br>
+                  {!! Form::submit('Save Changes' , array('class' => 'btn btn-lg btn-block')) !!}
                 </fieldset>
                 {!! Form::close() !!}
         </div>

@@ -7,13 +7,11 @@
   <div class="container">
     <div class="col-md-8">
       <div class="" align="center">
-        <img src="{{$character->Photo}}" alt="{{$character->Name}}" class="img-responsive img-thumbnail" />
+        <img src="/storage/{{$character->Photo}}" alt="{{$character->Name}}" class="img-responsive img-thumbnail" />
         <h3>{{$character->Name}}</h3>
       </div>
     </div>
-    <div class="col-md-4">
-
-    </div>
+    <div class="col-md-4"></div>
   </div>
     <div class="container">
       <div class="col-md-8">

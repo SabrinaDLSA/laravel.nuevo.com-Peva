@@ -15,7 +15,7 @@
               </div>
             @endif
             <div class="" align="center">
-              <img class="img-responsive imagenWidthList img-thumbnail" src="{{$actor->Photo}}" alt="{{$actor->Name}}" />
+              <img class="img-responsive imagenWidthList img-thumbnail" src="/storage/{{$actor->Photo}}" alt="{{$actor->Name}}" />
             </div>
             {!! Form::open (['url' => 'list/actor/'.$actor->id.'/refresh'])!!}
           <fieldset>

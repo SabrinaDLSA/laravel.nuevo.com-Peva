@@ -18,14 +18,26 @@
   @yield('header')
   @yield('navigation')
   <body>
-    <div class="container">
+    <div class="">
       @if (Session::has('errors'))
           <div class="alert alert-warning alert-dismissible" role="alert" >
             <button type="button" class="close" data-dismiss="alert">×</button>
           <strong>Oops! Something went wrong : </strong>
-            @foreach ($errors->all() as $error)
-                  {{ $error }}
-            @endforeach
+                  {{ Session::get('errors') }}
+          </div>
+      @endif
+      @if (Session::has('warning'))
+          <div class="alert alert-warning alert-dismissible" role="alert" >
+            <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Oops! Something went wrong : </strong>
+                  {{ $warning }}
+          </div>
+      @endif
+      @if (Session::has('message'))
+          <div class="alert alert-warning alert-dismissible" role="alert" >
+            <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Oops! Something went wrong : </strong>
+                  {{ $message }}
           </div>
       @endif
     </div>

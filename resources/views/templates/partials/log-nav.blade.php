@@ -18,6 +18,21 @@
         <li class="active"><a href="{{route('home')}}">Home</a></li>
         <li><a href="#" data-toggle="pill">Music</a></li>
         <li><a href="#" data-toggle="pill">Comics</a></li>
+        <?php $type = Config::get('enums.series_types') ?>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Series <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            @foreach($type as $genre)
+              <li><a href="/series/genre/{{$genre}}">{{$genre}}</a></li>
+            @endforeach
+            <li><a href="/series">All</a></li>
+            <li class="divider"></li>
+            <li><a href="{{route('actors')}}">Actors</a></li>
+            <li><a href="{{route('characters')}}">Characters</a></li>
+            <li class="divider"></li>
+            <li><a href="/series/genre/popular">Popular Ones</a></li>
+          </ul>
+        </li>
         @if(\Auth::check())
         <li data-toggle="pill"><a href="{{route('profile')}}">Profile</a></li>
         <li class="dropdown">
@@ -37,6 +52,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Insert<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/insert/serie">Serie</a></li>
+            <li><a href="/insert/season">Season</a></li>
             <li><a href="/insert/music">Music</a></li>
             <li><a href="/insert/comic">Comic</a></li>
             <li><a href="/insert/actor">Actor</a></li>
@@ -44,21 +60,6 @@
           </ul>
         </li>
         @endif
-        <?php $type = Config::get('enums.series_types') ?>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Series <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            @foreach($type as $genre)
-              <li><a href="/series/genre/{{$genre}}">{{$genre}}</a></li>
-            @endforeach
-            <li><a href="/series">All</a></li>
-            <li class="divider"></li>
-            <li><a href="{{route('actors')}}">Actors</a></li>
-            <li><a href="{{route('characters')}}">Characters</a></li>
-            <li class="divider"></li>
-            <li><a href="/series/genre/popular">Popular Ones</a></li>
-          </ul>
-        </li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">

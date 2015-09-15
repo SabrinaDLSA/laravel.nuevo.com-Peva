@@ -10,7 +10,7 @@
         <div class="" align="center">
           @foreach($characters as $s)
           <div class="muestra_cuadrada">
-            <a href="character/{{$s->slug}}"><img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
+            <a href="character/{{$s->slug}}"><img src="/storage/{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/></a>
           </div>
           @endforeach
         </div>

@@ -8,6 +8,8 @@ use nuevo\Character;
 use nuevo\Series_info;
 use Illuminate\Http\Request;
 use DB;
+use View;
+use Str;
 use \Input as Input;
 use nuevo\Http\Requests;
 use nuevo\Http\Controllers\Controller;
@@ -27,12 +29,12 @@ class AdminController extends Controller
     {
       $series = DB::table('series')
       ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->paginate(5);
-        return view('desktop')->with('series', $series);
+        return view('List.ListSeries')->with('series', $series);
     }
     public function actors()
     {
       $actor = DB::table('actors')->paginate(20);
-        return view('actorsList')->with('actor', $actor);
+        return view('List.actorsList')->with('actor', $actor);
     }
     public function comics(Request $request)
     {
@@ -46,19 +48,19 @@ class AdminController extends Controller
     public function characters()
     {
         $character = DB::table('characters')->paginate(20);
-          return view('charactersList')->with('character', $character);
+          return view('List.charactersList')->with('character', $character);
     }
 
     public function edit($id)
     {
       $serie = DB::table('series')->where('series.id', $id)
       ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->first();
-        return view('edit')->with('serie', $serie);
+        return view('edits.editSerie')->with('serie', $serie);
     }
     public function editActor($id)
     {
       $actor = DB::table('actors')->where('id', $id)->first();
-        return view('editActor')->with('actor', $actor);
+        return view('edits.editActor')->with('actor', $actor);
     }
     public function refreshActor($id){
         $p = Actors::find($id);
@@ -71,12 +73,21 @@ class AdminController extends Controller
         $p->resluggify();
         $p->save();
         $alert = \Session::flash('alert', 'You edited a record successfully');
-        return \Redirect::route('profile')->with('$alert', $alert);
+        return \Redirect::route('List.actorsList')->with('$alert', $alert);
     }
     public function delete($id)
     {
       $alert = \Session::flash('alert', 'You deleted a record successfully');
       $serie = DB::table('series')->where('id', $id)->first();
+      $seasons = DB::table('seasons')->where('serie_id', $id)->get();
+      $character = DB::table('characters')->where('serie_id', $id)->get();
+      foreach ($seasons as $s) {
+          $seasons = Season::find($s->id)->delete();
+      }
+      foreach ($character as $c) {
+        \File::delete('storage/'.$c->Photo);
+          $character = Character::find($c->id)->delete();
+      }
       \File::delete('storage/'.$serie->Photo);
       $serie = Series_info::find($id)->delete();
       $serie = Serie::find($id)->delete();
@@ -89,7 +100,7 @@ class AdminController extends Controller
         foreach ($character as $s) {
           $serie = Actors::find($character->id)->delete();
           \File::delete('storage'.$serie->Photo);
-        }
+          }
         $actor = Actors::find($id)->first();
         $serie = Actors::find($id)->delete();
           \File::delete('storage/'.$actor->Photo);
@@ -108,32 +119,81 @@ class AdminController extends Controller
         $s->Start = \Input::get('Start');
         $s->Finish = \Input::get('Finish');
         $s->save();
-
-        return \Redirect::to('/list/series');
+        $alert = \Session::flash('alert', 'You edited a record successfully');
+        return \Redirect::to('/list/series')->with('$alert', $alert);;
     }
     public function insert()
     {
-        return view('insertSerie');
+        return view('insert.insertSerie');
     }
     public function insertActor()
     {
-        return view('insertActor');
+        return view('insert.insertActor');
     }
     public function insertMusic()
     {
-        return view('insertMusic');
+        return view('insert.insertMusic');
     }
     public function insertComic()
     {
-        return view('insertComic');
+        return view('insert.insertComic');
+    }
+    public function insertSeason()
+    {
+        return view('insert.insertSeason');
     }
     public function insertCharacter()
     {
         $actor_id = DB::table('actors')->get();
         $serie_id = DB::table('series')->get();
-        return view('insertCharacter')->with('actor_id', $actor_id)->with('serie_id', $serie_id);
+        if ( empty($actor_id) || empty($serie_id) ) {
+          if ( empty($serie_id) ) {
+            \Session::flash('errors', 'You must add a Serie before creating a new character');
+            return view('insert.insertSerie');
+          }
+          \Session::flash('errors', 'You must add an Actor before creating a new character');
+          return view('insert.insertActor');
+        }
+        else{
+            return view('insert.insertCharacter')->with('actor_id', $actor_id)->with('serie_id', $serie_id);
+        }
+
     }
     public function create(Request $request)
+    {
+          $file = $request->file('file');
+          //obtenemos el nombre del archivo
+          $nombre = $file->getClientOriginalExtension();
+          $snake = \Input::get('Name');
+          $snake = snake_case($snake);
+          $nombre = $snake.'.'.$nombre;
+          //indicamos que queremos guardar un nuevo archivo en el disco local
+          \Storage::disk('local')->put($nombre,  \File::get($file));
+          $p = new Serie;
+          $p->Name = \Input::get('Name');
+          $p->Photo = $nombre;
+          $p->save();
+          $p = new Series_info;
+          $p->Genre = \Input::get('Genre');
+          $p->Start = \Input::get('Start');
+          $p->Finish = \Input::get('Finish');
+          $p->Description = \Input::get('Description');
+          $s =  DB::table('series')->max('id');
+          $p->serie_id = $s;
+          $p->save();
+          $seasons = \Input::get('Seasons');
+          for ($x = 1; $x <= $seasons ; $x++){
+              $s = new Season;
+              $s->serie_id = DB::table('series')->max('id');
+              $s->Season = $x;
+              $s->save();
+            }
+          $alert = \Session::flash('alert', 'Your new post was created successfully');
+          //return "archivo guardado";
+          return \Redirect::to('/list/series')->with('alert', $alert);
+
+    }
+    public function createSeason(Request $request)
     {
           $file = $request->file('file');
           //obtenemos el nombre del archivo
@@ -188,13 +248,20 @@ class AdminController extends Controller
           $alert = \Session::flash('alert', 'Your new Actor was created successfully');
           return \Redirect::to('list/actors')->with('alert', $alert);
     }
-    public function createCharacter()
+    public function createCharacter(Request $request)
     {
+          $file = $request->file('file');
+          //obtenemos el nombre del archivo
+          $nombre = $file->getClientOriginalExtension();
+          $snake = \Input::get('Name');
+          $snake = snake_case($snake);
+          $nombre = $snake.'.'.$nombre;
+          \Storage::disk('local')->put($nombre,  \File::get($file));
           $p = new Character;
           $p->Name = \Input::get('Name');
           $p->Status = \Input::get('Status');
           $p->Age = \Input::get('Age');
-          $p->Photo = \Input::get('Photo');
+          $p->Photo = $nombre;
           $p->Description = \Input::get('Description');
           $p->actor_id = \Input::get('actor_id');
           $p->serie_id = \Input::get('serie_id');
@@ -202,4 +269,14 @@ class AdminController extends Controller
           $alert = \Session::flash('alert', 'Your new Actor was created successfully');
           return \Redirect::to('/list/characters')->with('alert', $alert);
     }
+    public function getSeason(){
+      $serie_id = Input::get('valor');
+      $Season =  DB::table('seasons')->where('serie_id', $serie_id)->where('Name', '')->orderBy('id')->lists('Season', 'id');
+      return view::make('insert.seasons')->with('Season', $Season);
+    }
+/*    public function getSeason(){
+      $serie_id = Input::get('valor');
+      $Season =  DB::table('seasons')->where('serie_id', $serie_id)->where('Name', '')->orderBy('id')->lists('Season', 'id');
+      return view::make('insert.seasons')->with('Season', $Season);
+    }*/
 }

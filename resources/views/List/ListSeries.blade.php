@@ -5,9 +5,8 @@
 @include('templates.partials.navig')
 <div class="row-fluid">
   <div class="container">
-      <div class="col-md-2"></div>
-    <div class="col-md-8">
-          @foreach($character as $s)
+    <div class="col-md-12">
+          @foreach($series as $s)
           <div class="MedioDiv">
             <table class="table table-hover table-bordered Wid">
               <div class="Wid">
@@ -19,8 +18,8 @@
                 <tr>
                 <td align="center">
                       <div class="btn-group">
-                        <a href="actor/{{$s->id}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                        <a href="actor/{{$s->id}}/delete"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="serie/{{$s->id}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                        <a href="serie/{{$s->id}}/delete"class="btn btn-danger"><i class="fa fa-trash"></i></a>
                       </div>
                 </td>
                 </tr>
@@ -31,12 +30,11 @@
     <br>
     <br>
     </div>
-    <div class="col-md-2"></div>
   </div>
     <div class="container">
         <div class="col-md-12">
           <div class="" align="center">
-            {!! $character->render() !!}
+            {!! $series->render() !!}
           </div>
         </div>
     </div>
