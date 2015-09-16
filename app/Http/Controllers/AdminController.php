@@ -5,6 +5,7 @@ use nuevo\Serie;
 use nuevo\Actors;
 use nuevo\Season;
 use nuevo\Character;
+use nuevo\Episodes;
 use nuevo\Series_info;
 use Illuminate\Http\Request;
 use DB;
@@ -203,27 +204,23 @@ class AdminController extends Controller
           $nombre = $snake.'.'.$nombre;
           //indicamos que queremos guardar un nuevo archivo en el disco local
           \Storage::disk('local')->put($nombre,  \File::get($file));
-          $p = new Serie;
+          $id = \Input::get('Season');
+          $p = Season::find($id);
+          $serie_id = $p->serie_id;
           $p->Name = \Input::get('Name');
           $p->Photo = $nombre;
-          $p->save();
-          $p = new Series_info;
-          $p->Genre = \Input::get('Genre');
-          $p->Start = \Input::get('Start');
-          $p->Finish = \Input::get('Finish');
           $p->Description = \Input::get('Description');
-          $s =  DB::table('series')->max('id');
-          $p->serie_id = $s;
+          $alert = \Session::flash('alert', 'You edited a record successfully');
+          $episodes = \Input::get('Episodes');
+          $p->Episodes = $episodes;
           $p->save();
-          $seasons = \Input::get('Seasons');
-          for ($x = 1; $x <= $seasons ; $x++){
-              $s = new Season;
-              $s->serie_id = DB::table('series')->max('id');
-              $s->Season = $x;
+          for ($x = 1; $x <= $episodes ; $x++){
+              $s = new Episodes;
+              $s->serie_id = $serie_id;
+              $s->Episode = $x;
+              $s->season_id = $id;
               $s->save();
             }
-          $alert = \Session::flash('alert', 'Your new post was created successfully');
-          //return "archivo guardado";
           return \Redirect::to('/list/series')->with('alert', $alert);
 
     }

@@ -18,8 +18,11 @@
       <fieldset>
         <legend align="center">Select a Serie to add a Season</legend>
       {!! Form::open(array('url' => '/insert/season', 'files' => true, 'method' => 'post'))!!}
-        <?php $serie = nuevo\Serie::orderBy('Name')->lists('name', 'id') ?>
-        {!! Form::select('serie_id', $serie, null, array('class' => 'form-control ser', 'onchange' => 'showSeason()') )!!}
+        <?php
+        $serie = array('' =>'Please select a Serie') + nuevo\Serie::orderBy('Name')->lists('name', 'id')->toArray();
+        // $serie = nuevo\Serie::orderBy('Name')->lists('name', 'id');
+        ?>
+        {!! Form::select('serie_id', $serie, null , array('class' => 'form-control ser', 'onchange' => 'showSeason()') )!!}
           <br>
           <div class="muestro hide">
           </div>
@@ -42,6 +45,13 @@
               </fieldset>
                   {!! Form::close() !!}
                   <hr>
+              </div>
+              <div class="container">
+                <div class="col-md-12">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4"><hr class=" lineaBordeada "></div>
+                  <div class="col-md-4"></div>
+                </div>
               </div>
           </div>
         <div class="col-md-2"></div>
