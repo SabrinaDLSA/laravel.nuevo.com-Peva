@@ -1,14 +1,18 @@
 @extends('templates.main')
+@section('header')
+  @include('templates.partials.header')
+@endsection
+@section('navigation')
+  @include('templates.partials.navig')
+@endsection
 @section('content')
-@include('templates.partials.header')
-@include('templates.partials.navig')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <section>
   <div class="row-fluid">
     <div class="container" id="muestro">
         <div class="col-md-12">
         <div align="center"><div align="center" class="ShowSearch"></div></div>
-    </div>
+        </div>
     <div class="container">
         <div class="col-md-12" >
           <div class="" align="center">

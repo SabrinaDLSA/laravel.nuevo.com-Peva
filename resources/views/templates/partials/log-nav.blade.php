@@ -53,6 +53,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="/insert/serie">Serie</a></li>
             <li><a href="/insert/season">Season</a></li>
+            <li><a href="/insert/episode">Episode</a></li>
             <li><a href="/insert/music">Music</a></li>
             <li><a href="/insert/comic">Comic</a></li>
             <li><a href="/insert/actor">Actor</a></li>

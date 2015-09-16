@@ -29,11 +29,23 @@ function showSeason(){
             $('.muestro').html(markup);
         });
 }
-/*function showEpisodes(){
+function showSeasonEpisode(){
+      var valor = $('select[name=serie_id]').val();
+      $('.muestro').removeClass('hide').show();
+        $.post('http://laravel.serie.com/getSeasonEpisode',{ valor: valor},
+         function(markup){
+            $('.muestro').html(markup);
+        });
+}
+function showEpisodes(){
       var valor = $('select[name=Season]').val();
       $('.episodes').removeClass('hide').show();
         $.post('http://laravel.serie.com/getEpisodes',{ valor: valor},
          function(markup){
             $('.episodes').html(markup);
         });
-}*/
+}function showEpisode(){
+      var valor = $('select[name=Season]').val();
+      $('.formulario').removeClass('hide').show();
+
+}

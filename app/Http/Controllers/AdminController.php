@@ -1,5 +1,4 @@
 <?php
-
 namespace nuevo\Http\Controllers;
 use nuevo\Serie;
 use nuevo\Actors;
@@ -139,11 +138,22 @@ class AdminController extends Controller
     {
         return view('insert.insertComic');
     }
+    public function insertEpisode()
+    {
+
+        $serie_id = Season::orderBy('id')->where('Name', '<>', '')->lists('serie_id')->toArray();
+        $serie_id = Serie::orderBy('Name')->whereIn('id', $serie_id)->lists('name', 'id')->toArray();
+        if( empty($serie_id) ){
+        \Session::flash('errors', 'You must add a Serie before creating a new Episode');
+        return view('insert.insertSerie');
+        }
+        return view('insert.insertEpisode')->with('serie_id', $serie_id);
+    }
     public function insertSeason()
     {
         $serie_id = Serie::orderBy('Name')->lists('name', 'id')->toArray();
         if( empty($serie_id)){
-        \Session::flash('errors', 'You must add a Serie before creating a new character');
+        \Session::flash('errors', 'You must add a Serie before creating a new Season');
         return view('insert.insertSerie');
         }
         else
@@ -232,6 +242,36 @@ class AdminController extends Controller
           return \Redirect::to('/list/series')->with('alert', $alert);
 
     }
+    public function createEpisode(Request $request)
+    {
+          $file = $request->file('file');
+          //obtenemos el nombre del archivo
+          $nombre = $file->getClientOriginalExtension();
+          $snake = \Input::get('Name');
+          $snake = snake_case($snake);
+          $nombre = $snake.'.'.$nombre;
+          //indicamos que queremos guardar un nuevo archivo en el disco local
+          \Storage::disk('local')->put($nombre,  \File::get($file));
+          $id = \Input::get('Season');
+          $p = Season::find($id);
+          $serie_id = $p->serie_id;
+          $p->Name = \Input::get('Name');
+          $p->Photo = $nombre;
+          $p->Description = \Input::get('Description');
+          $alert = \Session::flash('alert', 'You edited a record successfully');
+          $episodes = \Input::get('Episodes');
+          $p->Episodes = $episodes;
+          $p->save();
+          for ($x = 1; $x <= $episodes ; $x++){
+              $s = new Episodes;
+              $s->serie_id = $serie_id;
+              $s->Episode = $x;
+              $s->season_id = $id;
+              $s->save();
+            }
+          return \Redirect::to('/list/series')->with('alert', $alert);
+
+    }
     public function createActor(Request $request)
     {
           $file = $request->file('file');
@@ -279,9 +319,14 @@ class AdminController extends Controller
       $Season =  DB::table('seasons')->where('serie_id', $serie_id)->where('Name', '')->orderBy('id')->lists('Season', 'id');
       return view::make('insert.seasons')->with('Season', $Season);
     }
-/*    public function getSeason(){
+    public function getSeasonEpisode(){
       $serie_id = Input::get('valor');
-      $Season =  DB::table('seasons')->where('serie_id', $serie_id)->where('Name', '')->orderBy('id')->lists('Season', 'id');
+      $Season =  DB::table('seasons')->where('serie_id', $serie_id)->where('Name', '<>', '' )->orderBy('id')->lists('Season', 'id');
       return view::make('insert.seasons')->with('Season', $Season);
-    }*/
+    }
+    public function getEpisodes(){
+      $season_id = Input::get('valor');
+      $Episodes =  DB::table('episodes')->where('season_id', $season_id)->where('Name', '')->orderBy('id')->lists('Episode', 'id');
+      return view::make('insert.episodes')->with('Episodes', $Episodes);
+    }
 }

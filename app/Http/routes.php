@@ -49,8 +49,11 @@ Route::post('/insert/character','AdminController@createCharacter');
 Route::get('/insert/character','AdminController@insertCharacter');
 Route::post('/insert/season','AdminController@createSeason');
 Route::get('/insert/season','AdminController@insertSeason');
+Route::post('/insert/episode','AdminController@createEpisode');
+Route::get('/insert/episode','AdminController@insertEpisode');
 Route::post('/getSeason','AdminController@getSeason');
-//Route::post('/getSeason','AdminController@getEpisodes');
+Route::post('/getSeasonEpisode','AdminController@getSeasonEpisode');
+Route::post('/getEpisodes','AdminController@getEpisodes');
 
 // User Controllers
 
