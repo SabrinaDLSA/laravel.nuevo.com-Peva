@@ -9,7 +9,7 @@
                 <div class="" align="center">
                   <h2>{{$season->Name}}</h2>
                   <hr>
-                  <img src="{{$season->Photo}}" alt="{{$season->Name}} " class="img-responsive img-thumbnail" />
+                  <img src="/storage/{{$season->Photo}}" alt="{{$season->Name}} " class="img-responsive img-thumbnail" />
                   <hr>
               </div>
             </div>
@@ -20,9 +20,11 @@
           <div class="col-md-8"><p>{{$season->Description}}</p>
             <div class="" align="center">
               @foreach($episodes as $s)
-              <div class="muestra_cuadrada">
-                <img src="{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/>
-              </div>
+                @if(!empty($s->Name) )
+                  <div class="muestra_cuadrada">
+                    <img src="/storage/{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/>
+                  </div>
+                @endif
               @endforeach
             </div>
           </div>
@@ -37,7 +39,13 @@
                       </thead>
                       <tbody>
                         <tr class="active">
-                          <td><label for="">Name: </label>{{ $season->Season }}</td>
+                          <td><label for="">Serie: </label>{{ $serie->Name }}</td>
+                        </tr>
+                        <tr class="active">
+                          <td><label for="">Name: </label>{{ $season->Name }}</td>
+                        </tr>
+                        <tr class="active">
+                          <td><label for="">Season: </label>{{ $season->Season }}</td>
                         </tr>
                         <tr class="active">
                           <td><label for="">Episodes: </label>{{ $season->Episodes }}</td>

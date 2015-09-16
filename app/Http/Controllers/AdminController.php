@@ -141,7 +141,15 @@ class AdminController extends Controller
     }
     public function insertSeason()
     {
-        return view('insert.insertSeason');
+        $serie_id = Serie::orderBy('Name')->lists('name', 'id')->toArray();
+        if( empty($serie_id)){
+        \Session::flash('errors', 'You must add a Serie before creating a new character');
+        return view('insert.insertSerie');
+        }
+        else
+        {
+            return view('insert.insertSeason')->with('serie_id', $serie_id);
+        }
     }
     public function insertCharacter()
     {

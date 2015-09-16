@@ -16,7 +16,7 @@ class SeasonController extends Controller
         $serie = DB::table('series')->where('slug', $slug)->first();
         $season = DB::table('seasons')->where('serie_id', $serie->id)->where('Season', $x)->first();
         $episodes = DB::table('episodes')->where('serie_id', $serie->id)
-        ->where('season_id', $season->Season)->get();
-        return view('seasons')->with('season', $season)->with('episodes', $episodes);
+        ->where('season_id', $season->id)->get();
+        return view('seasons')->with('season', $season)->with('episodes', $episodes)->with('serie', $serie);
     }
 }

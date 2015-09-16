@@ -18,10 +18,7 @@
       <fieldset>
         <legend align="center">Select a Serie to add a Season</legend>
       {!! Form::open(array('url' => '/insert/season', 'files' => true, 'method' => 'post'))!!}
-        <?php
-        $serie = array('' =>'Please select a Serie') + nuevo\Serie::orderBy('Name')->lists('name', 'id')->toArray();
-        // $serie = nuevo\Serie::orderBy('Name')->lists('name', 'id');
-        ?>
+        <?php $serie = array('' =>'Please select a Serie') + $serie_id;?>
         {!! Form::select('serie_id', $serie, null , array('class' => 'form-control ser', 'onchange' => 'showSeason()') )!!}
           <br>
           <div class="muestro hide">

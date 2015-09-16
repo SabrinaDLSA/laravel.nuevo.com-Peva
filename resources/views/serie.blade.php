@@ -36,11 +36,15 @@
         <div class="" align="center">
           <?php $cont = 1;?>
           @foreach ($seasons as $x)
-                  <a href="/serie/{{$s->slug}}/{{$x->Season}}" class="bot btn btn-default">Season {{$x->Season}}</a>
-                @if(($cont%6) == 0)
-                <br>
-                <br>
+                @if(!empty($x->Name))
+                      <a href="/serie/{{$s->slug}}/{{$x->Season}}" class="bot btn btn-default">Season {{$x->Season}}</a>
+                @else
+                      <a href="#" class="bot btn btn-default disabled">Season {{$x->Season}}</a>
                 @endif
+                    @if(($cont%6) == 0)
+                    <br>
+                    <br>
+                    @endif
           <?php $cont++; ?>
           @endforeach
               @if(($cont%6) != 0)
