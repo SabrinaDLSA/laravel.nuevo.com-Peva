@@ -1,7 +1,11 @@
 @extends('templates.main')
+@section('header')
+  @include('templates.partials.header')
+@endsection
+@section('navigation')
+  @include('templates.partials.navig')
+@endsection
 @section('content')
-@include('templates.partials.header')
-@include('templates.partials.navig')
 <section>
 <div class="row-fluid">
     <div class="container">
@@ -10,22 +14,28 @@
           <div class="" align="center">
               <h1>Adding a new Serie</h1>
           </div>
-            {!! Form::open(array('url' => '/insert/serie', 'files' => true, 'method' => 'post'))!!}
+            {!! Form::open(array('url' => '/insert/serie/serieValidate', 'files' => true, 'method' => 'post'))!!}
             <fieldset>
-                <input type="hidden" name="" placeholder="Name"  class="form-control">
-                <input type="text" name="Name" placeholder="Name"  class="form-control">
+                <div class="controls">
+                 {!! Form::text('Name','',array('id'=>'','class'=>'form-control span6','placeholder' => 'Please Enter your Name')) !!}
+                 @if ($errors->has('Name'))<p style="color:red;">{!!$errors->first('Name')!!}</p>@endif
+                 </div>
               <br>
               <textarea name="Description" id="editor" cols="20" rows="10" class="form-control">
                     You have to delete this in order to put another description
               </textarea>
               <br>
               {!! Form::select('Genre', [ '' =>'Select a Genre'] + Config::get('enums.series_types'),null, ['class' => 'form-control'])  !!}
+              @if ($errors->has('Genre'))<p style="color:red;">{!!$errors->first('Genre')!!}</p>@endif
               <br>
-              <input type="text" name="Start" placeholder="Start"  class="form-control">
+              {!! Form::input('date', 'Start', null, ['class'=> 'form-control']) !!}
+              @if ($errors->has('Start'))<p style="color:red;">{!!$errors->first('Start')!!}</p>@endif
               <br>
-              <input type="text" name="Finish" placeholder="Finish"  class="form-control">
+              {!! Form::input('date', 'Finish', null, ['class'=> 'form-control']) !!}
+              @if ($errors->has('Finish'))<p style="color:red;">{!!$errors->first('Finish')!!}</p>@endif
               <br>
               <input type="text" name="Seasons" placeholder="Seasons"  id="seasonsData" class="form-control">
+              @if ($errors->has('Seasons'))<p style="color:red;">{!!$errors->first('Seasons')!!}</p>@endif
               <br>
               <div class="" align="center">
                   {!! Form::file('file', ['class'=>'btn btn-default btn-file']) !!}

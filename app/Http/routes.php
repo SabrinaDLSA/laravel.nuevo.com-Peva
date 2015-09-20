@@ -43,8 +43,13 @@ Route::post('/insert/actor','AdminController@createActor');
 Route::get('/insert/actor', 'AdminController@insertActor');
 Route::post('/insert/comic','AdminController@insertComic');
 Route::get('/insert/comic', 'AdminController@insert');
-Route::post('/insert/serie','AdminController@create');
-Route::get('/insert/serie','AdminController@insert');
+
+Route::post('/insert/serie','AdminController@store');
+Route::get('/insert/serie','AdminController@create');
+Route::get('/insert/serie/serieValidate',  function() {return View::make('insert.insertSerie');});
+Route::post('/insert/serie/serieValidate', 'SeriesController@serieValidate');
+
+
 Route::post('/insert/character','AdminController@createCharacter');
 Route::get('/insert/character','AdminController@insertCharacter');
 Route::post('/insert/season','AdminController@createSeason');
@@ -54,6 +59,8 @@ Route::get('/insert/episode','AdminController@insertEpisode');
 Route::post('/getSeason','AdminController@getSeason');
 Route::post('/getSeasonEpisode','AdminController@getSeasonEpisode');
 Route::post('/getEpisodes','AdminController@getEpisodes');
+
+
 
 // User Controllers
 

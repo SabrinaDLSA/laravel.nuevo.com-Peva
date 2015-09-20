@@ -19,11 +19,22 @@
   @yield('navigation')
   <body>
     <div class="">
-      @if (Session::has('errors'))
+
+    {{--  @if (Session::has('errors'))
           <div class="alert alert-warning alert-dismissible" role="alert" >
             <button type="button" class="close" data-dismiss="alert">×</button>
           <strong>Oops! Something went wrong : </strong>
-                  {{ Session::get('errors') }}
+                comentar esto después {{ Session::get('errors') }}
+                @foreach ($errors->all() as $error)
+                {{ $error }}<br/>
+                @endforeach
+          </div>
+      @endif
+      @if (Session::has('err'))
+          <div class="alert alert-warning alert-dismissible" role="alert" >
+            <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Oops! Something went wrong : </strong>
+                {{ Session::get('err') }}
           </div>
       @endif
       @if (Session::has('warning'))
@@ -33,13 +44,13 @@
                   {{ $warning }}
           </div>
       @endif
-      @if (Session::has('message'))
+      @if (Session::has('alert'))
           <div class="alert alert-warning alert-dismissible" role="alert" >
             <button type="button" class="close" data-dismiss="alert">×</button>
           <strong>Oops! Something went wrong : </strong>
-                  {{ $message }}
+                    {{ Session::get('alert') }}
           </div>
-      @endif
+      @endif--}}
     </div>
     @yield('content')
   </body>

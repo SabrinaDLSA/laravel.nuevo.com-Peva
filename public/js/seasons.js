@@ -49,3 +49,25 @@ function showEpisodes(){
       $('.formulario').removeClass('hide').show();
 
 }
+$(document).ready(function() {
+    $("#Form").submit(function(e){
+      e.preventDefault();
+      var agreeBox = document.getElementById('terms');
+      if (!agreeBox.checked){
+          preventDefault();
+          alert('You must agree!');
+           form.agree.focus();
+          return false;
+      }
+      return true;
+});
+});
+function validate(){
+    var agreeBox = document.getElementById('terms');
+    if (!agreeBox.checked){
+        preventDefault();
+        alert('You must agree!');
+         form.agree.focus();
+         return false;
+    }
+}

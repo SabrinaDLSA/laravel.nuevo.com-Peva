@@ -26,7 +26,7 @@ class UserController extends Controller
 
   public function logout()
   {
-      \AUth::logout();
+      \Auth::logout();
       return \Redirect::route('home');
   }
 }
