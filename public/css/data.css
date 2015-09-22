@@ -17,9 +17,17 @@
 .white{
   color: white;
 }
-
+.blue{
+  background-color: #2F7EC6;
+}
+#warning-p{
+  color: red;
+}
 .lista{
   list-style-type:none;
+}
+#close{
+  float: right;
 }
 section{
   height: auto;

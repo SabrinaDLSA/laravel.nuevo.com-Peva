@@ -5,6 +5,7 @@ use nuevo\Actors;
 use nuevo\Season;
 use nuevo\Character;
 use nuevo\Episodes;
+use nuevo\notes;
 use nuevo\Series_info;
 use DB;
 use View;
@@ -30,7 +31,7 @@ class AdminController extends Controller
     public function series()
     {
       $series = DB::table('series')
-      ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->paginate(5);
+      ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->paginate(8);
         return view('List.ListSeries')->with('series', $series);
     }
     public function actors()
@@ -305,5 +306,22 @@ class AdminController extends Controller
       // Getting all data after success validation.
       print_r($request->all());die;
       // do your stuff here.
+    }
+    public function getId()
+    {
+      return $this->id;
+    }
+    public function notes(){
+      if (\Auth::check())
+        {
+             $userId = \Auth::id();
+        }
+      $p = notes::firstOrCreate(array('user_id' => $userId));
+      $p->title = \Input::get('title');
+      $p->content = \Input::get('content');
+      $p->user_id = $userId;
+      $p->save();
+      \Session::flash('success', 'Your notes were Updated!!');
+      return \Redirect::back();
     }
 }

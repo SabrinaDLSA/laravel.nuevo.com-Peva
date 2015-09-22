@@ -8,7 +8,7 @@ Route::get('/home','WelcomeController@index');
 Route::any('executeSearch', 'SearchController@executeSearch');
 // Genre Controller
 Route::get('/series/genre/{genre}','GenreController@index' );
-
+Route::post('/edit/notes','AdminController@notes' );
 // Seasons Controller
 Route::get('/serie/{slug}/{x}','SeasonController@index' );
 /*Route::get('/insert/serie/{archivo}', function ($archivo) {
@@ -29,13 +29,13 @@ Route::get('/list/actors','AdminController@actors');
 Route::get('/list/music','AdminController@music');
 Route::get('/list/characters','AdminController@characters');
 //Admin Edit
-Route::get('list/serie/{id}/edit','AdminController@edit' );
-Route::get('list/serie/{id}/delete','AdminController@delete' );
-Route::post('list/serie/{id}/refresh', 'AdminController@refresh');
+Route::get('/list/serie/{id}/edit','AdminController@edit' );
+Route::get('/list/serie/{id}/delete','AdminController@delete' );
+Route::post('/list/serie/{id}/refresh', 'AdminController@refresh');
 
-Route::get('list/actor/{id}/edit','AdminController@editActor' );
-Route::get('list/actor/{id}/delete','AdminController@deleteActor' );
-Route::post('list/actor/{id}/refresh','AdminController@refreshActor' );
+Route::get('/list/actor/{id}/edit','AdminController@editActor' );
+Route::get('/list/actor/{id}/delete','AdminController@deleteActor' );
+Route::post('/list/actor/{id}/refresh','AdminController@refreshActor' );
 //Admin Insert
 Route::post('/insert/music','AdminController@insertMusic');
 Route::get('/insert/music','AdminController@insert');

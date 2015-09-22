@@ -30,7 +30,7 @@ class SeriesController extends Controller
       ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->get();
       $id = DB::table('series')->where('slug', $slug)->first();
       $seasons = DB::table('seasons')->where('serie_id', $id->id)->orderBy('Season')->get();
-      $characters = DB::table('characters')->where('serie_id', $id->id)->limit(6)->get();
+      $characters = DB::table('characters')->where('serie_id', $id->id)->limit(8)->get();
       return view('serie')
       ->with('serie', $serie)->with('characters', $characters)->with('seasons', $seasons);
     }
@@ -44,15 +44,15 @@ class SeriesController extends Controller
       $serieData = Input::all();
       // setting up custom error messages for the field validation
        $messages = [
-           'Name.required' => 'Please enter serie Name',
+           'Name.required' => 'All series must have  a name',
            'Description.required' => 'Please enter a Description',
-           'Name.unique' => 'That name of Serie already exists',
+           'Name.unique' => 'That Serie already exists',
            'file.required' => 'A Photogaph must be added in order to identify the serie',
            'Finish.after' => 'Finish date can not be a date before the Start date',
-           'Genre.required' => 'You have to choose a Genre, you can choose Other if you are not sure',
-           'Seasons.required' => 'The serie must have at least one season',
-           'Seasons.min' => 'Please check that you enter a valid number of seasons, it must have at least one',
-           'Photo.image' => 'Please check that you upload an image and not other kind of file',
+           'Genre.required' => 'You have to choose a Genre, you can choose `Other` if you are not sure which fits',
+           'Seasons.required' => 'Series must at least have one season',
+           'Seasons.min' => 'Please check that you entered a valid number of seasons, Series must at least  have one of them',
+           'Photo.image' => 'Please check that you uploaded an image and not other kind of file',
 
        ];
       $rules = [

@@ -3,6 +3,7 @@
 namespace nuevo\Http\Controllers\Auth;
 
 use nuevo\User;
+use nuevo\notes;
 use Validator;
 use nuevo\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;

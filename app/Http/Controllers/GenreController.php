@@ -15,7 +15,13 @@ class GenreController extends Controller
     {
       $series = DB::table('series')
       ->join('series_infos', 'series.id', '=', 'series_infos.serie_id')->where('Genre', $genre)->paginate(25);
-        return view('series')->with('series', $series);
+      if($series->first()){
+          return view('series')->with('series', $series);
+      }
+      else {
+        \Session::flash('alert', 'Sorry!! There are no Series with that genre');
+        return \Redirect::back();
+      }
     }
 
 }

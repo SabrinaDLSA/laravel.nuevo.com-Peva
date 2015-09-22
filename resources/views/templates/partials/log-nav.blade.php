@@ -8,16 +8,16 @@
         <span class="icon-bar"></span>
       </button>
       @if(\Auth::check())
-      <a class="navbar-brand" href="{{route('home')}}">Welcome <small>{{\Auth::user()->username}}</small></a>
+      <a class="navbar-brand" href="{{route('home')}}"> Welcome <small>{{\Auth::user()->username}}</small></a>
       @else
-      <a class="navbar-brand" href="{{route('home')}}">Welcome</a>
+      <a class="navbar-brand" href="{{route('home')}}"> Welcome</a>
       @endif
     </div>
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{{route('home')}}">Home</a></li>
-        <li><a href="#" data-toggle="pill">Music</a></li>
-        <li><a href="#" data-toggle="pill">Comics</a></li>
+      <ul class="nav navbar-nav nav-pills">
+        <li class="active" ><a  href="{{route('home')}}">Home</a></li>
+        <li ><a href="#">Music</a></li>
+        <li><a href="#">Comics</a></li>
         <?php $type = Config::get('enums.series_types') ?>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Series <span class="caret"></span></a>
@@ -34,7 +34,7 @@
           </ul>
         </li>
         @if(\Auth::check())
-        <li data-toggle="pill"><a href="{{route('profile')}}">Profile</a></li>
+        <li><a href="{{route('profile')}}">Profile</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">List<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

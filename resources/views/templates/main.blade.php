@@ -12,6 +12,7 @@
     <script src="{{asset('js/animatescroll.min.js')}}"></script>
     <script src="{{asset('js/trumbowyg.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('css/data.css')}}">
+    <link rel="stylesheet" href="{{asset('css/notes.css')}}">
     <script src="{{asset('js/search.js')}}"></script>
     <script src="{{asset('js/seasons.js')}}"></script>
   </head>
@@ -19,6 +20,18 @@
   @yield('navigation')
   <body>
     <div class="">
+      @if(\Session::has('alert'))
+          <div class="alert alert-dismissible alert-warning">
+              <button type="button" class="close" data-dismiss="alert">Close</button>
+              <strong>{{ Session::get('alert') }}</strong>
+          </div>
+      @endif
+      @if(\Session::has('success'))
+          <div class="alert alert-dismissible alert-success">
+              <button type="button" class="close" data-dismiss="alert">Close</button>
+              <strong>{{ Session::get('success') }}</strong>
+          </div>
+      @endif
 
     {{--  @if (Session::has('errors'))
           <div class="alert alert-warning alert-dismissible" role="alert" >

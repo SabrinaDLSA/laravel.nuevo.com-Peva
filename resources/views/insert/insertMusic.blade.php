@@ -17,9 +17,7 @@
               <legend align="center"></legend>
               <input type="text" name="Name" placeholder="Name" class="form-control">
               <br>
-              <textarea name="Description" id="editor" cols="20" rows="10" class="form-control">
-                    You have to delete this in order to put another description
-              </textarea>
+              <textarea name="Description" id="editor" cols="20" rows="10" class="form-control" placeholder="You have to delete this in order to put another description"></textarea>
               <br>
               <input type="text" name="Birthplace" placeholder="Birthplace"  class="form-control">
               <br>
