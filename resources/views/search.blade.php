@@ -17,6 +17,6 @@
   {!! $searchActors->render() !!}
 @else
 <div class="" id="SemiSubtitle" align="center">
-Sorry but...<small><br>There are no results for what you are searching!</small>
+Sorry but...<small><br>It seems like we couldn't find anything</small>
 </div>
 @endif

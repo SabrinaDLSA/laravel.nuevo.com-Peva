@@ -16,7 +16,7 @@
             <hr>
       </div>
       <fieldset>
-        <legend align="center">Select a Serie to add a Season</legend>
+        <legend align="center">Select a Serie to add an Episode</legend>
       {!! Form::open(array('url' => '/insert/episode', 'files' => true, 'method' => 'post'))!!}
           <?php $serie = array('' =>'Please select a Serie') + $serie_id;?>
         {!! Form::select('serie_id', $serie, null , array('class' => 'form-control ser', 'onchange' => 'showSeasonEpisode()') )!!}
@@ -29,12 +29,7 @@
           <div class="formulario hide">
             <input type="text" name="Name" placeholder="Name" class="form-control">
               <br>
-              <textarea name="Description" id="editor" cols="20" rows="10" class="form-control">
-                  You have to delete this in order to put another description
-              </textarea>
-              <br>
-              <p>Episodes:</p>
-              <input type="number" name="Episodes" placeholder="1"  class="form-control">
+              <textarea name="Description" id="editor" cols="20" rows="10" class="form-control" placeholder="Write here the description"></textarea>
               <br>
               <div class="" align="center">
                   {!! Form::file('file', ['class'=>'btn btn-default btn-file']) !!}

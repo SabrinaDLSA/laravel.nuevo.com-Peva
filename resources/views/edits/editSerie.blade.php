@@ -49,7 +49,7 @@
                     <p>Are you sure you want to edit this?</p>
                   </div>
                   <div class="modal-footer">
-                    {!! Form::submit('Save Changes' , array('class' => 'btn btn-default')) !!}
+                    {!! Form::submit('Edit!' , array('class' => 'btn btn-default')) !!}
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                   </div>
                 </div>

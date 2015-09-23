@@ -224,23 +224,13 @@ class AdminController extends Controller
           $nombre = $snake.'.'.$nombre;
           //indicamos que queremos guardar un nuevo archivo en el disco local
           \Storage::disk('local')->put($nombre,  \File::get($file));
-          $id = \Input::get('Season');
-          $p = Season::find($id);
-          $serie_id = $p->serie_id;
+          $id = \Input::get('Episodes');
+          $p = Episodes::find($id);
           $p->Name = \Input::get('Name');
           $p->Photo = $nombre;
           $p->Description = \Input::get('Description');
-          \Session::flash('success', 'You edited a record successfully');
-          $episodes = \Input::get('Episodes');
-          $p->Episodes = $episodes;
           $p->save();
-          for ($x = 1; $x <= $episodes ; $x++){
-              $s = new Episodes;
-              $s->serie_id = $serie_id;
-              $s->Episode = $x;
-              $s->season_id = $id;
-              $s->save();
-            }
+          \Session::flash('success', 'You edited a record successfully');
           return \Redirect::to('/list/series');
 
     }

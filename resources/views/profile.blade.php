@@ -10,6 +10,14 @@
 <section>
   <div class="row-fluid">
     <div class="container">
+      <div class="col-md-12">
+        <div align="center" class="">
+          <?php $foo = \Auth::user()->name; $foo = ucwords(strtolower($foo));  ?>
+          <h2>Welome back {{$foo}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="container">
           <div class="col-md-2">
             <div class="margin_cero">
               <div class="panel-group">

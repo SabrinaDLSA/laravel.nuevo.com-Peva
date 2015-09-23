@@ -22,8 +22,26 @@
                 <tr>
                 <td align="center">
                       <div class="btn-group">
-                        <a href="/list/serie/{{$s->id}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                        <a data-toggle="modal"  data-target="#myModal" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="/list/serie/{{$s->id}}/edit"  class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                        <a data-toggle="modal" data-id="{{$s->id}}"  data-target="#myModal{{$s->id}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                      </div>
+                      <div id="myModal{{$s->id}}" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Add Serie</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>Are you sure you want to delete {{$s->Name}}?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <a href="/list/serie/{{$s->id}}/delete" class="btn btn-default" >Yes</a>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                 </td>
                 </tr>
@@ -32,24 +50,6 @@
               </table>
           </div>
           @endforeach
-          <div id="myModal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Add Serie</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Are you sure you want to delete {{$s->Name}}?</p>
-                </div>
-                <div class="modal-footer">
-                  <a href="/list/serie/{{$s->id}}/delete" class="btn btn-default" >Yes</a>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-              </div>
-            </div>
-          </div>
     <br>
     <br>
     </div>

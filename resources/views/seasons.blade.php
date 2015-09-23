@@ -22,9 +22,10 @@
               @foreach($episodes as $s)
                 @if(!empty($s->Name) )
                   <div class="muestra_cuadrada">
+                    Episode {{$s->Episode}}
                     <img src="/storage/{{$s->Photo}}" alt="{{$s->Name}}" class="imagenWidth img-responsive img-thumbnail"/>
                   </div>
-                @endif
+                  @endif
               @endforeach
             </div>
           </div>
