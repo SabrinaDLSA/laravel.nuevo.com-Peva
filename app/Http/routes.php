@@ -8,7 +8,7 @@ Route::get('/home','WelcomeController@index');
 Route::any('executeSearch', 'SearchController@executeSearch');
 // Genre Controller
 Route::get('/series/genre/{genre}','GenreController@index' );
-Route::post('/edit/notes','AdminController@notes' );
+Route::post('/edit/notes','NotesController@create' );
 // Seasons Controller
 Route::get('/serie/{slug}/{x}','SeasonController@index' );
 /*Route::get('/insert/serie/{archivo}', function ($archivo) {
@@ -60,7 +60,9 @@ Route::post('/getSeason','AdminController@getSeason');
 Route::post('/getSeasonEpisode','AdminController@getSeasonEpisode');
 Route::post('/getEpisodes','AdminController@getEpisodes');
 
+//Notes Controller
 
+Route::get('/notes/delete','NotesController@destroy');
 
 // User Controllers
 

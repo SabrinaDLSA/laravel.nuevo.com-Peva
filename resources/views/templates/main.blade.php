@@ -19,24 +19,26 @@
   @yield('header')
   @yield('navigation')
   <body>
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div align="center" class="Heid">
-          @if(\Session::has('alert'))
-              <div class="alert alert-dismissible alert-warning">
-                  <button type="button" class="close" data-dismiss="alert">Close</button>
-                  <strong>{{ Session::get('alert') }}</strong>
-              </div>
-          @endif
-          @if(\Session::has('success'))
-              <div class="alert alert-dismissible alert-success">
-                  <button type="button" class="close" data-dismiss="alert">Close</button>
-                  <strong>{{ Session::get('success') }}</strong>
-              </div>
-          @endif
+    <div class="container">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div align="center" class="Heid">
+            @if(\Session::has('alert'))
+                <div class="alert alert-dismissible alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">Close</button>
+                    <strong>{{ Session::get('alert') }}</strong>
+                </div>
+            @endif
+            @if(\Session::has('success'))
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">Close</button>
+                    <strong>{{ Session::get('success') }}</strong>
+                </div>
+            @endif
+        </div>
       </div>
+      <div class="col-md-4"></div>
     </div>
-    <div class="col-md-4"></div>
     @yield('content')
   </body>
   @yield('js')

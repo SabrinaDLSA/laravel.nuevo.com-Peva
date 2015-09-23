@@ -36,6 +36,9 @@
               <div  data-toggle="modal" data-target="#myModal" class="quote-container">
                 <i class="pin"></i>
                 <blockquote class="note blue">
+                  <div class="" id="close">
+                    <a href="/notes/delete" alt="Eliminar notas"><i class="fa fa-minus"></i></a>
+                  </div>
                   @foreach($notes as $n)
                     {{$n->title}}
                     <cite class="author">{{$n->content}}</cite>
