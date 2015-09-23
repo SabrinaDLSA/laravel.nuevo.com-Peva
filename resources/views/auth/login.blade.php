@@ -42,9 +42,9 @@
                 </div>
                 <div class="form-group">
                   <div class="col-lg-6 col-lg-offset-2">
-                    <a href="{{route('register')}}">Wanna create an account?</a>
+                    <a href="{{route('register')}}" data-toggle="tooltip" title="Register!">Wanna create an account?</a>
                     <br>
-                    <a href="#">Lost your password?</a>
+                    <a href="#" data-toggle="tooltip" title="Recover your Password!" >Lost your password?</a>
                   </div>
                 </div>
               </fieldset>

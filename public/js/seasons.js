@@ -78,3 +78,6 @@ function showWelcome(){
         $('#muestro').addClass('hide');
         $('.welcome').removeClass('hide').show();
     }
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip(); 
+});

@@ -19,52 +19,24 @@
   @yield('header')
   @yield('navigation')
   <body>
-    <div class="">
-      @if(\Session::has('alert'))
-          <div class="alert alert-dismissible alert-warning">
-              <button type="button" class="close" data-dismiss="alert">Close</button>
-              <strong>{{ Session::get('alert') }}</strong>
-          </div>
-      @endif
-      @if(\Session::has('success'))
-          <div class="alert alert-dismissible alert-success">
-              <button type="button" class="close" data-dismiss="alert">Close</button>
-              <strong>{{ Session::get('success') }}</strong>
-          </div>
-      @endif
-
-    {{--  @if (Session::has('errors'))
-          <div class="alert alert-warning alert-dismissible" role="alert" >
-            <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>Oops! Something went wrong : </strong>
-                comentar esto después {{ Session::get('errors') }}
-                @foreach ($errors->all() as $error)
-                {{ $error }}<br/>
-                @endforeach
-          </div>
-      @endif
-      @if (Session::has('err'))
-          <div class="alert alert-warning alert-dismissible" role="alert" >
-            <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>Oops! Something went wrong : </strong>
-                {{ Session::get('err') }}
-          </div>
-      @endif
-      @if (Session::has('warning'))
-          <div class="alert alert-warning alert-dismissible" role="alert" >
-            <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>Oops! Something went wrong : </strong>
-                  {{ $warning }}
-          </div>
-      @endif
-      @if (Session::has('alert'))
-          <div class="alert alert-warning alert-dismissible" role="alert" >
-            <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>Oops! Something went wrong : </strong>
-                    {{ Session::get('alert') }}
-          </div>
-      @endif--}}
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div align="center" class="Heid">
+          @if(\Session::has('alert'))
+              <div class="alert alert-dismissible alert-warning">
+                  <button type="button" class="close" data-dismiss="alert">Close</button>
+                  <strong>{{ Session::get('alert') }}</strong>
+              </div>
+          @endif
+          @if(\Session::has('success'))
+              <div class="alert alert-dismissible alert-success">
+                  <button type="button" class="close" data-dismiss="alert">Close</button>
+                  <strong>{{ Session::get('success') }}</strong>
+              </div>
+          @endif
+      </div>
     </div>
+    <div class="col-md-4"></div>
     @yield('content')
   </body>
   @yield('js')

@@ -34,11 +34,6 @@ section{
   padding-top: 65px;
 }
 
-footer{
-  background-color: #3381BF;
-  max-height: 220px;
-  border-top: 4px solid #2D43D9;
-}
 .active{
   background-color: #345481;
 }
@@ -58,10 +53,11 @@ background-position: center;
 background-attachment:fixed;
 }
 footer{
-min-height: 30vh;
-background-position: center;
-background-attachment:fixed;
-background-color: #467CE8;
+  min-height: 40vh;
+  background-position: center;
+  background-attachment:fixed;
+  background-color: #467CE8;
+  border-top: 4px solid #2D43D9;
 }
 
 .btn-web{
@@ -132,7 +128,54 @@ th{
 .Wid{
   height: 80px;
 }
+.Heid{
+  width: 500px;
+}
 .nounderline{
   color: #2D43D9;
   text-decoration: none;
 }
+.margin_cero{
+  margin-left: -70px;
+  padding: 0 0 ;
+}
+@media screen and ( max-width: 500px){
+
+  #title
+  {
+    color: #325075;
+    font-size: 3em;
+    text-align: center;
+    padding-top: 1%;
+  }
+
+  #subtitle
+  {
+    color: #345481;
+    font-size: 1em;
+    text-align: center;
+    padding-top: 1%;
+  }
+  #SemiSubtitle
+  {
+    color: #345481;
+    font-size: 0.5em;
+    text-align: center;
+    padding-top: 1%;
+  }
+
+  header{
+  background-image: url('https://images.unsplash.com/photo-1429734160945-4f85244d6a5a?fit=crop&fm=jpg&h=700&q=80&w=1050');
+  min-height: 25vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment:fixed;
+  }
+
+  footer{
+  min-height: 20vh;
+  background-position: center;
+  background-attachment:fixed;
+  background-color: #467CE8;
+  border-top: 2px solid #2D43D9;
+  }

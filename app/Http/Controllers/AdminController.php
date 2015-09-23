@@ -124,7 +124,7 @@ class AdminController extends Controller
         $s->Start = \Input::get('Start');
         $s->Finish = \Input::get('Finish');
         $s->save();
-        \Session::flash('alert', 'You edited a record successfully');
+        \Session::flash('success', 'You edited a record successfully');
         return \Redirect::to('/list/series');
     }
 
@@ -169,10 +169,10 @@ class AdminController extends Controller
         $serie_id = DB::table('series')->get();
         if ( empty($actor_id) || empty($serie_id) ) {
           if ( empty($serie_id) ) {
-            \Session::flash('err', 'You must add a Serie before creating a new character');
+            \Session::flash('alert', 'You must add a Serie before creating a new character');
             return view('insert.insertSerie');
           }
-          \Session::flash('err', 'You must add an Actor before creating a new character');
+          \Session::flash('alert', 'You must add an Actor before creating a new character');
           return view('insert.insertActor');
         }
         else{
@@ -200,7 +200,7 @@ class AdminController extends Controller
           $p->Name = \Input::get('Name');
           $p->Photo = $nombre;
           $p->Description = \Input::get('Description');
-          \Session::flash('alert', 'You edited a record successfully');
+          \Session::flash('success', 'You edited a record successfully');
           $episodes = \Input::get('Episodes');
           $p->Episodes = $episodes;
           $p->save();
@@ -230,7 +230,7 @@ class AdminController extends Controller
           $p->Name = \Input::get('Name');
           $p->Photo = $nombre;
           $p->Description = \Input::get('Description');
-          \Session::flash('alert', 'You edited a record successfully');
+          \Session::flash('success', 'You edited a record successfully');
           $episodes = \Input::get('Episodes');
           $p->Episodes = $episodes;
           $p->save();
@@ -262,7 +262,7 @@ class AdminController extends Controller
           $p->Photo = $nombre;
           $p->Description = \Input::get('Description');
           $p->save();
-          \Session::flash('alert', 'Your new Actor was created successfully');
+          \Session::flash('success', 'Your new Actor was created successfully');
           return \Redirect::to('list/actors');
     }
     public function createCharacter(Request $request)
@@ -283,7 +283,7 @@ class AdminController extends Controller
           $p->actor_id = \Input::get('actor_id');
           $p->serie_id = \Input::get('serie_id');
           $p->save();
-          \Session::flash('alert', 'Your new Actor was created successfully');
+          \Session::flash('success', 'Your new Actor was created successfully');
           return \Redirect::to('/list/characters');
     }
     public function getSeason(){

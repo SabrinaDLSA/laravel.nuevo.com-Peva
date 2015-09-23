@@ -99,7 +99,7 @@ class SeriesController extends Controller
              $s->Season = $x;
              $s->save();
            }
-        \Session::flash('alert', 'Your new Serie was created successfully');
+        \Session::flash('success', 'Your new Serie was created successfully');
 
          return \Redirect::to('/list/series');
       }

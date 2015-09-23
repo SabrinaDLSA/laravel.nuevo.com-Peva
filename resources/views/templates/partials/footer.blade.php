@@ -3,10 +3,12 @@
     <div class="container">
         <div class="col-md-6">
             <div align="center">
-                <h1 class="GoogleFonts">Series.com
-                  <br>
-                  <small class="blueF">By Sabrina</small>
-                  </h1>
+                <div class="GoogleFonts" id="title">
+                    Series.com
+                </div>
+                  <div class="GoogleFonts" id="subtitle">
+                    <small>  By Sabrina </small>
+                  </div>
             </div>
         </div>
         <div class="col-md-6">
@@ -20,11 +22,16 @@
               <p class="text-center white"><i class="fa fa-facebook"> - Facebook <i class="fa fa-twitter"> - Twitter</i></i></p>
           </div>
         </div>
+        <br>
+    </div>
+    <div class="container">
+      <div class="col-md-12">
         <div class="white" align="center">
           Terms of Use   |   Privacy Policy
           <br>
           Copyright (c) 2015 Copyright Holder All Rights Reserved.
         </div>
+      </div>
     </div>
 </div>
 </footer>

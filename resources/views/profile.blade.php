@@ -1,29 +1,38 @@
 @extends('templates.main')
+@section('header')
+  @include('templates.partials.header')
+@endsection
+@section('navigation')
+  @include('templates.partials.navig')
+@endsection
 @section('content')
-@include('templates.partials.header')
-@include('templates.partials.navig')
+<?php $date = new DateTime(\Auth::user()->created_at);?>
 <section>
   <div class="row-fluid">
     <div class="container">
-        @if(\Session::has('alert'))
-            <div class="alert alert-dismissible alert-warning">
-                <button type="button" class="close" data-dismiss="alert">Close</button>
-                <strong>{{ Session::get('alert') }}</strong>
-            </div>
-        @endif
-        @if(\Session::has('success'))
-            <div class="alert alert-dismissible alert-success">
-                <button type="button" class="close" data-dismiss="alert">Close</button>
-                <strong>{{ Session::get('success') }}</strong>
-            </div>
-        @endif
           <div class="col-md-2">
+            <div class="margin_cero">
+              <div class="panel-group">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">Profile</div>
+                  <div class="panel-body">Name: {{\Auth::user()->name}}</div>
+                  <div class="panel-body">Email: {{\Auth::user()->email}}</div>
+                  <div class="panel-body">Username: {{\Auth::user()->username}}</div>
+                  <div class="panel-body">Register date: {{$date->format('d/m/y')}}</div>
+                  @if(empty($notes))
+                  <div align="center" class="panel-body">
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Add notes</a>
+                  </div>
+                  @endif
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-md-8">
           </div>
           <div class="col-md-2">
             <div align="center" class="">
-              @if(!empty($notes))
+            @if(!empty($notes))
               <div  data-toggle="modal" data-target="#myModal" class="quote-container">
                 <i class="pin"></i>
                 <blockquote class="note blue">
@@ -34,26 +43,38 @@
                 </blockquote>
               </div>
               <br>
-              @endif
+            @endif
             </div>
-            <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog ">
             <div class="modal-content">
               {!! Form::open(array('url' => '/edit/notes', 'method' => 'post'))!!}
-              <div class="modal-header">
+              <div align="center" class="modal-header">
                 Add a note
               </div>
-              <div class="" align="center">
+              <div class="modal-body"  align="center">
                 <fieldset>
-                  <div class="controls">
-                   {!! Form::text('title',$n->title,array('id'=>'','class'=>'form-control span6')) !!}
+                  <div class="form-group">
+                    <div class="controls">
+                      <div align="center" class="">
+                        @if(!empty($notes))
+                        {!! Form::text('title',$n->title,array('id'=>'','class'=>'form-control span6')) !!}
+                        @else
+                        {!! Form::text('title','',array('id'=>'','class'=>'form-control span6', 'placeholder' => 'Add the title here!!')) !!}
+                         @endif
+                         <br>
+                         @if(!empty($notes))
+                         <textarea name="content" id="editor" cols="5" rows="10" class="form-control">{{$n->content}}</textarea>
+                         @else
+                         <textarea name="content" id="editor" cols="5" rows="10" class="form-control" placeholder="Add your notes here!"></textarea>
+                         @endif
+                         @if ($errors->has('content'))<p id="warning-p">{!!$errors->first('content')!!}</p>@endif
+                         <br>
+                         {!! Form::submit('Save Changes' , array('class' => 'btn btn-default')) !!}
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </div>
+                    </div>
                   </div>
-                    <br>
-                    <textarea name="content" id="editor" cols="5" rows="5" class="form-control">{{$n->content}}</textarea>
-                    @if ($errors->has('content'))<p id="warning-p">{!!$errors->first('content')!!}</p>@endif
-                    <br>
-                    {!! Form::submit('Save Changes' , array('class' => 'btn btn-default')) !!}
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               </fieldset>
               </div>
               {!! Form::close() !!}
