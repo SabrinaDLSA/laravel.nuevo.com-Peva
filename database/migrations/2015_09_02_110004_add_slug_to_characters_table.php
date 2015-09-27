@@ -15,6 +15,7 @@ class AddSlugToCharactersTable extends Migration
     public function up()
     {
         Schema::table('characters', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->string('slug')->nullable();
         });
     }

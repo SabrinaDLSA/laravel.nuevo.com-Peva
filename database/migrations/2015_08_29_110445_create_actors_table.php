@@ -13,6 +13,7 @@ class CreateActorsTable extends Migration
     public function up()
     {
         Schema::create('actors', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('Name')->unique();
             $table->string('Birthplace');

@@ -15,6 +15,7 @@ class AddSlugToSeriesTable extends Migration
     public function up()
     {
         Schema::table('series', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->string('slug')->nullable();
         });
     }

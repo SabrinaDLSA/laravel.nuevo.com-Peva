@@ -13,6 +13,7 @@ class CreateSeriesCharactersTable extends Migration
     public function up()
     {
         Schema::create('series_characters', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
             $table->integer('character_id')->unsigned();

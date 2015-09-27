@@ -15,6 +15,7 @@ class AddSlugToMusicsTable extends Migration
     public function up()
     {
         Schema::table('musics', function (Blueprint $table) {
+          $table->engine = 'InnoDB';  
             $table->string('slug')->nullable();
         });
     }

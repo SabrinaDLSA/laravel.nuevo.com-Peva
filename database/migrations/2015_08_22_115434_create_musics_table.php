@@ -13,8 +13,9 @@ class CreateMusicsTable extends Migration
     public function up()
     {
         Schema::create('musics', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('singer');
+            $table->string('singer_id');
             $table->string('band');
             $table->string('genres');
             $table->string('photo');

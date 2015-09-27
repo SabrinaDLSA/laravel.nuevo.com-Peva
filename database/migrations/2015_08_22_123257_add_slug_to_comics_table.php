@@ -15,6 +15,7 @@ class AddSlugToComicsTable extends Migration
     public function up()
     {
         Schema::table('comics', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->string('slug')->nullable();
         });
     }

@@ -1,14 +1,15 @@
 <?php
 
 namespace nuevo\Http\Controllers;
-use nuevo\Serie;
+
 use Illuminate\Http\Request;
-use DB;
-use nuevo\Series_info;
 use nuevo\Http\Requests;
+use Mail;
+use Session;
+use Redirect;
 use nuevo\Http\Controllers\Controller;
 
-class EpisodesController extends Controller
+class MailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class EpisodesController extends Controller
      */
     public function index()
     {
-        //
+        return view('contact');
     }
 
     /**
@@ -38,7 +39,12 @@ class EpisodesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Mail::send('emails.contacts', $request->all(), function($msg){
+          $msg->subject('Correo de contacto');
+          $msg->to('oitnb.g@gmail.com');
+        });
+        Session::flash('success', 'Mensaje enviado');
+        return view('welcome');
     }
 
     /**

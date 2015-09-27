@@ -17,7 +17,8 @@
           <div class="col-md-8">
             <br>
               <legend class='text-center Nunito'>Contactar</legend>
-              <p class="text-center white"><i class="fa fa-envelope text-center"> - Sabrina@gmail.com</i></p>
+              <p class="text-center"><a class="white" href="/mail">Contact Us Here!</i></a></p>
+              <p class="text-center white"><i class="fa fa-envelope text-center"> - Sabrina@series.com</i></p>
               <p class="text-center white"><i class="fa fa-phone"></i> - +598 99 054 025</p>
               <p class="text-center white"><i class="fa fa-facebook"> - Facebook <i class="fa fa-twitter"> - Twitter</i></i></p>
           </div>

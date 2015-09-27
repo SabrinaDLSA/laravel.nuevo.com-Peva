@@ -13,10 +13,11 @@ class CreateComicsTable extends Migration
     public function up()
     {
         Schema::create('comics', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->string('author');
+            $table->string('author_id');
             $table->date('start');
             $table->date('finish');
             $table->timestamps();

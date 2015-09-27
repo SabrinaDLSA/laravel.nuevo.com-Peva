@@ -13,8 +13,9 @@ class CreateCharactersTable extends Migration
     public function up()
     {
         Schema::create('characters', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('Name')->unique();
+            $table->string('Name');
             $table->string('Status');
             $table->integer('Age');
             $table->string('Photo');

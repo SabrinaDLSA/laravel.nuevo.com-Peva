@@ -13,6 +13,7 @@ class CreateEpisodesTable extends Migration
     public function up()
     {
         Schema::create('episodes', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('Name');
             $table->integer('Episode');

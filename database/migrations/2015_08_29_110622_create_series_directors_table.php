@@ -13,6 +13,7 @@ class CreateSeriesDirectorsTable extends Migration
     public function up()
     {
         Schema::create('series_directors', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
         });

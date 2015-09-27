@@ -59,6 +59,9 @@ Route::get('/insert/episode','AdminController@insertEpisode');
 Route::post('/getSeason','AdminController@getSeason');
 Route::post('/getSeasonEpisode','AdminController@getSeasonEpisode');
 Route::post('/getEpisodes','AdminController@getEpisodes');
+// Mail Controller
+
+Route::resource('mail', 'MailController');
 
 //Notes Controller
 

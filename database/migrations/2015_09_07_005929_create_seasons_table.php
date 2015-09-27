@@ -13,6 +13,7 @@ class CreateSeasonsTable extends Migration
     public function up()
     {
         Schema::create('seasons', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('Name');
             $table->integer('Season');

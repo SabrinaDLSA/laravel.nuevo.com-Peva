@@ -13,8 +13,9 @@ class CreateDirectorsTable extends Migration
     public function up()
     {
         Schema::create('directors', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('Name');
+            $table->string('Name')->unique();
             $table->timestamps();
         });
     }
